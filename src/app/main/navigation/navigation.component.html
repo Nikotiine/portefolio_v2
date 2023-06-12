@@ -1,0 +1,18 @@
+<div class="card">
+  <p-menubar [model]="items">
+    <ng-template pTemplate="start"> </ng-template>
+    <ng-template pTemplate="end">
+      <p-splitButton
+        label="Langues"
+        [model]="splitItems"
+        class="mr-2"
+        styleClass="p-button-outlined p-button-secondary"
+      ></p-splitButton>
+      <p-toggleButton
+        [(ngModel)]="checked"
+        onLabel="Dark"
+        offLabel="Light"
+      ></p-toggleButton>
+    </ng-template>
+  </p-menubar>
+</div>

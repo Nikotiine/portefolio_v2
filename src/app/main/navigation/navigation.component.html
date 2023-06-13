@@ -3,15 +3,16 @@
     <ng-template pTemplate="start"> </ng-template>
     <ng-template pTemplate="end">
       <p-splitButton
-        label="Langues"
         [model]="splitItems"
         class="mr-2"
+        icon="pi pi-flag"
         styleClass="p-button-outlined p-button-secondary"
       ></p-splitButton>
       <p-toggleButton
-        [(ngModel)]="checked"
+        [(ngModel)]="isDarkThemeSelected"
         onLabel="Dark"
         offLabel="Light"
+        (onChange)="changeTheme($event.checked)"
       ></p-toggleButton>
     </ng-template>
   </p-menubar>

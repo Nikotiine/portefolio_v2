@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
+import { Themes, ThemeService } from '../../core/services/theme.service';
 
 @Component({
   selector: 'app-navigation',
@@ -7,10 +8,13 @@ import { MenuItem } from 'primeng/api';
   styleUrls: ['./navigation.component.scss'],
 })
 export class NavigationComponent implements OnInit {
-  items: MenuItem[] = [];
-  splitItems: MenuItem[] = [];
-  checked = false;
+  public items: MenuItem[] = [];
+  public splitItems: MenuItem[] = [];
+  public isDarkThemeSelected = false;
+
+  constructor(private readonly themeService: ThemeService) {}
   ngOnInit(): void {
+    this.isDarkThemeSelected = this.themeService.getTheme() === Themes.LIGHT;
     this.splitItems = [
       {
         label: 'Francais',
@@ -23,33 +27,11 @@ export class NavigationComponent implements OnInit {
     ];
     this.items = [
       {
-        label: 'Profil',
+        label: 'Nicolas G.',
         icon: 'pi pi-user',
-        items: [
-          {
-            label: 'Qui suis-je',
-            icon: 'pi pi-info',
-          },
-          {
-            label: 'Linkedin',
-            icon: 'pi pi-linkedin',
-          },
-
-          {
-            separator: true,
-          },
-          {
-            label: 'Mes formations',
-            icon: 'pi pi-book',
-          },
-          {
-            label: 'Competence',
-            icon: 'pi pi-wallet',
-          },
-        ],
       },
       {
-        label: 'Projets',
+        label: 'Mes Projets',
         icon: 'pi pi-paperclip',
         items: [
           {
@@ -77,9 +59,21 @@ export class NavigationComponent implements OnInit {
         ],
       },
       {
-        label: 'Contact',
+        label: 'Me Contacter',
         icon: 'pi pi-comment',
       },
     ];
+  }
+
+  /**
+   * Change le theme css suivant l'etat du booleen
+   * @param checked
+   */
+  public changeTheme(checked: boolean): void {
+    if (checked) {
+      this.themeService.switchTheme(Themes.LIGHT);
+    } else {
+      this.themeService.switchTheme(Themes.DARK);
+    }
   }
 }

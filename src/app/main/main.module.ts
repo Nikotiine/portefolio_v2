@@ -9,6 +9,7 @@ import { MenubarModule } from 'primeng/menubar';
 import { ToggleButtonModule } from 'primeng/togglebutton';
 import { FormsModule } from '@angular/forms';
 import { SplitButtonModule } from 'primeng/splitbutton';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [LayoutComponent, HomeComponent, NavigationComponent],
@@ -19,6 +20,7 @@ import { SplitButtonModule } from 'primeng/splitbutton';
     ToggleButtonModule,
     FormsModule,
     SplitButtonModule,
+    TranslateModule,
   ],
 })
 export class MainModule {}

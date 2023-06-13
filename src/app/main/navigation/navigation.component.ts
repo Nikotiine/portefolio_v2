@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { Themes, ThemeService } from '../../core/services/theme.service';
+import { LanguageService } from '../../core/services/language.service';
 
 @Component({
   selector: 'app-navigation',
@@ -12,17 +13,26 @@ export class NavigationComponent implements OnInit {
   public splitItems: MenuItem[] = [];
   public isDarkThemeSelected = false;
 
-  constructor(private readonly themeService: ThemeService) {}
+  constructor(
+    private readonly themeService: ThemeService,
+    private readonly languageService: LanguageService
+  ) {}
   ngOnInit(): void {
     this.isDarkThemeSelected = this.themeService.getTheme() === Themes.LIGHT;
     this.splitItems = [
       {
         label: 'Francais',
         icon: 'pi pi-refresh',
+        command: () => {
+          this.languageService.setLanguage('fr');
+        },
       },
       {
         label: 'Anglais',
         icon: 'pi pi-times',
+        command: () => {
+          this.languageService.setLanguage('en');
+        },
       },
     ];
     this.items = [

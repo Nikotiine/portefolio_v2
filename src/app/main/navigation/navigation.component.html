@@ -1,19 +1,14 @@
 <div class="card">
-  <p-menubar [model]="items">
+  <p-menubar [model]="navbarItems">
     <ng-template pTemplate="start"> </ng-template>
     <ng-template pTemplate="end">
       <p-splitButton
-        [model]="splitItems"
-        class="mr-2"
-        icon="pi pi-flag"
-        styleClass="p-button-outlined p-button-secondary"
+        [model]="splitButtonItems"
+        class="mr-5"
+        label="{{ 'navbar.setting' | translate }}"
+        icon="pi pi-cog"
+        styleClass="p-button-secondary p-button-text"
       ></p-splitButton>
-      <p-toggleButton
-        [(ngModel)]="isDarkThemeSelected"
-        onLabel="Dark"
-        offLabel="Light"
-        (onChange)="changeTheme($event.checked)"
-      ></p-toggleButton>
     </ng-template>
   </p-menubar>
 </div>

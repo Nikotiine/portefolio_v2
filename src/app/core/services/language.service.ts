@@ -1,12 +1,20 @@
-import { Injectable } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import { EventEmitter, Injectable } from '@angular/core';
+import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
+import { Observable } from 'rxjs';
 
+export enum AvailableLanguage {
+  FRENCH = 'fr',
+  ENGLISH = 'en',
+}
 @Injectable({
   providedIn: 'root',
 })
 export class LanguageService {
   private readonly localStorageKey: string = 'language';
-  private supportedLanguages: string[] = ['fr', 'en'];
+  private supportedLanguages: string[] = [
+    AvailableLanguage.FRENCH,
+    AvailableLanguage.ENGLISH,
+  ];
   constructor(private readonly translateService: TranslateService) {
     this.initLanguage();
   }
@@ -26,10 +34,9 @@ export class LanguageService {
     if (!userLanguage) {
       let navigatorLanguage: string = navigator.language.split('-')[0];
       if (!this.supportedLanguages.includes(navigatorLanguage)) {
-        navigatorLanguage = 'fr';
+        navigatorLanguage = AvailableLanguage.FRENCH;
       }
       userLanguage = navigatorLanguage;
-      localStorage.setItem(this.localStorageKey, navigatorLanguage);
     }
     this.setLanguage(userLanguage);
   }
@@ -39,6 +46,29 @@ export class LanguageService {
    * @param userLanguage string ( code iso de la langue v0.0.2 seul 'fr ou 'en' supporte )
    */
   public setLanguage(userLanguage: string): void {
+    localStorage.setItem(this.localStorageKey, userLanguage);
     this.translateService.use(userLanguage);
+  }
+
+  /**
+   * Retourne la traduction d'une ligne ou d'un groupe de ligne suivant la key passee en paremetre
+   * @param key String , cle de traduction
+   */
+  public getTranslation(key: string): Observable<any> {
+    return this.translateService.get(key);
+  }
+
+  /**
+   * Permet de surveiller le changement de langue
+   */
+  public getChange(): EventEmitter<LangChangeEvent> {
+    return this.translateService.onLangChange;
+  }
+
+  /**
+   * Retourne le language en cours d'utilisation
+   */
+  public getCurrentLanguage() {
+    return this.translateService.currentLang;
   }
 }

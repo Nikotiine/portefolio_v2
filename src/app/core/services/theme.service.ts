@@ -17,21 +17,21 @@ export class ThemeService {
    * le theme choisi sera 'viva'
    * @param theme enum Themes (dark ou light)
    */
-  public switchTheme(theme: Themes): void {
+  public useTheme(theme: Themes): void {
     const themeLink: HTMLLinkElement = this.document.getElementById(
       'app-theme'
     ) as HTMLLinkElement;
     if (themeLink) {
       themeLink.href = 'viva-' + theme + '.css';
     }
-    this.setTheme(theme);
+    this.saveTheme(theme);
   }
 
   /**
    * Sauvegarde le theme choisi par l'utilisateur dans le localStorage
    * @param theme enum Themes (dark ou light)
    */
-  private setTheme(theme: Themes): void {
+  private saveTheme(theme: Themes): void {
     localStorage.setItem(this.localStorageKey, theme);
   }
 
@@ -53,8 +53,10 @@ export class ThemeService {
    */
   public initTheme(): void {
     const userTheme: string | null = localStorage.getItem(this.localStorageKey);
-    if (!userTheme) {
-      this.setTheme(Themes.LIGHT);
+    let theme: Themes = Themes.LIGHT;
+    if (userTheme) {
+      theme = userTheme === Themes.LIGHT ? Themes.LIGHT : Themes.DARK;
     }
+    this.useTheme(theme);
   }
 }

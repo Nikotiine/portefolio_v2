@@ -1,5 +1,21 @@
 {
   "common": {
     "appTitle": "My port-folio"
+  },
+  "navbar": {
+    "light": "Light",
+    "dark": "Dark",
+    "french": "French",
+    "english": "English",
+    "myProjects": "My projects",
+    "projectComplete": "Project on line",
+    "sideProject": "Side-Projects",
+    "cv": "CV",
+    "download": "Download",
+    "show": "Show",
+    "contactMe": "Contact ME",
+    "setting": "Settings",
+    "language": "Language",
+    "theme": "Theme"
   }
 }

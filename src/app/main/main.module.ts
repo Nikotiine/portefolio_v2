@@ -11,9 +11,10 @@ import { FormsModule } from '@angular/forms';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from '../shared/shared.module';
+import { LegalNoticesComponent } from './legal-notices/legal-notices.component';
 
 @NgModule({
-  declarations: [LayoutComponent, HomeComponent, NavigationComponent],
+  declarations: [LayoutComponent, HomeComponent, NavigationComponent, LegalNoticesComponent],
   imports: [
     CommonModule,
     MainRoutingModule,

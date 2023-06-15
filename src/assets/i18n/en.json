@@ -18,7 +18,15 @@
     "language": "Language",
     "theme": "Theme"
   },
-  "footer": {
-    "legalNotices": "Legal notices & T&Cs"
+  "legalNotices": {
+    "title": "Legal notices & T&Cs",
+    "responsibility": " Responsibility for content",
+    "contactDetails": "Publisher contact details: Godin Nicolas 1 rue des pies sassenage",
+    "responsible": "Publishing Manager :",
+    "accommodation": " Hosting and production Hosting :",
+    "achievement": "Achievement",
+    "noPersonalRecord":"No personal information is collected without your knowledge. No personal information is disclosed to third parties",
+    "sendForm":"Submit the contact form:",
+    "noPersonalRecordOnForm": "Only your email is kept in the inbox of contact@nicolasgodin.fr in order to be able to answer you\n You can exercise your right to access and rectify information about you by writing to:\n contact@nicolasgodin.fr"
   }
 }

@@ -18,7 +18,15 @@
     "language": "Langue",
     "theme": "Theme"
   },
-  "footer": {
-    "legalNotices": "Mentions légales & CGU"
+  "legalNotices": {
+    "title": "Mentions légales & CGU",
+    "responsibility": "Responsabilité des contenus",
+    "contactDetails": "Coordonnées de l’éditeur: Godin Nicolas 1 rue des pies sassenage",
+    "responsible": "Responsable publication :",
+    "accommodation": "Hébergement et réalisation Hébergement :",
+    "achievement": "Réalisation",
+    "noPersonalRecord": "Aucune information personnelle n’est collectée à votre insu. Aucune information personnelle n’est cédée à des tiers",
+    "sendForm": "Envoie du formulaire de contact :",
+    "noPersonalRecordOnForm": "Seul votre mail est conservé dans la boite de réception de contact@nicolasgodin.fr afin de pouvoir vous répondre \n Vous pouvez exercer votre droit d’accès et de rectification aux informations vous concernant en écrivant à:\n contact@nicolasgodin.fr"
   }
 }

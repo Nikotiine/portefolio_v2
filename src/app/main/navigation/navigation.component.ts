@@ -108,6 +108,7 @@ export class NavigationComponent implements OnInit, OnDestroy {
       {
         label: 'Nicolas G.',
         icon: 'pi pi-user',
+        routerLink: ['/home'],
       },
       {
         label: translate.myProjects,

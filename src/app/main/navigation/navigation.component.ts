@@ -63,7 +63,7 @@ export class NavigationComponent implements OnInit, OnDestroy {
               this.languageService.getCurrentLanguage() ===
               AvailableLanguage.FRENCH,
             command: () => {
-              this.languageService.setLanguage('fr');
+              this.languageService.setLanguage(AvailableLanguage.FRENCH);
             },
           },
           {
@@ -73,7 +73,7 @@ export class NavigationComponent implements OnInit, OnDestroy {
               this.languageService.getCurrentLanguage() ===
               AvailableLanguage.ENGLISH,
             command: () => {
-              this.languageService.setLanguage('en');
+              this.languageService.setLanguage(AvailableLanguage.ENGLISH);
             },
           },
         ],
@@ -87,18 +87,18 @@ export class NavigationComponent implements OnInit, OnDestroy {
         items: [
           {
             label: translate.dark,
-            icon: 'pi pi-moon ',
+            icon: 'pi pi-moon',
             disabled: this.themeService.getTheme() === Themes.DARK,
             command: () => {
-              this.themeService.useTheme(Themes.DARK);
+              this.setUserTheme(Themes.DARK, translate);
             },
           },
           {
             label: translate.light,
-            icon: 'pi pi-sun ',
+            icon: 'pi pi-sun',
             disabled: this.themeService.getTheme() === Themes.LIGHT,
             command: () => {
-              this.themeService.useTheme(Themes.LIGHT);
+              this.setUserTheme(Themes.LIGHT, translate);
             },
           },
         ],
@@ -142,5 +142,10 @@ export class NavigationComponent implements OnInit, OnDestroy {
         icon: 'pi pi-comment',
       },
     ];
+  }
+
+  private setUserTheme(theme: Themes, translate: any): void {
+    this.themeService.useTheme(theme);
+    this.setNavbarItems(translate);
   }
 }

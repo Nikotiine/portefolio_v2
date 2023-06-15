@@ -17,5 +17,8 @@
     "setting": "Parametres",
     "language": "Langue",
     "theme": "Theme"
+  },
+  "footer": {
+    "legalNotices": "Mentions légales & CGU"
   }
 }

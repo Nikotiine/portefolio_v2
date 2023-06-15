@@ -17,5 +17,8 @@
     "setting": "Settings",
     "language": "Language",
     "theme": "Theme"
+  },
+  "footer": {
+    "legalNotices": "Legal notices & T&Cs"
   }
 }

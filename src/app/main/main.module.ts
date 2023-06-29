@@ -12,9 +12,22 @@ import { SplitButtonModule } from 'primeng/splitbutton';
 import { TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from '../shared/shared.module';
 import { LegalNoticesComponent } from './legal-notices/legal-notices.component';
+import { CardModule } from 'primeng/card';
+import { SidebarModule } from 'primeng/sidebar';
+import { ApplicationsComponent } from './applications/applications.component';
+import { SettingComponent } from './setting/setting.component';
+import { InputSwitchModule } from 'primeng/inputswitch';
+import { SelectButtonModule } from 'primeng/selectbutton';
 
 @NgModule({
-  declarations: [LayoutComponent, HomeComponent, NavigationComponent, LegalNoticesComponent],
+  declarations: [
+    LayoutComponent,
+    HomeComponent,
+    NavigationComponent,
+    LegalNoticesComponent,
+    ApplicationsComponent,
+    SettingComponent,
+  ],
   imports: [
     CommonModule,
     MainRoutingModule,
@@ -24,6 +37,10 @@ import { LegalNoticesComponent } from './legal-notices/legal-notices.component';
     SplitButtonModule,
     TranslateModule,
     SharedModule,
+    CardModule,
+    SidebarModule,
+    InputSwitchModule,
+    SelectButtonModule,
   ],
 })
 export class MainModule {}

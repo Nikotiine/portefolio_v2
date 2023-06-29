@@ -1,0 +1,110 @@
+<div class="grid">
+  <div class="col-3 p-5">
+    <p-card>
+      <ng-template pTemplate="header">
+        <img
+          alt="Card"
+          src="https://primefaces.org/cdn/primeng/images/usercard.png"
+        />
+      </ng-template>
+      <div class="p-card-header text-center">
+        <a [routerLink]="['/']">{{ "application.whoIAm" | translate }}</a>
+      </div>
+    </p-card>
+  </div>
+  <div class="col-3 p-5">
+    <p-card>
+      <ng-template pTemplate="header">
+        <img
+          alt="Card"
+          src="https://primefaces.org/cdn/primeng/images/usercard.png"
+        />
+      </ng-template>
+      <div class="p-card-header text-center">
+        <a [routerLink]="['/']">{{ "application.knowledge" | translate }}</a>
+      </div>
+    </p-card>
+  </div>
+  <div class="col-3 p-5">
+    <p-card>
+      <ng-template pTemplate="header">
+        <img
+          alt="Card"
+          src="https://primefaces.org/cdn/primeng/images/usercard.png"
+        />
+      </ng-template>
+      <div class="p-card-header text-center">
+        <a [routerLink]="['/']">{{ "application.cv" | translate }}</a>
+      </div>
+    </p-card>
+  </div>
+  <div class="col-3 p-5">
+    <p-card>
+      <ng-template pTemplate="header">
+        <img
+          alt="Card"
+          src="https://primefaces.org/cdn/primeng/images/usercard.png"
+        />
+      </ng-template>
+      <div class="p-card-header text-center">
+        <a [routerLink]="['/']">{{ "application.projects" | translate }}</a>
+      </div>
+    </p-card>
+  </div>
+  <div class="col-3 p-5">
+    <p-card>
+      <ng-template pTemplate="header">
+        <img
+          alt="Card"
+          src="https://primefaces.org/cdn/primeng/images/usercard.png"
+        />
+      </ng-template>
+      <div class="p-card-header text-center">
+        <a [routerLink]="['/']">{{
+          "application.socialNetwork" | translate
+        }}</a>
+      </div>
+    </p-card>
+  </div>
+  <div class="col-3 p-5">
+    <p-card>
+      <ng-template pTemplate="header">
+        <img
+          alt="Card"
+          src="https://primefaces.org/cdn/primeng/images/usercard.png"
+        />
+      </ng-template>
+      <div class="p-card-header text-center">
+        <a [routerLink]="['/']">{{ "application.tutorial" | translate }}</a>
+      </div>
+    </p-card>
+  </div>
+  <div class="col-3 p-5">
+    <p-card>
+      <ng-template pTemplate="header">
+        <img
+          alt="Card"
+          src="https://primefaces.org/cdn/primeng/images/usercard.png"
+        />
+      </ng-template>
+      <div class="p-card-header text-center">
+        <a [routerLink]="['/']">{{ "application.contactMe" | translate }}</a>
+      </div>
+    </p-card>
+  </div>
+  <div class="col-3 p-5">
+    <p-card>
+      <ng-template pTemplate="header">
+        <img
+          alt="Card"
+          src="https://primefaces.org/cdn/primeng/images/usercard.png"
+        />
+      </ng-template>
+      <div class="p-card-header text-center">
+        <a [routerLink]="['/' + Routing.SETTING]" (click)="closeSideBar()">{{
+          "application.setting" | translate
+        }}</a>
+      </div>
+    </p-card>
+  </div>
+</div>

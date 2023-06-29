@@ -1,6 +1,16 @@
 {
   "common": {
-    "appTitle": "Mon porte-folio"
+    "appTitle": "Bienvenue sur mon portfolio"
+  },
+  "setting": {
+    "light": "Clair",
+    "dark": "Sombre",
+    "french": "Francais",
+    "english": "Anglais",
+    "language": "Langue",
+    "theme": "Theme",
+    "chooseTheme": "Choissiez votre theme",
+    "chooseLanguage": "Choisiez votre langue"
   },
   "navbar": {
     "light": "Clair",
@@ -17,6 +27,16 @@
     "setting": "Parametres",
     "language": "Langue",
     "theme": "Theme"
+  },
+  "application": {
+    "whoIAm": "Qui suis-je",
+    "knowledge": "Mes connaissances",
+    "projects": "Mes projets",
+    "cv": "Mon CV",
+    "socialNetwork": "Reseau social",
+    "tutorial": "Mes tutoriels",
+    "contactMe":"Me contacter",
+    "setting": "Parametres"
   },
   "legalNotices": {
     "title": "Mentions légales & CGU",

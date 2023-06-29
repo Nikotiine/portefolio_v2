@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
 import { HomeComponent } from './home/home.component';
 import { LegalNoticesComponent } from './legal-notices/legal-notices.component';
+import { SettingComponent } from './setting/setting.component';
+import { Routing } from '../core/enum/Routing.enum';
 
 const routes: Routes = [
   {
@@ -17,6 +19,10 @@ const routes: Routes = [
       {
         path: 'home',
         component: HomeComponent,
+      },
+      {
+        path: Routing.SETTING,
+        component: SettingComponent,
       },
       {
         path: 'legal-notice',

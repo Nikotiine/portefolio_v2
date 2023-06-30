@@ -12,22 +12,7 @@
     "chooseTheme": "Choissiez votre theme",
     "chooseLanguage": "Choisiez votre langue"
   },
-  "navbar": {
-    "light": "Clair",
-    "dark": "Sombre",
-    "french": "Francais",
-    "english": "Anglais",
-    "myProjects": "Mes projets",
-    "projectComplete": "Projets terminés",
-    "sideProject": "Side-Projects",
-    "cv": "CV",
-    "download": "Telecharger",
-    "show": "Afficher",
-    "contactMe": "Me contacter",
-    "setting": "Parametres",
-    "language": "Langue",
-    "theme": "Theme"
-  },
+
   "application": {
     "whoIAm": "Qui suis-je",
     "knowledge": "Mes connaissances",

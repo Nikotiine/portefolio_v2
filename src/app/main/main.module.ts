@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MainRoutingModule } from './main-routing.module';
 import { LayoutComponent } from './layout/layout.component';
 import { HomeComponent } from './home/home.component';
-import { NavigationComponent } from './navigation/navigation.component';
+
 import { MenubarModule } from 'primeng/menubar';
 import { ToggleButtonModule } from 'primeng/togglebutton';
 import { FormsModule } from '@angular/forms';
@@ -23,7 +23,6 @@ import { SelectButtonModule } from 'primeng/selectbutton';
   declarations: [
     LayoutComponent,
     HomeComponent,
-    NavigationComponent,
     LegalNoticesComponent,
     ApplicationsComponent,
     SettingComponent,

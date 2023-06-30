@@ -12,31 +12,16 @@
     "chooseTheme": "Choose your theme",
     "chooseLanguage": "Choose your language"
   },
-  "navbar": {
-    "light": "Light",
-    "dark": "Dark",
-    "french": "French",
-    "english": "English",
-    "myProjects": "My projects",
-    "projectComplete": "Project on line",
-    "sideProject": "Side-Projects",
-    "cv": "CV",
-    "download": "Download",
-    "show": "Show",
-    "contactMe": "Contact ME",
-    "setting": "Settings",
-    "language": "Language",
-    "theme": "Theme"
-  },
+
   "application": {
     "whoIAm": "Who i am ?",
     "knowledge": "My knowledge",
     "projects": "My projects",
     "cv": "Mon CV",
-    "socialNetwork": "Reseau social",
-    "tutorial": "Mes tutoriels",
-    "contactMe":"Me contacter",
-    "setting": "Parametres"
+    "socialNetwork": "Social network",
+    "tutorial": "My tutorials",
+    "contactMe":"Contact me",
+    "setting": "Settings"
   },
   "legalNotices": {
     "title": "Legal notices & T&Cs",

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ThemeService } from '../../core/services/theme.service';
 import { ApplicationService } from '../../core/services/application.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-layout',
@@ -11,7 +12,8 @@ export class LayoutComponent implements OnInit {
   public sidebarVisible = false;
   constructor(
     private readonly themeService: ThemeService,
-    private readonly applicationService: ApplicationService
+    private readonly applicationService: ApplicationService,
+    private readonly router: Router
   ) {}
   ngOnInit(): void {
     //Init du theme css
@@ -25,5 +27,9 @@ export class LayoutComponent implements OnInit {
 
   public setSidebarVisible(): void {
     this.applicationService.sidebarVisible$.next(true);
+  }
+
+  public onHide(): void {
+    this.router.navigate(['/home']);
   }
 }

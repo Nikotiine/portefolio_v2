@@ -12,7 +12,7 @@ import { DefaultLangChangeEvent } from '@ngx-translate/core';
   templateUrl: './setting.component.html',
   styleUrls: ['./setting.component.scss'],
 })
-export class SettingComponent implements OnInit, OnDestroy {
+export class SettingComponent implements OnInit {
   public themeOptions: SelectButtonOptions[] = [];
   public languageOptions: SelectButtonOptions[] = [];
   public theme: string;
@@ -57,11 +57,6 @@ export class SettingComponent implements OnInit, OnDestroy {
   public setTheme(value: string): void {
     const theme = value === Themes.DARK ? Themes.DARK : Themes.LIGHT;
     this.themeService.useTheme(theme);
-  }
-
-  // Enleve la souscription au language service
-  ngOnDestroy(): void {
-    this.languageService.getChange().unsubscribe();
   }
 
   /**

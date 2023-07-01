@@ -7,7 +7,7 @@
     ></p-button>
   </div>
 </header>
-<p-sidebar [(visible)]="sidebarVisible" [fullScreen]="true">
+<p-sidebar [(visible)]="sidebarVisible" [fullScreen]="true" (onHide)="onHide()">
   <app-applications></app-applications>
 </p-sidebar>
 <div class="card h-full">

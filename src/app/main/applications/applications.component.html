@@ -2,13 +2,12 @@
   <div class="col-3 p-5">
     <p-card>
       <ng-template pTemplate="header">
-        <img
-          alt="Card"
-          src="https://primefaces.org/cdn/primeng/images/usercard.png"
-        />
+        <img alt="Card" src="assets/img/software-developer-icon-18.jpg" />
       </ng-template>
       <div class="p-card-header text-center">
-        <a [routerLink]="['/']">{{ "application.whoIAm" | translate }}</a>
+        <a [routerLink]="['/' + Routing.HOME]" (click)="closeSideBar()">{{
+          "application.whoIAm" | translate
+        }}</a>
       </div>
     </p-card>
   </div>

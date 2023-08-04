@@ -13,11 +13,11 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'home',
+        redirectTo: Routing.HOME,
         pathMatch: 'full',
       },
       {
-        path: 'home',
+        path: Routing.HOME,
         component: HomeComponent,
       },
       {

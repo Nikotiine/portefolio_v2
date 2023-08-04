@@ -1,5 +1,7 @@
-<h1 class="text-center mt-5">{{ "common.appTitle" | translate }}</h1>
-<div class="w-8 mx-auto">
+<h1 class="text-center mt-5 text-primary">
+  {{ "common.appTitle" | translate }}
+</h1>
+<div class="w-8 mx-auto fadein animation-duration-1000" *ngIf="fistLoad">
   <p-card header="{{ 'homepage.whoIam' | translate }}">
     <p class="subtitle">
       {{ "homepage.presentation" | translate }} <strong>full-stack.</strong>
@@ -46,4 +48,8 @@
       {{ "homepage.sideProject" | translate }}
     </p>
   </p-card>
+</div>
+<div class="w-8 mx-auto text-center" *ngIf="!fistLoad">
+  <img alt="Card" src="assets/img/software-developer-icon-18.jpg" />
+  <p class="text-3xl">QUI SUIS JE ?</p>
 </div>

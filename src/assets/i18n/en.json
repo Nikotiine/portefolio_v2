@@ -35,9 +35,22 @@
     "noPersonalRecordOnForm": "Only your email is kept in the inbox of contact@nicolasgodin.fr in order to be able to answer you You can exercise your right to access and rectify information about you by writing to: contact@nicolasgodin.fr"
   },
   "homepage": {
+    "whoIam": "Who I am ?",
     "presentation": "Hello and welcome to my portfolio. Former ambulance driver, I have just completed my professional retraining and am now a web developer.",
     "curriculum": "I have pursued two training programs with the National School of Computer Science.",
     "dwwm": "Web and Mobile Web Developer.",
-    "cda": "Application Designer and Developer."
+    "cda": "Application Designer and Developer.",
+    "keen": "Passionate about various web technologies and their applications, I successfully completed my training as a web and mobile web developer at ENI in December 2022.",
+    "opportunity": "I had the opportunity to complete two internships during my training.",
+    "firstIntership1": "The first internship, lasting for 3 weeks, took place at .",
+    "firstIntership2": "During this time, I contributed to the creation of a Quiz application designed for escape room venues, utilizing technologies such as Vue.js, Node.js, Docker, and MongoDb.",
+    "secondIntership1": "My second internship, spanning a duration of 2 months, was hosted at",
+    "secondIntership2": "Throughout this period, I continued the development of their ERP using PHP and Symfony.",
+    "workStudy1": "I continued with Quantior in an",
+    "apprenticeship": "apprenticeship",
+    "workStudy2": "from December 2022 to July 2023 and successfully earned my diploma as an Application Designer and Developer (Level 6 RNCP).",
+    "workStudy3": "During this apprenticeship, I worked with technologies such as Angular, NestJs, Docker, and MySQL on the project aimed at developing Version 2 of Quantior's ERP. Additionally, I took charge of deploying the solution into production, including setting up an Apache server on Debian.",
+    "skill": "During my training, I had the opportunity to enhance my skills in Java, PHP, Javascript, and SQL. I also learned about adhering to conventions and implementing design patterns.",
+    "sideProject": "I also dedicated time to completing several personal projects. I developed an application tailored for climbers using Angular and Nest, as well as an application for hikers built on Symfony. Additionally, I created my first portfolio using Vue.js. Concurrently, I addressed requests from clients for the creation of their websites. In December 2022, I launched my inaugural website online, titled 'MetaHomeopathie', which you can explore among my achievements."
   }
 }

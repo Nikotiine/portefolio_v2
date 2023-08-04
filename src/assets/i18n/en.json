@@ -32,6 +32,12 @@
     "achievement": "Achievement",
     "noPersonalRecord":"No personal information is collected without your knowledge. No personal information is disclosed to third parties",
     "sendForm":"Submit the contact form:",
-    "noPersonalRecordOnForm": "Only your email is kept in the inbox of contact@nicolasgodin.fr in order to be able to answer you\n You can exercise your right to access and rectify information about you by writing to:\n contact@nicolasgodin.fr"
+    "noPersonalRecordOnForm": "Only your email is kept in the inbox of contact@nicolasgodin.fr in order to be able to answer you You can exercise your right to access and rectify information about you by writing to: contact@nicolasgodin.fr"
+  },
+  "homepage": {
+    "presentation": "Hello and welcome to my portfolio. Former ambulance driver, I have just completed my professional retraining and am now a web developer.",
+    "curriculum": "I have pursued two training programs with the National School of Computer Science.",
+    "dwwm": "Web and Mobile Web Developer.",
+    "cda": "Application Designer and Developer."
   }
 }

@@ -33,5 +33,11 @@
     "noPersonalRecord": "Aucune information personnelle n’est collectée à votre insu. Aucune information personnelle n’est cédée à des tiers",
     "sendForm": "Envoie du formulaire de contact :",
     "noPersonalRecordOnForm": "Seul votre mail est conservé dans la boite de réception de contact@nicolasgodin.fr afin de pouvoir vous répondre \n Vous pouvez exercer votre droit d’accès et de rectification aux informations vous concernant en écrivant à:\n contact@nicolasgodin.fr"
+  },
+  "homepage": {
+    "presentation": "Bonjour et bienvenue sur mon portfolio. Ancien ambulancier, je viens de finir ma reconversion professionnelle et je suis maintentenant développeur web",
+    "curriculum": "J'ai suivi deux cursus de formation avec L'Ecole nationale d'informatique",
+    "dwwm": "Développeur web et web Mobile",
+    "cda": "Concepteur et développeur d'appplication"
   }
 }

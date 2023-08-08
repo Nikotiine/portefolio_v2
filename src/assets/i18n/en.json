@@ -52,5 +52,15 @@
     "workStudy3": "During this apprenticeship, I worked with technologies such as Angular, NestJs, Docker, and MySQL on the project aimed at developing Version 2 of Quantior's ERP. Additionally, I took charge of deploying the solution into production, including setting up an Apache server on Debian.",
     "skill": "During my training, I had the opportunity to enhance my skills in Java, PHP, Javascript, and SQL. I also learned about adhering to conventions and implementing design patterns.",
     "sideProject": "I also dedicated time to completing several personal projects. I developed an application tailored for climbers using Angular and Nest, as well as an application for hikers built on Symfony. Additionally, I created my first portfolio using Vue.js. Concurrently, I addressed requests from clients for the creation of their websites. In December 2022, I launched my inaugural website online, titled 'MetaHomeopathie', which you can explore among my achievements."
+  },
+  "knowledge": {
+    "language": "Language",
+    "virtualization": "Virtualization",
+    "versioning": "Versioning",
+    "database": "Database",
+    "front-end": "Front-end",
+    "back-end": "Back-end",
+    "framework": "Framework",
+    "server": "Server"
   }
 }

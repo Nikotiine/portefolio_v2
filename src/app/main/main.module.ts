@@ -22,6 +22,7 @@ import { KnowledgeComponent } from './knowledge/knowledge.component';
 import { DataViewModule } from 'primeng/dataview';
 import { RatingModule } from 'primeng/rating';
 import { ProgressBarModule } from 'primeng/progressbar';
+import { ChipModule } from 'primeng/chip';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { ProgressBarModule } from 'primeng/progressbar';
     RatingModule,
     NgOptimizedImage,
     ProgressBarModule,
+    ChipModule,
   ],
 })
 export class MainModule {}

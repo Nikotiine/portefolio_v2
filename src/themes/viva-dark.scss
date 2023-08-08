@@ -1,4 +1,11 @@
 a:-webkit-any-link{
   color: white;
 }
+.p-chip{
+  background-color:#0171bb;
+}
+.opacity-custom-50{
+  opacity:1;
+  filter: contrast(0.05);
+}
 @import "node_modules/primeng/resources/themes/viva-dark/theme.css";

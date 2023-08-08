@@ -2,7 +2,7 @@
   <div class="col-3 p-5">
     <p-card>
       <ng-template pTemplate="header">
-        <img alt="Card" src="assets/img/software-developer-icon-18.jpg" />
+        <img alt="Card" src="assets/img/who.png" />
       </ng-template>
       <div class="p-card-header text-center">
         <a [routerLink]="['/' + Routing.HOME]" (click)="closeSideBar()">{{
@@ -14,13 +14,12 @@
   <div class="col-3 p-5">
     <p-card>
       <ng-template pTemplate="header">
-        <img
-          alt="Card"
-          src="https://primefaces.org/cdn/primeng/images/usercard.png"
-        />
+        <img alt="Card" src="assets/img/knowledge.png" />
       </ng-template>
       <div class="p-card-header text-center">
-        <a [routerLink]="['/']">{{ "application.knowledge" | translate }}</a>
+        <a [routerLink]="['/' + Routing.KNOWLEDGE]" (click)="closeSideBar()">{{
+          "application.knowledge" | translate
+        }}</a>
       </div>
     </p-card>
   </div>

@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { LegalNoticesComponent } from './legal-notices/legal-notices.component';
 import { SettingComponent } from './setting/setting.component';
 import { Routing } from '../core/enum/Routing.enum';
+import { KnowledgeComponent } from './knowledge/knowledge.component';
 
 const routes: Routes = [
   {
@@ -21,11 +22,15 @@ const routes: Routes = [
         component: HomeComponent,
       },
       {
+        path: Routing.KNOWLEDGE,
+        component: KnowledgeComponent,
+      },
+      {
         path: Routing.SETTING,
         component: SettingComponent,
       },
       {
-        path: 'legal-notice',
+        path: Routing.LEGAL_NOTICE,
         component: LegalNoticesComponent,
       },
     ],

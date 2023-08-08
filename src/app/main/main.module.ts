@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 
 import { MainRoutingModule } from './main-routing.module';
 import { LayoutComponent } from './layout/layout.component';
@@ -18,6 +18,10 @@ import { ApplicationsComponent } from './applications/applications.component';
 import { SettingComponent } from './setting/setting.component';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { SelectButtonModule } from 'primeng/selectbutton';
+import { KnowledgeComponent } from './knowledge/knowledge.component';
+import { DataViewModule } from 'primeng/dataview';
+import { RatingModule } from 'primeng/rating';
+import { ProgressBarModule } from 'primeng/progressbar';
 
 @NgModule({
   declarations: [
@@ -26,6 +30,7 @@ import { SelectButtonModule } from 'primeng/selectbutton';
     LegalNoticesComponent,
     ApplicationsComponent,
     SettingComponent,
+    KnowledgeComponent,
   ],
   imports: [
     CommonModule,
@@ -40,6 +45,10 @@ import { SelectButtonModule } from 'primeng/selectbutton';
     SidebarModule,
     InputSwitchModule,
     SelectButtonModule,
+    DataViewModule,
+    RatingModule,
+    NgOptimizedImage,
+    ProgressBarModule,
   ],
 })
 export class MainModule {}

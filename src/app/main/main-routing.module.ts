@@ -6,6 +6,7 @@ import { LegalNoticesComponent } from './legal-notices/legal-notices.component';
 import { SettingComponent } from './setting/setting.component';
 import { Routing } from '../core/enum/Routing.enum';
 import { KnowledgeComponent } from './knowledge/knowledge.component';
+import { CurriculumComponent } from './curriculum/curriculum.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,10 @@ const routes: Routes = [
       {
         path: Routing.KNOWLEDGE,
         component: KnowledgeComponent,
+      },
+      {
+        path: Routing.CURRICULUM,
+        component: CurriculumComponent,
       },
       {
         path: Routing.SETTING,

@@ -8,7 +8,6 @@ import { ApplicationService } from '../../core/services/application.service';
   styleUrls: ['./applications.component.scss'],
 })
 export class ApplicationsComponent {
-  //public ROUTING = Routing;
   protected readonly Routing = Routing;
   constructor(private readonly applicationService: ApplicationService) {}
   public closeSideBar(): void {

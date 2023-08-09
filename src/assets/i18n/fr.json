@@ -62,5 +62,14 @@
     "back-end": "Back-end",
     "framework": "Framework",
     "server": "Serveur"
+  },
+  "curriculum": {
+    "developer": "Développeur",
+    "goals": "Mes ojectifs",
+    "transition": "Développeur en reconversion, après un premier diplôme à l’ENI (DWWM) j'ai décidé de continuer à me former pour me spécialiser d' avantage sur le back-end.",
+    "certification": "J'ai obtenu mon titre CDA en Juillet 2023 après une alternance de 6 mois avec Quantior Group. Mon objectif serait de trouver un poste de développeur full-stack avec une grande préférence pour Java/NodeJs-Angular",
+    "languages": "Langues",
+    "english": "Anglais",
+    "interests": "Centres d'interêts"
   }
 }

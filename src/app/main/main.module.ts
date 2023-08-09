@@ -23,6 +23,7 @@ import { DataViewModule } from 'primeng/dataview';
 import { RatingModule } from 'primeng/rating';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { ChipModule } from 'primeng/chip';
+import { CurriculumComponent } from './curriculum/curriculum.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { ChipModule } from 'primeng/chip';
     ApplicationsComponent,
     SettingComponent,
     KnowledgeComponent,
+    CurriculumComponent,
   ],
   imports: [
     CommonModule,

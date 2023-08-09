@@ -10,7 +10,9 @@
   padding: 1.5rem;
 }
 @media screen and (max-width: 480px){
-
+  .mobile-text-center{
+  align-items: center;
+  }
   .subtitle{
     font-size: 1rem;
   }

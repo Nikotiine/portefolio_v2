@@ -12,8 +12,7 @@ export class ProjectsComponent {
       name: 'Genesis MetaHomeopathie',
       type: 'website',
       logo: 'meta.png',
-      description:
-        'Site vitrine pour la presention de la metahomepathie,technique et laboratoire. La pièce manquante entre l’Homéopathie Hahnemannienne et les sciences quantiques modernes : La MetaHomeopathie',
+      description: 'metaDescription',
       techno: 'VueJs / NodeJs / Bulma',
       website: [
         {
@@ -26,8 +25,7 @@ export class ProjectsComponent {
       name: 'Une Voie Une Croix',
       type: 'sideProject',
       logo: 'climbing.png',
-      description:
-        'Site desitine aux grimpeur, permet de retrouver un site de grimpe et de marquer les voies effecuter avec statistiques',
+      description: 'oneRouteDescription',
       techno: 'Angular / NestJs / PrimeNg / MySql',
       website: [
         {
@@ -44,8 +42,7 @@ export class ProjectsComponent {
       name: 'Carnet de montagne',
       type: 'sideProject',
       logo: 'hiking.png',
-      description:
-        'Application carnet de note pour sortie montagne. Randonne / Grandes voies / Alpinisme. Statistique de sortie entre utilisateur et like de sortie',
+      description: 'carnetDescription',
       techno: 'PHP 8/ Symphony 6/ Bootstrap / MySql',
       website: [
         {
@@ -58,8 +55,8 @@ export class ProjectsComponent {
       name: 'ENI Sortir',
       type: 'schoolProject',
       logo: 'enisortir.png',
-      description: "Site OVS Like , fait en projet de groupe avec l'ENI",
-      techno: 'PHP 8/ Symphony 5/ Bootstrap / MySql',
+      description: 'eniSortirDescription',
+      techno: 'PHP 8/ Symphony 5/ Bootstrap / MySql / Git',
       website: [
         {
           label: 'Repo WebApp',
@@ -71,8 +68,8 @@ export class ProjectsComponent {
       name: 'ENI Enchere',
       type: 'schoolProject',
       logo: 'enienchere.png',
-      description: "Le Bon coin like ,  fait en projet de groupe avec l'ENI",
-      techno: 'JAVA EE (JDK 17) / JSTL / Bulma',
+      description: 'eniEnchere',
+      techno: 'JAVA EE (JDK 17) / JSTL / Bulma / Git',
       website: [
         {
           label: 'Repo WebApp',
@@ -84,8 +81,7 @@ export class ProjectsComponent {
       name: 'GitLab Thinker-bell',
       type: 'website',
       logo: 'tinkerbell.png',
-      description:
-        "Mise en production d'une instance gitlab pour un developeur web independant",
+      description: 'twsDescription',
       techno: 'GitLab CE / Docker / Apache / Debian',
       website: [
         {

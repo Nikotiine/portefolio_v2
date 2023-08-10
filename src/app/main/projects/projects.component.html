@@ -14,11 +14,12 @@
       </ng-template>
       <p class="h-17rem">
         <span class="pi pi-tag mr-2" aria-hidden="true"></span>
-        <span class="underline">Type de projet :</span><br />
+        <span class="underline"> {{ "project.projectType" | translate }} :</span
+        ><br />
         {{ "project." + project.type | translate }}<br /><br />
         <span class="pi pi-question-circle mr-2" aria-hidden="true"></span>
         <span class="underline">Description :</span><br />
-        {{ project.description }}<br /><br />
+        {{ "project." + project.description | translate }}<br /><br />
         <span class="pi pi-code mr-2" aria-hidden="true"></span>
         <span class="underline">Technos :</span><br />
         {{ project.techno }}<br />

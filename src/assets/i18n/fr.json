@@ -101,6 +101,13 @@
   "project": {
     "sideProject": "Projet perso",
     "website": "Site web",
-    "schoolProject": "Projet de groupe"
+    "schoolProject": "Projet de groupe",
+    "metaDescription": "Site vitrine pour la présentation de la MetaHomeopathie, technique et laboratoire. Le lien manquant entre l'homéopathie hahnemannienne et les sciences quantiques modernes : la MetaHomeopathie.",
+    "oneRouteDescription": "Site destiné aux grimpeurs, permettant de trouver des sites d'escalade avec toutes les informations nécessaires, y compris les emplacements de stationnement pour la nuit, et de suivre les voies déjà parcourues. Affichage des statistiques d'escalade.",
+    "carnetDescription": "Application de prise de notes pour les sorties en montagne : randonnées, grandes voies, alpinisme. Statistiques de sortie entre les utilisateurs et possibilité d'apprécier les sorties (likes).",
+    "eniSortirDescription": "Création d'un site similaire à OVS, réalisé en 15 jours : Projet de travail d'équipe dans le cadre de la formation DWWM à l'ENI.",
+    "eniEnchere": "Création d'un site similaire à Le Bon Coin, réalisée en 15 jours : Projet collaboratif dans le cadre de la formation DWWM à l'ENI.",
+    "twsDescription": "Création et déploiement opérationnel d'une instance GitLab suite à la demande d'un développeur web indépendant.",
+    "projectType": "Type de projet"
   }
 }

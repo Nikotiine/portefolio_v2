@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ProjectCard } from '../../core/models/ProjectCard.model';
 
 @Component({
   selector: 'app-projects',
@@ -6,24 +7,24 @@ import { Component } from '@angular/core';
   styleUrls: ['./projects.component.scss'],
 })
 export class ProjectsComponent {
-  public projects: any = [
+  public projects: ProjectCard[] = [
     {
-      header: 'Genesis MetaHomeopathie',
-      subheader: 'Site web',
+      name: 'Genesis MetaHomeopathie',
+      type: 'website',
       logo: 'meta.png',
       description:
         'Site vitrine pour la presention de la metahomepathie,technique et laboratoire. La pièce manquante entre l’Homéopathie Hahnemannienne et les sciences quantiques modernes : La MetaHomeopathie',
       techno: 'VueJs / NodeJs / Bulma',
       website: [
         {
-          label: 'Site web fr',
+          label: 'Site web',
           link: 'https://metahomeopathie.fr/',
         },
       ],
     },
     {
-      header: 'Une Voie Une Croix',
-      subheader: 'Projet perso',
+      name: 'Une Voie Une Croix',
+      type: 'sideProject',
       logo: 'climbing.png',
       description:
         'Site desitine aux grimpeur, permet de retrouver un site de grimpe et de marquer les voies effecuter avec statistiques',
@@ -40,8 +41,8 @@ export class ProjectsComponent {
       ],
     },
     {
-      header: 'Carnet de montagne',
-      subheader: 'Projet perso',
+      name: 'Carnet de montagne',
+      type: 'sideProject',
       logo: 'hiking.png',
       description:
         'Application carnet de note pour sortie montagne. Randonne / Grandes voies / Alpinisme. Statistique de sortie entre utilisateur et like de sortie',
@@ -54,8 +55,8 @@ export class ProjectsComponent {
       ],
     },
     {
-      header: 'ENI Sortir',
-      subheader: 'Projet de groupe',
+      name: 'ENI Sortir',
+      type: 'schoolProject',
       logo: 'enisortir.png',
       description: "Site OVS Like , fait en projet de groupe avec l'ENI",
       techno: 'PHP 8/ Symphony 5/ Bootstrap / MySql',
@@ -67,8 +68,8 @@ export class ProjectsComponent {
       ],
     },
     {
-      header: 'ENI Enchere',
-      subheader: 'Projet de groupe',
+      name: 'ENI Enchere',
+      type: 'schoolProject',
       logo: 'enienchere.png',
       description: "Le Bon coin like ,  fait en projet de groupe avec l'ENI",
       techno: 'JAVA EE (JDK 17) / JSTL / Bulma',
@@ -80,8 +81,8 @@ export class ProjectsComponent {
       ],
     },
     {
-      header: 'GitLab Thinker-bell',
-      subheader: 'Site web',
+      name: 'GitLab Thinker-bell',
+      type: 'website',
       logo: 'tinkerbell.png',
       description:
         "Mise en production d'une instance gitlab pour un developeur web independant",

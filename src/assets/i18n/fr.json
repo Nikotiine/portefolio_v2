@@ -97,5 +97,10 @@
     "skills": "Compétences",
     "tools": "Outils",
     "downloadPdf": "Telecharger en pdf"
+  },
+  "project": {
+    "sideProject": "Projet perso",
+    "website": "Site web",
+    "schoolProject": "Projet de groupe"
   }
 }

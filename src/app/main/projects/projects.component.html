@@ -1,18 +1,21 @@
 <div class="flex flex-wrap">
   <div class="col-4 p-3" *ngFor="let project of projects">
     <p-card
-      header="{{ project.header }}"
+      header="{{ project.name }}"
       styleClass="flex justify-content-between flex-column h-full"
     >
       <ng-template pTemplate="header">
         <div class="flex justify-content-center">
-          <img alt="Card" src="assets/img/{{ project.logo }}" />
+          <img
+            alt="logo projet {{ project.name }}"
+            src="assets/img/{{ project.logo }}"
+          />
         </div>
       </ng-template>
       <p class="h-17rem">
         <span class="pi pi-tag mr-2" aria-hidden="true"></span>
         <span class="underline">Type de projet :</span><br />
-        {{ project.subheader }}<br /><br />
+        {{ "project." + project.type | translate }}<br /><br />
         <span class="pi pi-question-circle mr-2" aria-hidden="true"></span>
         <span class="underline">Description :</span><br />
         {{ project.description }}<br /><br />

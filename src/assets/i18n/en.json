@@ -97,5 +97,10 @@
     "skills": "Skills",
     "tools": "Tools",
     "downloadPdf": "Download in pdf"
+  },
+  "project": {
+    "sideProject": "Side Project",
+    "website": "Web site",
+    "schoolProject": "School project"
   }
 }

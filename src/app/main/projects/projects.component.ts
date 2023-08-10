@@ -29,11 +29,11 @@ export class ProjectsComponent {
       techno: 'Angular / NestJs / PrimeNg / MySql',
       website: [
         {
-          label: 'Repo Front-end',
+          label: 'Repo Git-Hub Front-end',
           link: 'https://github.com/Nikotiine/App_une_voie_une_croix',
         },
         {
-          label: 'Repo Back-end',
+          label: 'Repo Git-Hub Back-end',
           link: 'https://github.com/Nikotiine/Api_une_voie_une_croix',
         },
       ],
@@ -46,7 +46,7 @@ export class ProjectsComponent {
       techno: 'PHP 8/ Symphony 6/ Bootstrap / MySql',
       website: [
         {
-          label: 'Repo WebApp',
+          label: 'Repo Git-Hub WebApp',
           link: 'https://github.com/Nikotiine/Carnet_de_montagne',
         },
       ],
@@ -59,7 +59,7 @@ export class ProjectsComponent {
       techno: 'PHP 8/ Symphony 5/ Bootstrap / MySql / Git',
       website: [
         {
-          label: 'Repo WebApp',
+          label: 'Repo Git-Hub WebApp',
           link: 'https://github.com/Nikotiine/EniSortir',
         },
       ],
@@ -72,7 +72,7 @@ export class ProjectsComponent {
       techno: 'JAVA EE (JDK 17) / JSTL / Bulma / Git',
       website: [
         {
-          label: 'Repo WebApp',
+          label: 'Repo Git-Hub WebApp',
           link: 'https://github.com/Nikotiine/ENI_Encheres',
         },
       ],

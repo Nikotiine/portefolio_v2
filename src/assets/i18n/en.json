@@ -100,7 +100,8 @@
   },
   "project": {
     "sideProject": "Side Project",
-    "website": "Web site",
+    "website": "Website",
+    "tech": "Techs",
     "schoolProject": "School project",
     "metaDescription": "Showcase website for the presentation of MetaHomeopathy, technique, and laboratory. The missing link between Hahnemannian homeopathy and modern quantum sciences: MetaHomeopathy.",
     "oneRouteDescription": "Website designed for climbers, allowing them to discover climbing sites with all the necessary information, including overnight parking spots, and to mark the completed routes. Display of climbing statistics.",

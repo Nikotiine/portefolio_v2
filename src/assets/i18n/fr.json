@@ -101,6 +101,7 @@
   "project": {
     "sideProject": "Projet perso",
     "website": "Site web",
+    "tech": "Technos",
     "schoolProject": "Projet de groupe",
     "metaDescription": "Site vitrine pour la présentation de la MetaHomeopathie, technique et laboratoire. Le lien manquant entre l'homéopathie hahnemannienne et les sciences quantiques modernes : la MetaHomeopathie.",
     "oneRouteDescription": "Site destiné aux grimpeurs, permettant de trouver des sites d'escalade avec toutes les informations nécessaires, y compris les emplacements de stationnement pour la nuit, et de suivre les voies déjà parcourues. Affichage des statistiques d'escalade.",

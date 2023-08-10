@@ -24,6 +24,7 @@ import { RatingModule } from 'primeng/rating';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { ChipModule } from 'primeng/chip';
 import { CurriculumComponent } from './curriculum/curriculum.component';
+import { ProjectsComponent } from './projects/projects.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { CurriculumComponent } from './curriculum/curriculum.component';
     SettingComponent,
     KnowledgeComponent,
     CurriculumComponent,
+    ProjectsComponent,
   ],
   imports: [
     CommonModule,

@@ -4,5 +4,6 @@ enum Routing {
   LEGAL_NOTICE = 'legal-notice',
   KNOWLEDGE = 'knowledge',
   CURRICULUM = 'curriculum',
+  PROJECTS = 'projects',
 }
 export { Routing };

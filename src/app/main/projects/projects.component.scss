@@ -1,0 +1,24 @@
+img{
+  max-height: 340px;
+  width: fit-content;
+}
+.flex-footer{
+  display: flex;
+  justify-content: space-around;
+}
+@media screen and (max-width: 480px){
+  .col-4{
+    width: 100%;
+  }
+  img{
+    max-width: 320px;
+  }
+  a{
+    font-size: 1rem;
+    margin: 0 auto 0.3rem auto;
+  }
+  .flex-footer{
+    flex-direction: column;
+  }
+}
+

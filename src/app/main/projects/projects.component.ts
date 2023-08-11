@@ -65,7 +65,7 @@ export class ProjectsComponent {
       ],
     },
     {
-      name: 'ENI Enchere',
+      name: 'ENI Enchères',
       type: 'schoolProject',
       logo: 'enienchere.png',
       description: 'eniEnchere',
@@ -78,7 +78,7 @@ export class ProjectsComponent {
       ],
     },
     {
-      name: 'GitLab Thinker-bell',
+      name: 'GitLab Tinkerbell',
       type: 'website',
       logo: 'tinkerbell.png',
       description: 'twsDescription',

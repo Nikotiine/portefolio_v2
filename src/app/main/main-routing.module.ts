@@ -8,6 +8,7 @@ import { Routing } from '../core/enum/Routing.enum';
 import { KnowledgeComponent } from './knowledge/knowledge.component';
 import { CurriculumComponent } from './curriculum/curriculum.component';
 import { ProjectsComponent } from './projects/projects.component';
+import { SocialNetworkComponent } from './social-network/social-network.component';
 
 const routes: Routes = [
   {
@@ -34,6 +35,10 @@ const routes: Routes = [
       {
         path: Routing.PROJECTS,
         component: ProjectsComponent,
+      },
+      {
+        path: Routing.SOCIAL_NETWORK,
+        component: SocialNetworkComponent,
       },
       {
         path: Routing.SETTING,

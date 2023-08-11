@@ -25,6 +25,7 @@ import { ProgressBarModule } from 'primeng/progressbar';
 import { ChipModule } from 'primeng/chip';
 import { CurriculumComponent } from './curriculum/curriculum.component';
 import { ProjectsComponent } from './projects/projects.component';
+import { SocialNetworkComponent } from './social-network/social-network.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { ProjectsComponent } from './projects/projects.component';
     KnowledgeComponent,
     CurriculumComponent,
     ProjectsComponent,
+    SocialNetworkComponent,
   ],
   imports: [
     CommonModule,

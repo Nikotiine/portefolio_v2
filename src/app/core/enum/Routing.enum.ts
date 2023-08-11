@@ -5,5 +5,6 @@ enum Routing {
   KNOWLEDGE = 'knowledge',
   CURRICULUM = 'curriculum',
   PROJECTS = 'projects',
+  SOCIAL_NETWORK = 'social-network',
 }
 export { Routing };

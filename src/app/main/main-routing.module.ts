@@ -41,6 +41,11 @@ const routes: Routes = [
         component: SocialNetworkComponent,
       },
       {
+        path: Routing.TUTORIAL,
+        loadChildren: () =>
+          import('./tutorial/tutorial.module').then((m) => m.TutorialModule),
+      },
+      {
         path: Routing.SETTING,
         component: SettingComponent,
       },

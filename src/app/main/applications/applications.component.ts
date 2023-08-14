@@ -42,12 +42,12 @@ export class ApplicationsComponent {
     },
     {
       logo: 'tuto.png',
-      routerLink: Routing.SOCIAL_NETWORK,
+      routerLink: Routing.TUTORIAL,
       title: 'tutorial',
     },
     {
       logo: 'setting.png',
-      routerLink: Routing.SOCIAL_NETWORK,
+      routerLink: Routing.SETTING,
       title: 'setting',
     },
   ];

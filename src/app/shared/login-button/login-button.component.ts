@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { SecurityService } from '../../../core/services/security.service';
+import { SecurityService } from '../../core/services/security.service';
+import { UserProfileDto } from '../../core/api/models/user-profile-dto';
 
 @Component({
-  selector: 'app-tutorial-list',
-  templateUrl: './tutorial-list.component.html',
-  styleUrls: ['./tutorial-list.component.scss'],
+  selector: 'app-login-button',
+  templateUrl: './login-button.component.html',
+  styleUrls: ['./login-button.component.scss'],
 })
-export class TutorialListComponent implements OnInit {
+export class LoginButtonComponent implements OnInit {
   public visible = false;
   public isLoginComponent = true;
   public isLogged: boolean;
+  public newUser: UserProfileDto;
 
   constructor(private readonly securityService: SecurityService) {
     this.isLogged = this.securityService.isLogged();
@@ -23,7 +25,7 @@ export class TutorialListComponent implements OnInit {
     });
   }
   public showDialog(): void {
-    this.visible = true;
+    this.visible = !this.visible;
   }
 
   public register(): void {
@@ -32,5 +34,10 @@ export class TutorialListComponent implements OnInit {
 
   public logout(): void {
     this.securityService.logout();
+  }
+
+  public preFillLoginForm($event: UserProfileDto): void {
+    this.newUser = $event;
+    this.isLoginComponent = true;
   }
 }

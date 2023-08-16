@@ -9,9 +9,17 @@ import { RegisterComponent } from './register/register.component';
 import { InputTextModule } from 'primeng/inputtext';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
+import { LoginButtonComponent } from './login-button/login-button.component';
+import { DialogModule } from 'primeng/dialog';
+import { TooltipModule } from 'primeng/tooltip';
 
 @NgModule({
-  declarations: [FooterComponent, AuthenticationComponent, RegisterComponent],
+  declarations: [
+    FooterComponent,
+    AuthenticationComponent,
+    RegisterComponent,
+    LoginButtonComponent,
+  ],
   imports: [
     CommonModule,
     RouterLink,
@@ -20,7 +28,14 @@ import { ButtonModule } from 'primeng/button';
     InputTextModule,
     ReactiveFormsModule,
     ButtonModule,
+    DialogModule,
+    TooltipModule,
   ],
-  exports: [FooterComponent, AuthenticationComponent, RegisterComponent],
+  exports: [
+    FooterComponent,
+    AuthenticationComponent,
+    RegisterComponent,
+    LoginButtonComponent,
+  ],
 })
 export class SharedModule {}

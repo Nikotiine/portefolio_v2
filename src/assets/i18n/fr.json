@@ -113,7 +113,7 @@
   },
   "socialNetwork": "Réseaux Sociaux",
   "successMessage": {
-    "registered": "Compte bien enregister",
+    "registered": "Compte bien enregister, vous pouvez vous connecter",
     "authenticate": "Connexion valide"
   },
   "errorMessage":{
@@ -123,5 +123,16 @@
   },
   "summaryMessage": {
     "account":  "Gestion des comptes"
+  },
+  "auth": {
+    "login": "Connexion",
+    "logout": "Deconnexion",
+    "newAccount": "Nouveau compte",
+    "noAccount": "Pas encore de compte ?",
+    "username": "Pseudo",
+    "password": "Mot de passe",
+    "confirmPassword": "Confirmez votre mot de passe",
+    "confirm": "Valider",
+    "save": "Sauvegarder"
   }
 }

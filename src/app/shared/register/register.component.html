@@ -5,8 +5,8 @@
       <input
         type="text"
         pInputText
-        formControlName="email"
-        placeholder="Votre email"
+        formControlName="username"
+        placeholder="{{ 'auth.username' | translate }}"
       />
     </span>
     <br />
@@ -16,7 +16,7 @@
         type="password"
         pInputText
         formControlName="password"
-        placeholder="Password"
+        placeholder="{{ 'auth.password' | translate }}"
       />
     </span>
     <br />
@@ -26,11 +26,15 @@
         type="password"
         pInputText
         formControlName="confirmPassword"
-        placeholder="confirm password"
+        placeholder="{{ 'auth.confirmPassword' | translate }}"
       />
     </span>
     <br />
 
-    <p-button label="Valider" class="mt-2" (onClick)="submit()"></p-button>
+    <p-button
+      label="{{ 'auth.save' | translate }}"
+      class="mt-2"
+      (onClick)="submit()"
+    ></p-button>
   </form>
 </p-card>

@@ -1,0 +1,57 @@
+<p-card>
+  <div class="text-right">
+    <p-button
+      (click)="showDialog()"
+      icon="pi pi-power-off"
+      pTooltip="{{ 'auth.login' | translate }}"
+      styleClass="p-button-secondary"
+      *ngIf="!isLogged"
+    ></p-button>
+    <p-button
+      (click)="logout()"
+      pTooltip="{{ 'auth.logout' | translate }}"
+      icon="pi pi-power-off"
+      styleClass="p-button-danger"
+      *ngIf="isLogged"
+    ></p-button>
+  </div>
+</p-card>
+<div class="card flex justify-content-center">
+  <p-dialog
+    [position]="'top-right'"
+    [(visible)]="visible"
+    [breakpoints]="{ '960px': '75vw' }"
+    [style]="{ width: '50vw' }"
+    [draggable]="false"
+    [resizable]="false"
+  >
+    <ng-template pTemplate="header">
+      <h3>
+        {{
+          isLoginComponent
+            ? ("auth.login" | translate)
+            : ("auth.newAccount" | translate)
+        }}
+      </h3>
+      <p-button
+        label="{{
+          isLoginComponent
+            ? ('auth.noAccount' | translate)
+            : ('auth.login' | translate)
+        }}"
+        styleClass="p-button-info p-button-text"
+        (onClick)="register()"
+      ></p-button>
+    </ng-template>
+
+    <app-authentication
+      *ngIf="isLoginComponent"
+      (authenticate)="showDialog()"
+      [user]="newUser"
+    ></app-authentication>
+    <app-register
+      *ngIf="!isLoginComponent"
+      (user)="preFillLoginForm($event)"
+    ></app-register>
+  </p-dialog>
+</div>

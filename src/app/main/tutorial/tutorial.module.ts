@@ -8,6 +8,7 @@ import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
 import { SharedModule } from '../../shared/shared.module';
+import { TooltipModule } from 'primeng/tooltip';
 
 @NgModule({
   declarations: [TutorialListComponent],
@@ -18,6 +19,7 @@ import { SharedModule } from '../../shared/shared.module';
     ButtonModule,
     DialogModule,
     SharedModule,
+    TooltipModule,
   ],
 })
 export class TutorialModule {}

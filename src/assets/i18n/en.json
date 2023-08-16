@@ -113,7 +113,7 @@
   },
   "socialNetwork": "Social Network",
   "successMessage": {
-    "registered": "Account successfully registered",
+    "registered": "Account successfully registered, you can connect",
     "authenticate": "Connexion authorized"
   },
   "errorMessage":{
@@ -123,5 +123,16 @@
   },
   "summaryMessage": {
     "account":  "Account Service"
+  },
+  "auth": {
+    "login": "Log-In",
+    "logout": "Log-Out",
+    "newAccount": "New account",
+    "noAccount": "No account yet ?",
+    "username": "Username",
+    "password": "Password",
+    "confirmPassword": "Confirm your password",
+    "confirm": "Confirm",
+    "save": "Save"
   }
 }

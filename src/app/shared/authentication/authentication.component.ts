@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CustomMessageService } from '../../core/services/custom-message.service';
 import { UserCredentialsDto } from '../../core/api/models/user-credentials-dto';
 import { AuthenticationService } from '../../core/api/services/authentication.service';
-import { error } from '@angular/compiler-cli/src/transformers/util';
+import { SecurityService } from '../../core/services/security.service';
+import { UserProfileDto } from '../../core/api/models/user-profile-dto';
 
 @Component({
   selector: 'app-authentication',
@@ -11,21 +12,29 @@ import { error } from '@angular/compiler-cli/src/transformers/util';
   styleUrls: ['./authentication.component.scss'],
 })
 export class AuthenticationComponent {
+  @Output() authenticate: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Input()
+  set user(user: UserProfileDto) {
+    this.form.controls['username'].setValue(user.username);
+  }
+
   public form: FormGroup;
+
   constructor(
     private readonly fb: FormBuilder,
     private readonly customMessageService: CustomMessageService,
-    private readonly authenticationService: AuthenticationService
+    private readonly authenticationService: AuthenticationService,
+    private readonly securityService: SecurityService
   ) {
     this.form = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
+      username: ['', [Validators.required]],
       password: ['', Validators.required],
     });
   }
 
   public submit(): void {
     const credentials: UserCredentialsDto = {
-      email: this.form.controls['email'].value,
+      username: this.form.controls['username'].value,
       password: this.form.controls['password'].value,
     };
     this.authenticationService
@@ -34,8 +43,9 @@ export class AuthenticationComponent {
       })
       .subscribe({
         next: (res) => {
-          console.log(res);
+          this.securityService.saveToken(res);
           this.customMessageService.successMessage('account', 'authenticate');
+          this.authenticate.emit(true);
         },
         error: (err) => {
           console.log(err);

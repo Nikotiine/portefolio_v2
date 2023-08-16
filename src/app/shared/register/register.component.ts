@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CustomMessageService } from '../../core/services/custom-message.service';
 import { UserRegisterDto } from '../../core/api/models/user-register-dto';
 import { UserService } from '../../core/api/services/user.service';
+import { UserProfileDto } from '../../core/api/models/user-profile-dto';
 
 @Component({
   selector: 'app-register',
@@ -10,6 +11,8 @@ import { UserService } from '../../core/api/services/user.service';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
+  @Output() user: EventEmitter<UserProfileDto> =
+    new EventEmitter<UserProfileDto>();
   public form: FormGroup;
   constructor(
     private readonly fb: FormBuilder,
@@ -17,7 +20,7 @@ export class RegisterComponent {
     private readonly userService: UserService
   ) {
     this.form = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
+      username: ['', [Validators.required]],
       password: ['', Validators.required],
       confirmPassword: ['', Validators.required],
     });
@@ -32,7 +35,7 @@ export class RegisterComponent {
       return;
     }
     const newUser: UserRegisterDto = {
-      email: this.form.controls['email'].value,
+      username: this.form.controls['username'].value,
       password: password,
     };
     this.userService
@@ -42,6 +45,7 @@ export class RegisterComponent {
       .subscribe({
         next: (res) => {
           this.customMessageService.successMessage('account', 'registered');
+          this.user.emit(res);
         },
         error: (err) => {
           this.customMessageService.errorMessage('account', err.error.message);

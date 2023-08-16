@@ -8,6 +8,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MessageService } from 'primeng/api';
+import { CookieModule } from 'ngx-cookie';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,6 +17,7 @@ import { MessageService } from 'primeng/api';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    CookieModule.withOptions(),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

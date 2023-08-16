@@ -1,36 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { SecurityService } from '../../../core/services/security.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-tutorial-list',
   templateUrl: './tutorial-list.component.html',
   styleUrls: ['./tutorial-list.component.scss'],
 })
-export class TutorialListComponent implements OnInit {
-  public visible = false;
-  public isLoginComponent = true;
-  public isLogged: boolean;
+export class TutorialListComponent {
+  constructor() {}
 
-  constructor(private readonly securityService: SecurityService) {
-    this.isLogged = this.securityService.isLogged();
+  onLoad($event: string) {
+    console.log($event);
   }
 
-  public ngOnInit(): void {
-    this.securityService.authenticated$.subscribe({
-      next: (isLogged) => {
-        this.isLogged = isLogged;
-      },
-    });
-  }
-  public showDialog(): void {
-    this.visible = true;
-  }
-
-  public register(): void {
-    this.isLoginComponent = !this.isLoginComponent;
-  }
-
-  public logout(): void {
-    this.securityService.logout();
+  onError($event: string | Error) {
+    console.log($event);
   }
 }

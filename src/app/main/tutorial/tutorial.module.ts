@@ -9,6 +9,8 @@ import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
 import { SharedModule } from '../../shared/shared.module';
 import { TooltipModule } from 'primeng/tooltip';
+import { MarkdownModule } from 'ngx-markdown';
+import { AccordionModule } from 'primeng/accordion';
 
 @NgModule({
   declarations: [TutorialListComponent],
@@ -20,6 +22,8 @@ import { TooltipModule } from 'primeng/tooltip';
     DialogModule,
     SharedModule,
     TooltipModule,
+    MarkdownModule,
+    AccordionModule,
   ],
 })
 export class TutorialModule {}

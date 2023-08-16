@@ -9,6 +9,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MessageService } from 'primeng/api';
 import { CookieModule } from 'ngx-cookie';
+import { MarkdownModule } from 'ngx-markdown';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,6 +19,7 @@ import { CookieModule } from 'ngx-cookie';
     BrowserAnimationsModule,
     HttpClientModule,
     CookieModule.withOptions(),
+    MarkdownModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

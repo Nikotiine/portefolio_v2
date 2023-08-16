@@ -11,3 +11,39 @@ p-card .p-component{
 .p-card-body{
   box-shadow: none;
 }
+.markdown-clipboard-button {
+  background-color: #f1f1f5;
+  border: none;
+  border-radius: 4px;
+  color: #050505;
+  cursor: pointer;
+  font-size: 0.8rem;
+  padding: 4px 0;
+  width: 75px;
+  transition: all 250ms ease-out;
+}
+
+.markdown-clipboard-button:hover {
+  background-color: #be1919;
+  color: white;
+}
+
+.markdown-clipboard-button:active {
+  transform: scale(0.95);
+}
+
+.markdown-clipboard-button.copied {
+  background-color: rgba(0, 255, 0, 0.1);
+  color: #00ff00;
+}
+code{
+  color: #050505;
+
+}
+.language-bash{
+  color: #be1919;
+  max-width: 100%;
+  display: block; /* Facultatif : pour que le code ne déborde pas horizontalement */
+  overflow-x: scroll;
+  height: 2rem;
+}

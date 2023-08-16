@@ -24,18 +24,22 @@ export class LoginButtonComponent implements OnInit {
       },
     });
   }
+  // Affiche la boite de dialogue pour la connexion ou creation de compte
   public showDialog(): void {
     this.visible = !this.visible;
   }
 
+  // Defini si c'est c'est la page de connection ou de creation de compte qui doit etre afficher
   public register(): void {
     this.isLoginComponent = !this.isLoginComponent;
   }
 
+  // Deconnection de l'utlisateur
   public logout(): void {
     this.securityService.logout();
   }
 
+  // Lors d'une creation d'un nouveau compte, affiche et pre rempli le formulaire de connection
   public preFillLoginForm($event: UserProfileDto): void {
     this.newUser = $event;
     this.isLoginComponent = true;

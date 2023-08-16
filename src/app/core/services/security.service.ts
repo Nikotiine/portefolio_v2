@@ -11,6 +11,11 @@ export class SecurityService {
   public authenticated$: BehaviorSubject<boolean> = new BehaviorSubject(false);
   constructor(private readonly cookieService: CookieService) {}
 
+  /**
+   * Sauvegarde le token dans un cookie
+   * Passe le BehaviorSuject a true (signifie a l'applicaiton que l'utilisateur est bien connecter)
+   * @param token
+   */
   public saveToken(token: Token): void {
     this.cookieService.put(this.access_token_key, token.toString());
     this.authenticated$.next(true);
@@ -26,6 +31,9 @@ export class SecurityService {
     return isLogged;
   }
 
+  /**
+   * Supprime le token dans les cookies, passe le BehaviorSuject a faux (signifie a l'applicaiton que l'utilisateur est bien decconnecter)
+   */
   public logout(): void {
     this.cookieService.remove(this.access_token_key);
     this.authenticated$.next(false);

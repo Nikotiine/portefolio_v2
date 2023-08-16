@@ -26,10 +26,15 @@ export class RegisterComponent {
     });
   }
 
+  /**
+   * Sousmission du formulaire pour creation d'un nouveau compte
+   * Verification des saisie de mot passe
+   */
   public submit(): void {
     const password = this.form.controls['password'].value;
     const confirmPassword = this.form.controls['confirmPassword'].value;
     const isMatch = this.checkIfPasswordAreMatching(password, confirmPassword);
+    // Si les mots de passe ne correspondent pas, stop la fonction et reset les inpout password et confirmPassword
     if (!isMatch) {
       this.resetForm();
       return;
@@ -45,6 +50,7 @@ export class RegisterComponent {
       .subscribe({
         next: (res) => {
           this.customMessageService.successMessage('account', 'registered');
+          // Retoune le profil creer pour la page de connection
           this.user.emit(res);
         },
         error: (err) => {
@@ -53,6 +59,11 @@ export class RegisterComponent {
       });
   }
 
+  /**
+   * Verifie que les mots de passe correpondent
+   * @param password premier mot de passe
+   * @param confirmPassword second mot de passe
+   */
   public checkIfPasswordAreMatching(
     password: string,
     confirmPassword: string
@@ -64,6 +75,9 @@ export class RegisterComponent {
     return isMatch;
   }
 
+  /**
+   * Remet a 0 les inoout des password en cas de non correspondance
+   */
   private resetForm(): void {
     this.form.controls['password'].setValue('');
     this.form.controls['confirmPassword'].setValue('');

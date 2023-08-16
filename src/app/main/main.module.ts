@@ -26,6 +26,7 @@ import { ChipModule } from 'primeng/chip';
 import { CurriculumComponent } from './curriculum/curriculum.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { SocialNetworkComponent } from './social-network/social-network.component';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { SocialNetworkComponent } from './social-network/social-network.componen
     NgOptimizedImage,
     ProgressBarModule,
     ChipModule,
+    ToastModule,
   ],
 })
 export class MainModule {}

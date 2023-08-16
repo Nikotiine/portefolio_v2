@@ -1,5 +1,32 @@
 <p-card>
   <div class="text-right">
-    <a class="p-button p-button-rounded mr-2 p-button-secondary">Connexion</a>
+    <p-button
+      (click)="showDialog()"
+      icon="pi pi-power-off"
+      label="Log-In"
+      styleClass="p-button-secondary"
+    ></p-button>
   </div>
 </p-card>
+<div class="card flex justify-content-center">
+  <p-dialog
+    [position]="'top-right'"
+    [(visible)]="visible"
+    [breakpoints]="{ '960px': '75vw' }"
+    [style]="{ width: '50vw' }"
+    [draggable]="false"
+    [resizable]="false"
+  >
+    <ng-template pTemplate="header">
+      <h3>{{ isLoginComponent ? "Connexion" : "Nouveau compte" }}</h3>
+      <p-button
+        label="{{ isLoginComponent ? 'Pas de compte ?' : 'Connexion' }}"
+        styleClass="p-button-info p-button-text"
+        (onClick)="register()"
+      ></p-button>
+    </ng-template>
+
+    <app-authentication *ngIf="isLoginComponent"></app-authentication>
+    <app-register *ngIf="!isLoginComponent"></app-register>
+  </p-dialog>
+</div>

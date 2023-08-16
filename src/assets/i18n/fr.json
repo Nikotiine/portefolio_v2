@@ -111,5 +111,17 @@
     "twsDescription": "Création et déploiement opérationnel d'une instance GitLab suite à la demande d'un développeur web indépendant.",
     "projectType": "Type de projet"
   },
-  "socialNetwork": "Réseaux Sociaux"
+  "socialNetwork": "Réseaux Sociaux",
+  "successMessage": {
+    "registered": "Compte bien enregister",
+    "authenticate": "Connexion valide"
+  },
+  "errorMessage":{
+    "invalidPassword": "Les mots de passe ne correspondent pas",
+    "001": "Ce compte existe deja",
+    "002": "Identifiants invalides"
+  },
+  "summaryMessage": {
+    "account":  "Gestion des comptes"
+  }
 }

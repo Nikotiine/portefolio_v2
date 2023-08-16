@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
     this.firstLoad = !!localStorage.getItem(this.showAnimation);
   }
   ngOnInit(): void {
+    // Si premiere visite affiche le logo de bienvenue pdt 3 seconde avant la transition
     if (!this.firstLoad) {
       localStorage.setItem(this.showAnimation, 'true');
       setTimeout(() => {

@@ -111,5 +111,17 @@
     "twsDescription": "Creation and operational deployment of a GitLab instance in response to a request from an independent web developer.",
     "projectType": "Project type"
   },
-  "socialNetwork": "Social Network"
+  "socialNetwork": "Social Network",
+  "successMessage": {
+    "registered": "Account successfully registered",
+    "authenticate": "Connexion authorized"
+  },
+  "errorMessage":{
+    "invalidPassword": "The password arent not the same",
+    "001": "This account is already used",
+    "002": "Invalid Credentials"
+  },
+  "summaryMessage": {
+    "account":  "Account Service"
+  }
 }

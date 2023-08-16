@@ -52,7 +52,7 @@ export class LanguageService {
 
   /**
    * Retourne la traduction d'une ligne ou d'un groupe de ligne suivant la key passee en paremetre
-   * @param key String , cle de traduction
+   * @param key String , cle de traduction dans le fichier i18n
    */
   public getTranslation(key: string): Observable<any> {
     return this.translateService.get(key);
@@ -70,5 +70,13 @@ export class LanguageService {
    */
   public getCurrentLanguage() {
     return this.translateService.currentLang;
+  }
+
+  /**
+   * Retourne la traduction sous forme de string
+   * @param key String,  la clef de traduction dans le fichier i18n
+   */
+  public instantTranslate(key: string): any {
+    return this.translateService.instant(key);
   }
 }

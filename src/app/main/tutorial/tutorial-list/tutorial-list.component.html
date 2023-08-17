@@ -1,25 +1,27 @@
 <h3 class="text-center text-xl">Tutorial</h3>
 <app-login-button></app-login-button>
 <div class="accordion-container">
-  <p-accordion [activeIndex]="-1">
+  <p-accordion [activeIndex]="-1" *ngFor="let tutorial of tutorials">
     <p-accordionTab>
       <ng-template pTemplate="header">
         <div class="flex align-items-center justify-content-between w-full">
           <div>
             <i class="pi pi-database mr-2"></i>
-            <span class="vertical-align-middle">PL-SQL Server</span>
+            <span class="vertical-align-middle">{{ tutorial.title }}</span>
           </div>
-          <p-button
-            label="Download"
-            styleClass="p-button-info p-button-rounded"
-          ></p-button>
+          <div>
+            {{ tutorial.likes }}
+            <span class="pi pi-thumbs-up mr-2"></span>
+            {{ tutorial.comments }}
+            <span class="pi pi-comment"></span>
+          </div>
         </div>
       </ng-template>
       <p-card class="p-4">
         <div class="markdown-container">
           <markdown
             clipboard
-            [src]="'assets/markdown/plsql-server.md'"
+            [src]="'assets/markdown/' + tutorial.src"
             [srcRelativeLink]="true"
             (load)="onLoad($event)"
             (error)="onError($event)"
@@ -27,8 +29,14 @@
           </markdown>
         </div>
       </p-card>
+      <div class="text-center">
+        <p-button
+          label="Download"
+          styleClass="p-button-rounded p-button-info"
+        ></p-button>
+      </div>
     </p-accordionTab>
-    <p-accordionTab>
+    <!--<p-accordionTab>
       <ng-template pTemplate="header">
         <div class="flex align-items-center justify-content-between w-full">
           <div>
@@ -55,6 +63,6 @@
           ></p-button>
         </div>
       </ng-template>
-    </p-accordionTab>
+    </p-accordionTab>-->
   </p-accordion>
 </div>

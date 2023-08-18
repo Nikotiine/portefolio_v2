@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TutorialAccordion } from '../../../core/models/TutorialAccordion.model';
+import { DownloadService } from '../../../core/services/download.service';
 
 @Component({
   selector: 'app-tutorial-list',
@@ -33,7 +34,7 @@ export class TutorialListComponent {
       likes: 5,
     },
   ];
-  constructor() {}
+  constructor(private readonly downloadService: DownloadService) {}
 
   onLoad($event: string) {
     console.log($event);
@@ -41,5 +42,19 @@ export class TutorialListComponent {
 
   onError($event: string | Error) {
     console.log($event);
+  }
+
+  download(src: string) {
+    this.downloadService.downloadMarkdownFile(src).subscribe({
+      next: (data) => {
+        const blob = new Blob([data], { type: 'text/markdown' });
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = src;
+        link.click();
+        window.URL.revokeObjectURL(url);
+      },
+    });
   }
 }

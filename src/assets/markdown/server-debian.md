@@ -1,4 +1,4 @@
-<p align="center">Mis en place d'un serveur Debian / Apache et Nodejs<p align="center">
+# Mis en place d'un serveur Debian / Apache et Nodejs<p align="center">
  
 ## Description
 
@@ -49,7 +49,9 @@ sudo -S
 ### Mise en route de Apache2
 Installation
 ```bash
-apt-get install apache2 
+apt-get install apache2
+```
+```bash
 apt-get install apache2-utils
 ```
 Verification que le serveur est bien installer et qu'il tourne 
@@ -61,6 +63,8 @@ Et sur l'url du serveur vous devriez avoir la page d'accueil du serveur apache :
 ### Installation des gestionnaires de paquets 
 ```bash
 apt-get install curl
+```
+```bash
 apt-get install wget
 ```
 
@@ -71,8 +75,14 @@ apt-get install git
  ### Installation de MySql 
 ```bash
 wget https://dev.mysql.com/get/mysql-apt-config_0.8.22-1_all.deb 
+```
+```bash
 apt install ./mysql-apt-config_0.8.22-1_all.deb
+```
+```bash
 apt update
+```
+```bash
 apt install mysql-server
 ```
 * Repondre OK a toute les questions pose si pas de configuration particuliere
@@ -96,8 +106,14 @@ npm -v
 ### Securite du serveur avec fail2ban
 ```bash
 apt-get install iptables
+```
+```bash
 apt-get install fail2ban
+```
+```bash
 apt update
+```
+```bash
 apt upgrade
 ```
 ### Installation du serveur Node
@@ -131,6 +147,8 @@ DocumentRoot /var/www/[repertoire-front]/build/[repertoire-du-build]
 ### Activer le vhost
 ```bash
 a2ensite www.votre-site.conf
+```
+```bash
 service apache2 restart
 ```
 * Vous devriez voir votre front end sur le http://www.votre-site.com
@@ -139,7 +157,11 @@ service apache2 restart
 
 ```bash
 apt-get install certbot
+```
+```bash
 apt-get update
+```
+```bash
 certbot
 ```
 * Laisser certbot creer un nouveau vhost avec les info du vhost precedement configurer

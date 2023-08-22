@@ -30,12 +30,11 @@
     </div>
     <div class="col-9 padding-4">
       <div class="flex w-full justify-content-end mobile-text-center">
-        <a
-          class="p-button p-button-rounded text-white-alpha-90"
-          href="assets/img/Nicolas_Godin_CV.pdf"
-          target="_blank"
-          >{{ "curriculum.downloadPdf" | translate }}</a
-        >
+        <p-button
+          label="{{ 'curriculum.downloadPdf' | translate }}"
+          (onClick)="downloadPdf()"
+          styleClass="p-button-rounded p-button-info"
+        ></p-button>
       </div>
 
       <h3 class="underline subtitle">

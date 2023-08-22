@@ -10,39 +10,35 @@ import { ApiConfiguration } from '../api-configuration';
 import { StrictHttpResponse } from '../strict-http-response';
 import { RequestBuilder } from '../request-builder';
 
-import { UserProfileDto } from '../models/user-profile-dto';
-import { UserRegisterDto } from '../models/user-register-dto';
+import { LikeCreateDto } from '../models/like-create-dto';
+import { LikeDto } from '../models/like-dto';
 
 @Injectable({ providedIn: 'root' })
-export class UserService extends BaseService {
+export class LikeService extends BaseService {
   constructor(config: ApiConfiguration, http: HttpClient) {
     super(config, http);
   }
 
-  /** Path part for operation `userControllerRegister()` */
-  static readonly UserControllerRegisterPath = '/api/user/register';
+  /** Path part for operation `likeControllerGiveLikeForTutorial()` */
+  static readonly LikeControllerGiveLikeForTutorialPath = '/api/like/tutorial';
 
   /**
-   * Point d'entrée pour creer un nouvel utilisateur.
+   * Envoyer un like pour un tutorial.
    *
    *
    *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `userControllerRegister()` instead.
+   * To access only the response body, use `likeControllerGiveLikeForTutorial()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  userControllerRegister$Response(
+  likeControllerGiveLikeForTutorial$Response(
     params: {
-  
-    /**
-     * Pour voir la description du body merci de regarder dans les DTO => UserRegisterDto
-     */
-    body: UserRegisterDto
+      body: LikeCreateDto
     },
     context?: HttpContext
-  ): Observable<StrictHttpResponse<UserProfileDto>> {
-    const rb = new RequestBuilder(this.rootUrl, UserService.UserControllerRegisterPath, 'post');
+  ): Observable<StrictHttpResponse<LikeDto>> {
+    const rb = new RequestBuilder(this.rootUrl, LikeService.LikeControllerGiveLikeForTutorialPath, 'post');
     if (params) {
       rb.body(params.body, 'application/json');
     }
@@ -52,33 +48,29 @@ export class UserService extends BaseService {
     ).pipe(
       filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return r as StrictHttpResponse<UserProfileDto>;
+        return r as StrictHttpResponse<LikeDto>;
       })
     );
   }
 
   /**
-   * Point d'entrée pour creer un nouvel utilisateur.
+   * Envoyer un like pour un tutorial.
    *
    *
    *
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `userControllerRegister$Response()` instead.
+   * To access the full response (for headers, for example), `likeControllerGiveLikeForTutorial$Response()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  userControllerRegister(
+  likeControllerGiveLikeForTutorial(
     params: {
-  
-    /**
-     * Pour voir la description du body merci de regarder dans les DTO => UserRegisterDto
-     */
-    body: UserRegisterDto
+      body: LikeCreateDto
     },
     context?: HttpContext
-  ): Observable<UserProfileDto> {
-    return this.userControllerRegister$Response(params, context).pipe(
-      map((r: StrictHttpResponse<UserProfileDto>): UserProfileDto => r.body)
+  ): Observable<LikeDto> {
+    return this.likeControllerGiveLikeForTutorial$Response(params, context).pipe(
+      map((r: StrictHttpResponse<LikeDto>): LikeDto => r.body)
     );
   }
 

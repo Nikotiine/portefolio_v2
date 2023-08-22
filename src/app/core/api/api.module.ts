@@ -6,6 +6,7 @@ import { ApiConfiguration, ApiConfigurationParams } from './api-configuration';
 
 import { UserService } from './services/user.service';
 import { AuthenticationService } from './services/authentication.service';
+import { LikeService } from './services/like.service';
 
 /**
  * Module that provides all services and configuration.
@@ -17,6 +18,7 @@ import { AuthenticationService } from './services/authentication.service';
   providers: [
     UserService,
     AuthenticationService,
+    LikeService,
     ApiConfiguration
   ],
 })

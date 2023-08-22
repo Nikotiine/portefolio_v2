@@ -1,8 +1,11 @@
 <h3 class="text-center text-xl">Tutorial</h3>
 <app-login-button></app-login-button>
 <div class="accordion-container">
-  <p-accordion [activeIndex]="-1" *ngFor="let tutorial of tutorials">
-    <p-accordionTab>
+  <p-accordion
+    [activeIndex]="-1"
+    *ngFor="let tutorial of tutorials; let index = index"
+  >
+    <p-accordionTab [tabIndex]="index">
       <ng-template pTemplate="header">
         <div class="flex align-items-center justify-content-between w-full">
           <div>
@@ -34,6 +37,11 @@
           label="Download"
           (onClick)="downloadMarkdown(tutorial.src)"
           styleClass="p-button-rounded p-button-info"
+        ></p-button>
+        <p-button
+          icon="pi pi-thumbs-up"
+          styleClass="p-button-text p-button-rounded"
+          (onClick)="like(tutorial.id)"
         ></p-button>
       </div>
     </p-accordionTab>

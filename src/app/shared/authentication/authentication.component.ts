@@ -48,7 +48,6 @@ export class AuthenticationComponent {
           this.authenticate.emit(true);
         },
         error: (err) => {
-          console.log(err);
           this.customMessageService.errorMessage('account', err.error.message);
         },
       });

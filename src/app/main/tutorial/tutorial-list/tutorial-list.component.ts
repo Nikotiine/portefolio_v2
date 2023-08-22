@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { TutorialAccordion } from '../../../core/models/TutorialAccordion.model';
 import { DownloadService } from '../../../core/services/download.service';
+import { SecurityService } from '../../../core/services/security.service';
+import { LikeService } from '../../../core/api/services/like.service';
 
 @Component({
   selector: 'app-tutorial-list',
@@ -38,7 +40,11 @@ export class TutorialListComponent {
       likes: 5,
     },
   ];
-  constructor(private readonly downloadService: DownloadService) {}
+  constructor(
+    private readonly downloadService: DownloadService,
+    private readonly securityService: SecurityService,
+    private readonly likeService: LikeService
+  ) {}
 
   onLoad($event: string) {
     console.log($event);
@@ -50,5 +56,11 @@ export class TutorialListComponent {
 
   public downloadMarkdown(source: string): void {
     this.downloadService.download('markdown', 'markdown', source);
+  }
+
+  public like(tutorialId: number): void {
+    if (!this.securityService.isLogged()) {
+      console.log('nope');
+    }
   }
 }

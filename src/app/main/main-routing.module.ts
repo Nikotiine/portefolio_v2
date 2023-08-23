@@ -9,11 +9,15 @@ import { KnowledgeComponent } from './knowledge/knowledge.component';
 import { CurriculumComponent } from './curriculum/curriculum.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { SocialNetworkComponent } from './social-network/social-network.component';
+import { UserResolver } from '../core/resolvers/user.resolver';
 
 const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
+    resolve: {
+      user: UserResolver,
+    },
     children: [
       {
         path: '',

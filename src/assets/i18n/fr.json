@@ -119,10 +119,12 @@
   "errorMessage":{
     "invalidPassword": "Les mots de passe ne correspondent pas",
     "001": "Ce compte existe deja",
-    "002": "Identifiants invalides"
+    "002": "Identifiants invalides",
+    "003": "Like impossible"
   },
   "summaryMessage": {
-    "account":  "Gestion des comptes"
+    "account":  "Gestion des comptes",
+    "tutorial": "Gestion des tutoriels"
   },
   "auth": {
     "login": "Connexion",
@@ -134,5 +136,9 @@
     "confirmPassword": "Confirmez votre mot de passe",
     "confirm": "Valider",
     "save": "Sauvegarder"
+  },
+  "tutorial": {
+    "pleaseConnect": "Connectez vous pour liker",
+    "likeIt": "J'aime"
   }
 }

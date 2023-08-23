@@ -5,6 +5,8 @@ import { UserCredentialsDto } from '../../core/api/models/user-credentials-dto';
 import { AuthenticationService } from '../../core/api/services/authentication.service';
 import { SecurityService } from '../../core/services/security.service';
 import { UserProfileDto } from '../../core/api/models/user-profile-dto';
+import { mergeMap } from 'rxjs';
+import { ProfileService } from '../../core/services/profile.service';
 
 @Component({
   selector: 'app-authentication',
@@ -15,7 +17,9 @@ export class AuthenticationComponent {
   @Output() authenticate: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Input()
   set user(user: UserProfileDto) {
-    this.form.controls['username'].setValue(user.username);
+    if (user) {
+      this.form.controls['username'].setValue(user.username);
+    }
   }
 
   public form: FormGroup;
@@ -24,7 +28,8 @@ export class AuthenticationComponent {
     private readonly fb: FormBuilder,
     private readonly customMessageService: CustomMessageService,
     private readonly authenticationService: AuthenticationService,
-    private readonly securityService: SecurityService
+    private readonly securityService: SecurityService,
+    private readonly profileService: ProfileService
   ) {
     this.form = this.fb.group({
       username: ['', [Validators.required]],
@@ -41,9 +46,15 @@ export class AuthenticationComponent {
       .authenticationControllerLogin({
         body: credentials,
       })
+      .pipe(
+        mergeMap((token) => {
+          this.securityService.saveToken(token);
+          return this.authenticationService.authenticationControllerMe();
+        })
+      )
       .subscribe({
-        next: (res) => {
-          this.securityService.saveToken(res);
+        next: (user) => {
+          this.profileService.setUserProfile(user);
           this.customMessageService.successMessage('account', 'authenticate');
           this.authenticate.emit(true);
         },

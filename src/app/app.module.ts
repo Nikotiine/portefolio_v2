@@ -10,6 +10,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MessageService } from 'primeng/api';
 import { CookieModule } from 'ngx-cookie';
 import { MarkdownModule } from 'ngx-markdown';
+import { ApiInterceptorProvider } from './core/api-portfolio.interceptor';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,7 +29,7 @@ import { MarkdownModule } from 'ngx-markdown';
       },
     }),
   ],
-  providers: [MessageService],
+  providers: [MessageService, ApiInterceptorProvider],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

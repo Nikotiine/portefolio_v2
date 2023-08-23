@@ -119,10 +119,12 @@
   "errorMessage":{
     "invalidPassword": "The password arent not the same",
     "001": "This account is already used",
-    "002": "Invalid Credentials"
+    "002": "Invalid Credentials",
+    "003": "Invalid Like"
   },
   "summaryMessage": {
-    "account":  "Account Service"
+    "account":  "Account Service",
+    "tutorial": "Tutorial Service"
   },
   "auth": {
     "login": "Log-In",
@@ -134,5 +136,9 @@
     "confirmPassword": "Confirm your password",
     "confirm": "Confirm",
     "save": "Save"
+  },
+  "tutorial": {
+    "pleaseConnect": "Please connect to like",
+    "likeIt": "Like"
   }
 }

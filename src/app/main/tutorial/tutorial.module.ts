@@ -11,6 +11,7 @@ import { SharedModule } from '../../shared/shared.module';
 import { TooltipModule } from 'primeng/tooltip';
 import { MarkdownModule } from 'ngx-markdown';
 import { AccordionModule } from 'primeng/accordion';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [TutorialListComponent],
@@ -24,6 +25,7 @@ import { AccordionModule } from 'primeng/accordion';
     TooltipModule,
     MarkdownModule,
     AccordionModule,
+    TranslateModule,
   ],
 })
 export class TutorialModule {}

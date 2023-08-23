@@ -4,4 +4,5 @@ export class TutorialAccordion {
   src: string;
   comments: number;
   likes: number;
+  likedByMe: boolean;
 }

@@ -12,6 +12,7 @@ import { RequestBuilder } from '../request-builder';
 
 import { Token } from '../models/token';
 import { UserCredentialsDto } from '../models/user-credentials-dto';
+import { UserProfileDto } from '../models/user-profile-dto';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService extends BaseService {
@@ -79,6 +80,58 @@ export class AuthenticationService extends BaseService {
   ): Observable<Token> {
     return this.authenticationControllerLogin$Response(params, context).pipe(
       map((r: StrictHttpResponse<Token>): Token => r.body)
+    );
+  }
+
+  /** Path part for operation `authenticationControllerMe()` */
+  static readonly AuthenticationControllerMePath = '/api/authentication/me';
+
+  /**
+   * Jwt authentifacation.
+   *
+   * Point d'entree pour l'autentification du token
+   *
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `authenticationControllerMe()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  authenticationControllerMe$Response(
+    params?: {
+    },
+    context?: HttpContext
+  ): Observable<StrictHttpResponse<UserProfileDto>> {
+    const rb = new RequestBuilder(this.rootUrl, AuthenticationService.AuthenticationControllerMePath, 'get');
+    if (params) {
+    }
+
+    return this.http.request(
+      rb.build({ responseType: 'json', accept: 'application/json', context })
+    ).pipe(
+      filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<UserProfileDto>;
+      })
+    );
+  }
+
+  /**
+   * Jwt authentifacation.
+   *
+   * Point d'entree pour l'autentification du token
+   *
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `authenticationControllerMe$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  authenticationControllerMe(
+    params?: {
+    },
+    context?: HttpContext
+  ): Observable<UserProfileDto> {
+    return this.authenticationControllerMe$Response(params, context).pipe(
+      map((r: StrictHttpResponse<UserProfileDto>): UserProfileDto => r.body)
     );
   }
 

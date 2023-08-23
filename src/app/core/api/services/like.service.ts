@@ -74,4 +74,56 @@ export class LikeService extends BaseService {
     );
   }
 
+  /** Path part for operation `likeControllerGetAllLikesOfTutorials()` */
+  static readonly LikeControllerGetAllLikesOfTutorialsPath = '/api/like/tutorials';
+
+  /**
+   * Recupere tous les likes des tuto.
+   *
+   *
+   *
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `likeControllerGetAllLikesOfTutorials()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  likeControllerGetAllLikesOfTutorials$Response(
+    params?: {
+    },
+    context?: HttpContext
+  ): Observable<StrictHttpResponse<Array<LikeDto>>> {
+    const rb = new RequestBuilder(this.rootUrl, LikeService.LikeControllerGetAllLikesOfTutorialsPath, 'get');
+    if (params) {
+    }
+
+    return this.http.request(
+      rb.build({ responseType: 'json', accept: 'application/json', context })
+    ).pipe(
+      filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<Array<LikeDto>>;
+      })
+    );
+  }
+
+  /**
+   * Recupere tous les likes des tuto.
+   *
+   *
+   *
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `likeControllerGetAllLikesOfTutorials$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  likeControllerGetAllLikesOfTutorials(
+    params?: {
+    },
+    context?: HttpContext
+  ): Observable<Array<LikeDto>> {
+    return this.likeControllerGetAllLikesOfTutorials$Response(params, context).pipe(
+      map((r: StrictHttpResponse<Array<LikeDto>>): Array<LikeDto> => r.body)
+    );
+  }
+
 }

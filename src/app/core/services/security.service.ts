@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie';
 import { Token } from '../api/models/token';
 import { BehaviorSubject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +10,10 @@ import { BehaviorSubject } from 'rxjs';
 export class SecurityService {
   private readonly access_token_key = 'access_token';
   public authenticated$: BehaviorSubject<boolean> = new BehaviorSubject(false);
-  constructor(private readonly cookieService: CookieService) {}
+  constructor(
+    private readonly cookieService: CookieService,
+    private readonly router: Router
+  ) {}
 
   /**
    * Sauvegarde le token dans un cookie
@@ -17,7 +21,7 @@ export class SecurityService {
    * @param token
    */
   public saveToken(token: Token): void {
-    this.cookieService.put(this.access_token_key, token.toString());
+    this.cookieService.put(this.access_token_key, token.access_token);
     this.authenticated$.next(true);
   }
 
@@ -37,5 +41,10 @@ export class SecurityService {
   public logout(): void {
     this.cookieService.remove(this.access_token_key);
     this.authenticated$.next(false);
+  }
+
+  public logoutByResolver(): Promise<boolean> {
+    this.logout();
+    return this.router.navigate(['/home']);
   }
 }

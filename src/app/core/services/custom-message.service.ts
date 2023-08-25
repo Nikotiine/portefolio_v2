@@ -44,6 +44,11 @@ export class CustomMessageService {
     });
   }
 
+  /**
+   * Affiche les message d'information'
+   * @param summary Sommaire du toast , traduction a partir de i18n dans l'object summaryMessage
+   * @param message Message afficher dans le taost, traduit a partir de i18n dans l'object successMessage
+   */
   public infoMessage(summary: string, message: string): void {
     this.messageService.add({
       severity: 'info',

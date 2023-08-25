@@ -1,21 +1,17 @@
-<p-card>
-  <div class="text-right">
-    <p-button
-      (click)="showDialog()"
-      icon="pi pi-power-off"
-      pTooltip="{{ 'auth.login' | translate }}"
-      styleClass="p-button-secondary"
-      *ngIf="!isLogged"
-    ></p-button>
-    <p-button
-      (click)="logout()"
-      pTooltip="{{ 'auth.logout' | translate }}"
-      icon="pi pi-power-off"
-      styleClass="p-button-danger"
-      *ngIf="isLogged"
-    ></p-button>
-  </div>
-</p-card>
+<p-button
+  (click)="showDialog()"
+  icon="pi pi-power-off"
+  styleClass="p-button-secondary"
+  *ngIf="!isLogged"
+></p-button>
+<p-button
+  (click)="logout()"
+  pTooltip="{{ 'auth.logout' | translate }}"
+  icon="pi pi-power-off"
+  styleClass="p-button-danger"
+  *ngIf="isLogged"
+></p-button>
+
 <div class="card flex justify-content-center">
   <p-dialog
     [position]="'top-right'"

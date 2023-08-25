@@ -37,6 +37,11 @@ export class AuthenticationComponent {
     });
   }
 
+  /**
+   * Soumission du formulaire de login. Token attendu en reponse.
+   * Test du token des la reponse recu pour valider l'access a l'api.
+   * Le token est sauvegarde dans un cookie
+   */
   public submit(): void {
     const credentials: UserCredentialsDto = {
       username: this.form.controls['username'].value,

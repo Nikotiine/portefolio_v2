@@ -13,16 +13,31 @@ export class ProfileService {
   private user$: Observable<UserProfileDto>;
   private static SHARE_REPLAY_TIMER = 1000 * 60 * 15;
   constructor(private readonly authenticationService: AuthenticationService) {}
+
+  /**
+   * Retourne l'objet UserProfile quand l'utlisateur est connecter
+   */
   public getUserProfile(): UserProfileDto {
     return this.user;
   }
+
+  /**
+   * Mise en cache du UserProfile
+   * @param user le dto UserProfileDto
+   */
   public setUserProfile(user: UserProfileDto) {
     this.user = user;
     this.admin = user.role === UserRoles.ADMIN;
   }
+  // Indique si l'utlisateur est admin ou non
   public isAdmin(): boolean {
     return this.admin;
   }
+
+  /**
+   * Permet d'avoir le UserProfileDto sous forme d'observable et mis en cache avec un relaod automatique des donne toutes
+   * le 15 minutes
+   */
   public getUserProfileObservable(): Observable<UserProfileDto> {
     if (!this.user$) {
       this.user$ = this.authenticationService

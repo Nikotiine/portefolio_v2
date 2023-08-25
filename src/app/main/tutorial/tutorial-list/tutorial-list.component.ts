@@ -64,6 +64,7 @@ export class TutorialListComponent implements OnInit {
     this.loading = true;
   }
   ngOnInit(): void {
+    //Surveille si l'utilisateur se connecte ou se deconnecte
     this.securityService.authenticated$.subscribe({
       next: (isLogged) => {
         this.isLogged = isLogged;
@@ -72,10 +73,19 @@ export class TutorialListComponent implements OnInit {
     this.loadLikes();
   }
 
+  /**
+   * Permet de telecharger le fichier markdown du tutorial.
+   * Utlise le downloadService
+   * @param source Source du fichier markdown
+   */
   public downloadMarkdown(source: string): void {
     this.downloadService.download('markdown', 'markdown', source);
   }
 
+  /**
+   * Like ou Unlike du tutoriel
+   * @param tutorialId l'id du tutoriel ciblé
+   */
   public like(tutorialId: number): void {
     const tutorial: TutorialAccordion = this.tutorials.find(
       (tutorial: TutorialAccordion) => tutorial.id === tutorialId
@@ -106,17 +116,22 @@ export class TutorialListComponent implements OnInit {
       });
   }
 
+  /**
+   * Charge tout les likes des tuto enregistre en bdd
+   */
   private loadLikes(): void {
     this.likeService.likeControllerGetAllLikesOfTutorials().subscribe({
-      next: (data) => {
-        this.likes = data;
+      next: (likesDto: LikeDto[]) => {
+        this.likes = likesDto;
         for (const tutorial of this.tutorials) {
-          const likes = data.filter((like) => like.tutorialId === tutorial.id);
+          const likes: LikeDto[] = likesDto.filter(
+            (like) => like.tutorialId === tutorial.id
+          );
           tutorial.likes = likes.length;
         }
-
+        // Si l'utilisateur est connecté
         if (this.isLogged) {
-          this.showMyLikes(data);
+          this.showMyLikes(likesDto);
         }
         this.loading = false;
       },
@@ -129,6 +144,10 @@ export class TutorialListComponent implements OnInit {
     });
   }
 
+  /**
+   * Modifie l'attribut likeByMe du model TutorialAccordion en fonction des like de l'utilisateur connecté
+   * @param likes La liste de tout les like en Bdd
+   */
   private showMyLikes(likes: LikeDto[]) {
     const userProfile: UserProfileDto = this.profileService.getUserProfile();
     const myLikes: LikeDto[] = likes.filter(

@@ -43,6 +43,7 @@ export class SecurityService {
     this.authenticated$.next(false);
   }
 
+  // Utilise la methode de logout si le token de l'utilisateur est expirer
   public logoutByResolver(): Promise<boolean> {
     this.logout();
     return this.router.navigate(['/home']);

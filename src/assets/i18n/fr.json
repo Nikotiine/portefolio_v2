@@ -114,7 +114,9 @@
   "socialNetwork": "Réseaux Sociaux",
   "successMessage": {
     "registered": "Compte bien enregister, vous pouvez vous connecter",
-    "authenticate": "Connexion valide"
+    "authenticate": "Connexion valide",
+    "like": "Vous aimez",
+    "unlike": "Vous n'aimez plus"
   },
   "errorMessage":{
     "invalidPassword": "Les mots de passe ne correspondent pas",
@@ -139,6 +141,8 @@
   },
   "tutorial": {
     "pleaseConnect": "Connectez vous pour liker",
-    "likeIt": "J'aime"
+    "likeIt": "J'aime",
+    "unlikeIt": "Je n'aime plus",
+    "downloadMD": "Telecharger le Markdown"
   }
 }

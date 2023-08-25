@@ -52,6 +52,7 @@ export class TutorialListComponent implements OnInit {
       likedByMe: false,
     },
   ];
+  private readonly summaryCustomMessage: string = 'tutorial';
   constructor(
     private readonly downloadService: DownloadService,
     private readonly securityService: SecurityService,
@@ -70,19 +71,16 @@ export class TutorialListComponent implements OnInit {
     });
     this.loadLikes();
   }
-  onLoad($event: string) {
-    console.log($event);
-  }
-
-  onError($event: string | Error) {
-    console.log($event);
-  }
 
   public downloadMarkdown(source: string): void {
     this.downloadService.download('markdown', 'markdown', source);
   }
 
   public like(tutorialId: number): void {
+    const tutorial: TutorialAccordion = this.tutorials.find(
+      (tutorial: TutorialAccordion) => tutorial.id === tutorialId
+    );
+    const message: string = tutorial.likedByMe ? 'unlike' : 'like';
     const like: LikeCreateDto = {
       tutorialId: tutorialId,
       user: this.profileService.getUserProfile(),
@@ -93,11 +91,17 @@ export class TutorialListComponent implements OnInit {
       })
       .subscribe({
         next: (res) => {
-          this.customMessageService.successMessage('tutorial', 'thanks');
+          this.customMessageService.infoMessage(
+            this.summaryCustomMessage,
+            message
+          );
           this.loadLikes();
         },
         error: (err) => {
-          this.customMessageService.errorMessage('tutorial', err.error.message);
+          this.customMessageService.errorMessage(
+            this.summaryCustomMessage,
+            err.error.message
+          );
         },
       });
   }
@@ -117,7 +121,10 @@ export class TutorialListComponent implements OnInit {
         this.loading = false;
       },
       error: (err) => {
-        console.log(err);
+        this.customMessageService.errorMessage(
+          this.summaryCustomMessage,
+          err.error.message
+        );
       },
     });
   }
@@ -128,9 +135,9 @@ export class TutorialListComponent implements OnInit {
       (like) => like.user.id === userProfile.id
     );
     for (const tutorial of this.tutorials) {
-      if (myLikes.find((like) => like.tutorialId === tutorial.id)) {
-        tutorial.likedByMe = true;
-      }
+      tutorial.likedByMe = !!myLikes.find(
+        (like) => like.tutorialId === tutorial.id
+      );
     }
   }
 }

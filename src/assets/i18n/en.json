@@ -114,7 +114,9 @@
   "socialNetwork": "Social Network",
   "successMessage": {
     "registered": "Account successfully registered, you can connect",
-    "authenticate": "Connexion authorized"
+    "authenticate": "Connexion authorized",
+    "like": "You like",
+    "unlike": "You no longer like"
   },
   "errorMessage":{
     "invalidPassword": "The password arent not the same",
@@ -139,6 +141,8 @@
   },
   "tutorial": {
     "pleaseConnect": "Please connect to like",
-    "likeIt": "Like"
+    "likeIt": "Like",
+    "unlikeIt": "Don't like",
+    "downloadMD": "Download Markdown"
   }
 }

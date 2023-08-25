@@ -43,4 +43,16 @@ export class CustomMessageService {
       detail: this.languageService.instantTranslate('errorMessage.' + message),
     });
   }
+
+  public infoMessage(summary: string, message: string): void {
+    this.messageService.add({
+      severity: 'info',
+      summary: this.languageService.instantTranslate(
+        'summaryMessage.' + summary
+      ),
+      detail: this.languageService.instantTranslate(
+        'successMessage.' + message
+      ),
+    });
+  }
 }

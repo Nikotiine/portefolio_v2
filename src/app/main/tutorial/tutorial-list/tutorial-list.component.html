@@ -4,59 +4,64 @@
   class="absolute logout-button"
 ></app-login-button>
 <div class="accordion-container" *ngIf="!loading">
-  <p-accordion
-    [activeIndex]="-1"
-    *ngFor="let tutorial of tutorials; let index = index"
-  >
-    <p-accordionTab [tabIndex]="index">
-      <ng-template pTemplate="header">
-        <div class="flex align-items-center justify-content-between w-full">
-          <div>
-            <i class="pi pi-database mr-2"></i>
-            <span class="vertical-align-middle">{{ tutorial.title }}</span>
+  <p-accordion [multiple]="false">
+    <ng-container *ngFor="let tutorial of tutorials; let index = index">
+      <p-accordionTab [tabIndex]="index">
+        <ng-template pTemplate="header">
+          <div class="flex align-items-center justify-content-between w-full">
+            <div>
+              <i class="pi pi-database mr-2"></i>
+              <span class="vertical-align-middle">{{ tutorial.title }}</span>
+            </div>
+            <div>
+              {{ tutorial.likes }}
+              <span class="pi pi-thumbs-up mr-2"></span>
+              {{ tutorial.totalComments }}
+              <span class="pi pi-comment"></span>
+            </div>
           </div>
-          <div>
-            {{ tutorial.likes }}
-            <span class="pi pi-thumbs-up mr-2"></span>
-            {{ tutorial.comments }}
-            <span class="pi pi-comment"></span>
+        </ng-template>
+        <p-card class="p-4">
+          <div class="markdown-container">
+            <markdown
+              clipboard
+              [src]="'assets/markdown/' + tutorial.src"
+              [srcRelativeLink]="true"
+            >
+            </markdown>
           </div>
+        </p-card>
+        <div class="text-center">
+          <p-button
+            label="{{ 'tutorial.downloadMD' | translate }}"
+            (onClick)="downloadMarkdown(tutorial.src)"
+            styleClass="p-button-rounded p-button-info mr-2"
+          ></p-button>
+          <app-login-button
+            *ngIf="!isLogged"
+            pTooltip="Connectez vous pour liker ou commenter"
+          ></app-login-button>
+          <p-button
+            icon="{{
+              tutorial.likedByMe ? 'pi pi-thumbs-up-fill' : 'pi pi-thumbs-up'
+            }}"
+            styleClass="p-button-text p-button-rounded"
+            *ngIf="isLogged"
+            pTooltip="{{
+              tutorial.likedByMe
+                ? ('tutorial.unlikeIt' | translate)
+                : ('tutorial.likeIt' | translate)
+            }}"
+            (onClick)="like(tutorial.id)"
+          ></p-button>
         </div>
-      </ng-template>
-      <p-card class="p-4">
-        <div class="markdown-container">
-          <markdown
-            clipboard
-            [src]="'assets/markdown/' + tutorial.src"
-            [srcRelativeLink]="true"
-          >
-          </markdown>
-        </div>
-      </p-card>
-      <div class="text-center">
-        <p-button
-          label="{{ 'tutorial.downloadMD' | translate }}"
-          (onClick)="downloadMarkdown(tutorial.src)"
-          styleClass="p-button-rounded p-button-info mr-2"
-        ></p-button>
-        <app-login-button
-          *ngIf="!isLogged"
-          pTooltip="Connectez vous pour liker ou commenter"
-        ></app-login-button>
-        <p-button
-          icon="{{
-            tutorial.likedByMe ? 'pi pi-thumbs-up-fill' : 'pi pi-thumbs-up'
-          }}"
-          styleClass="p-button-text p-button-rounded"
+        <app-comment-list [comments]="tutorial.comments"></app-comment-list>
+        <app-comment-form
+          [tutorialId]="tutorial.id"
           *ngIf="isLogged"
-          pTooltip="{{
-            tutorial.likedByMe
-              ? ('tutorial.unlikeIt' | translate)
-              : ('tutorial.likeIt' | translate)
-          }}"
-          (onClick)="like(tutorial.id)"
-        ></p-button>
-      </div>
-    </p-accordionTab>
+          (newComment)="newData()"
+        ></app-comment-form>
+      </p-accordionTab>
+    </ng-container>
   </p-accordion>
 </div>

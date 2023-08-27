@@ -1,11 +1,22 @@
 # PortfolioV2
 
-ng-openapi-gen --input http://localhost:3000/api-json --output src/app/core/api
+
+
+### Descritpion
+
+Version 2.0 de mon portfolio avec section tuturial consultable.
+Possiblilite de like les tuto et de les commenter.
+Il sera possible aussi de liker les commentaire ou d'y repondre.
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
+## Recuperer les models de l'api
+
+```bash
+ng-openapi-gen --input http://localhost:3000/api-json --output src/app/core/api
+```
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.

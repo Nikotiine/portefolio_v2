@@ -6,3 +6,5 @@ export { UserCredentialsDto } from './models/user-credentials-dto';
 export { Token } from './models/token';
 export { LikeCreateDto } from './models/like-create-dto';
 export { LikeDto } from './models/like-dto';
+export { CommentCreateDto } from './models/comment-create-dto';
+export { CommentDto } from './models/comment-dto';

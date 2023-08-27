@@ -23,9 +23,9 @@ export class UserService extends BaseService {
   static readonly UserControllerRegisterPath = '/api/user/register';
 
   /**
-   * Point d'entrée pour creer un nouvel utilisateur.
+   * Creation d' un nouvel utilisateur.
    *
-   *
+   * La creation d'un nouveau compte utilisateur avec l'objet UserRegisterDto dans le body
    *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `userControllerRegister()` instead.
@@ -58,9 +58,9 @@ export class UserService extends BaseService {
   }
 
   /**
-   * Point d'entrée pour creer un nouvel utilisateur.
+   * Creation d' un nouvel utilisateur.
    *
-   *
+   * La creation d'un nouveau compte utilisateur avec l'objet UserRegisterDto dans le body
    *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `userControllerRegister$Response()` instead.

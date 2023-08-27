@@ -24,9 +24,9 @@ export class AuthenticationService extends BaseService {
   static readonly AuthenticationControllerLoginPath = '/api/authentication/login';
 
   /**
-   * Point d'access à l'API.
+   * Point de connexion à l'API.
    *
-   * Une fois la validation du couple email/password faite, retourne un token d'access
+   * Une fois la validation du couple username/password faite, retourne un JWT
    *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `authenticationControllerLogin()` instead.
@@ -59,9 +59,9 @@ export class AuthenticationService extends BaseService {
   }
 
   /**
-   * Point d'access à l'API.
+   * Point de connexion à l'API.
    *
-   * Une fois la validation du couple email/password faite, retourne un token d'access
+   * Une fois la validation du couple username/password faite, retourne un JWT
    *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `authenticationControllerLogin$Response()` instead.
@@ -87,7 +87,7 @@ export class AuthenticationService extends BaseService {
   static readonly AuthenticationControllerMePath = '/api/authentication/me';
 
   /**
-   * Jwt authentifacation.
+   * Profil utilisateur.
    *
    * Point d'entree pour l'autentification du token
    *
@@ -116,7 +116,7 @@ export class AuthenticationService extends BaseService {
   }
 
   /**
-   * Jwt authentifacation.
+   * Profil utilisateur.
    *
    * Point d'entree pour l'autentification du token
    *

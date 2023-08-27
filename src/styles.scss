@@ -43,7 +43,15 @@ code{
 .language-bash{
   color: #be1919;
   max-width: 100%;
-  display: block; /* Facultatif : pour que le code ne déborde pas horizontalement */
+  display: block;
   overflow-x: scroll;
   min-height: 2rem;
+}
+@media screen and (max-width: 480px){
+  code{
+   word-break: break-all;
+  }
+  markdown > ul > li{
+    word-break: break-all;
+  }
 }

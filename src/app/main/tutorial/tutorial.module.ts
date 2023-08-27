@@ -12,9 +12,19 @@ import { TooltipModule } from 'primeng/tooltip';
 import { MarkdownModule } from 'ngx-markdown';
 import { AccordionModule } from 'primeng/accordion';
 import { TranslateModule } from '@ngx-translate/core';
+import { CommentFormComponent } from './comment-form/comment-form.component';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CommentListComponent } from './comment-list/comment-list.component';
+import { ChipModule } from 'primeng/chip';
+import { PaginatorModule } from 'primeng/paginator';
 
 @NgModule({
-  declarations: [TutorialListComponent],
+  declarations: [
+    TutorialListComponent,
+    CommentFormComponent,
+    CommentListComponent,
+  ],
   imports: [
     CommonModule,
     TutorialRoutingModule,
@@ -26,6 +36,10 @@ import { TranslateModule } from '@ngx-translate/core';
     MarkdownModule,
     AccordionModule,
     TranslateModule,
+    InputTextareaModule,
+    ReactiveFormsModule,
+    ChipModule,
+    PaginatorModule,
   ],
 })
 export class TutorialModule {}

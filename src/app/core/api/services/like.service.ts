@@ -19,26 +19,26 @@ export class LikeService extends BaseService {
     super(config, http);
   }
 
-  /** Path part for operation `likeControllerGiveLikeForTutorial()` */
-  static readonly LikeControllerGiveLikeForTutorialPath = '/api/like/tutorial';
+  /** Path part for operation `likeControllerLikeTutorial()` */
+  static readonly LikeControllerLikeTutorialPath = '/api/like/tutorial';
 
   /**
-   * Envoyer un like pour un tutorial.
+   * Like pour tutorials.
    *
-   *
+   * Mettre ou supprimer un like d'un tutorial
    *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `likeControllerGiveLikeForTutorial()` instead.
+   * To access only the response body, use `likeControllerLikeTutorial()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  likeControllerGiveLikeForTutorial$Response(
+  likeControllerLikeTutorial$Response(
     params: {
       body: LikeCreateDto
     },
     context?: HttpContext
   ): Observable<StrictHttpResponse<LikeDto>> {
-    const rb = new RequestBuilder(this.rootUrl, LikeService.LikeControllerGiveLikeForTutorialPath, 'post');
+    const rb = new RequestBuilder(this.rootUrl, LikeService.LikeControllerLikeTutorialPath, 'post');
     if (params) {
       rb.body(params.body, 'application/json');
     }
@@ -54,22 +54,22 @@ export class LikeService extends BaseService {
   }
 
   /**
-   * Envoyer un like pour un tutorial.
+   * Like pour tutorials.
    *
-   *
+   * Mettre ou supprimer un like d'un tutorial
    *
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `likeControllerGiveLikeForTutorial$Response()` instead.
+   * To access the full response (for headers, for example), `likeControllerLikeTutorial$Response()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  likeControllerGiveLikeForTutorial(
+  likeControllerLikeTutorial(
     params: {
       body: LikeCreateDto
     },
     context?: HttpContext
   ): Observable<LikeDto> {
-    return this.likeControllerGiveLikeForTutorial$Response(params, context).pipe(
+    return this.likeControllerLikeTutorial$Response(params, context).pipe(
       map((r: StrictHttpResponse<LikeDto>): LikeDto => r.body)
     );
   }
@@ -78,9 +78,9 @@ export class LikeService extends BaseService {
   static readonly LikeControllerGetAllLikesOfTutorialsPath = '/api/like/tutorials';
 
   /**
-   * Recupere tous les likes des tuto.
+   * Recupere tous les likes.
    *
-   *
+   * Recupere en bdd tout les likes actifs des tutoriels
    *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `likeControllerGetAllLikesOfTutorials()` instead.
@@ -107,9 +107,9 @@ export class LikeService extends BaseService {
   }
 
   /**
-   * Recupere tous les likes des tuto.
+   * Recupere tous les likes.
    *
-   *
+   * Recupere en bdd tout les likes actifs des tutoriels
    *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `likeControllerGetAllLikesOfTutorials$Response()` instead.

@@ -116,7 +116,8 @@
     "registered": "Account successfully registered, you can connect",
     "authenticate": "Connexion authorized",
     "like": "You like",
-    "unlike": "You no longer like"
+    "unlike": "You no longer like",
+    "newComment": "Comment added"
   },
   "errorMessage":{
     "invalidPassword": "The password arent not the same",

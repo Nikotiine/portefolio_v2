@@ -1,0 +1,29 @@
+<ng-container *ngFor="let comment of filteredComment">
+  <div class="flex">
+    <p-chip label="{{ comment.author.username }}" icon="pi pi-user" class="m-2">
+    </p-chip>
+    <p-button
+      styleClass="p-button-rounded p-button-text p-button-danger"
+      icon="pi pi-trash"
+      (onClick)="deleteComment(comment.id)"
+      *ngIf="comment.author.id === user.id"
+    ></p-button>
+  </div>
+  <p class="text-blue-500">
+    {{ comment.comment }} <br />
+    <span class="text-gray-200"
+      >Posté le :
+      <small>{{ comment.createdAt | date : "dd/MM/yyyy" }}</small></span
+    >
+  </p>
+</ng-container>
+<div *ngIf="comments.length > 0" class="card flex justify-content-center">
+  <p-paginator
+    (onPageChange)="onPageChange($event)"
+    [first]="startIndex"
+    [rows]="itemPerPage"
+    [totalRecords]="comments.length"
+    [alwaysShow]="false"
+    [rowsPerPageOptions]="[5, 10, 30]"
+  ></p-paginator>
+</div>

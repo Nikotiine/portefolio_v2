@@ -116,7 +116,8 @@
     "registered": "Compte bien enregister, vous pouvez vous connecter",
     "authenticate": "Connexion valide",
     "like": "Vous aimez",
-    "unlike": "Vous n'aimez plus"
+    "unlike": "Vous n'aimez plus",
+    "newComment": "Commentaire ajouté"
   },
   "errorMessage":{
     "invalidPassword": "Les mots de passe ne correspondent pas",

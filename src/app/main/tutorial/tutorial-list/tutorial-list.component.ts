@@ -8,6 +8,9 @@ import { ProfileService } from '../../../core/services/profile.service';
 import { CustomMessageService } from '../../../core/services/custom-message.service';
 import { LikeDto } from '../../../core/api/models/like-dto';
 import { UserProfileDto } from '../../../core/api/models/user-profile-dto';
+import { CommentService } from '../../../core/api/services/comment.service';
+import { CommentDto } from '../../../core/api/models/comment-dto';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-tutorial-list',
@@ -23,42 +26,50 @@ export class TutorialListComponent implements OnInit {
       id: 1,
       title: 'PL-Sql Server',
       src: 'plsql-server.md',
-      comments: 0,
+      totalComments: 0,
       likes: 0,
       likedByMe: false,
+      comments: [],
     },
     {
       id: 2,
       title: 'MS-Sql Server',
       src: 'mssql-server.md',
-      comments: 10,
+      totalComments: 0,
       likes: 0,
       likedByMe: false,
+      comments: [],
     },
     {
       id: 3,
       title: 'Git-Lab CE',
       src: 'gitlab.md',
-      comments: 1,
+      totalComments: 0,
       likes: 0,
       likedByMe: false,
+      comments: [],
     },
     {
       id: 4,
       title: 'Api Nodejs sous Apache',
       src: 'server-debian.md',
-      comments: 1,
+      totalComments: 0,
       likes: 0,
       likedByMe: false,
+      comments: [],
     },
   ];
+  public comments: CommentDto[];
+
   private readonly summaryCustomMessage: string = 'tutorial';
+
   constructor(
     private readonly downloadService: DownloadService,
     private readonly securityService: SecurityService,
     private readonly likeService: LikeService,
     private readonly profileService: ProfileService,
-    private readonly customMessageService: CustomMessageService
+    private readonly customMessageService: CustomMessageService,
+    private readonly commentService: CommentService
   ) {
     this.isLogged = this.securityService.isLogged();
     this.loading = true;
@@ -70,7 +81,7 @@ export class TutorialListComponent implements OnInit {
         this.isLogged = isLogged;
       },
     });
-    this.loadLikes();
+    this.loadData();
   }
 
   /**
@@ -96,7 +107,7 @@ export class TutorialListComponent implements OnInit {
       user: this.profileService.getUserProfile(),
     };
     this.likeService
-      .likeControllerGiveLikeForTutorial({
+      .likeControllerLikeTutorial({
         body: like,
       })
       .subscribe({
@@ -105,7 +116,7 @@ export class TutorialListComponent implements OnInit {
             this.summaryCustomMessage,
             message
           );
-          this.loadLikes();
+          this.loadData();
         },
         error: (err) => {
           this.customMessageService.errorMessage(
@@ -119,19 +130,27 @@ export class TutorialListComponent implements OnInit {
   /**
    * Charge tout les likes des tuto enregistre en bdd
    */
-  private loadLikes(): void {
-    this.likeService.likeControllerGetAllLikesOfTutorials().subscribe({
-      next: (likesDto: LikeDto[]) => {
-        this.likes = likesDto;
+  private loadData(): void {
+    forkJoin([
+      this.likeService.likeControllerGetAllLikesOfTutorials(),
+      this.commentService.commentControllerFindCommentForTutorial(),
+    ]).subscribe({
+      next: (data) => {
+        this.likes = data[0];
         for (const tutorial of this.tutorials) {
-          const likes: LikeDto[] = likesDto.filter(
+          const likes: LikeDto[] = data[0].filter(
             (like) => like.tutorialId === tutorial.id
           );
+          const comments: CommentDto[] = data[1].filter(
+            (comment) => comment.tutorialId === tutorial.id
+          );
+          tutorial.totalComments = comments.length;
+          tutorial.comments = comments;
           tutorial.likes = likes.length;
         }
         // Si l'utilisateur est connecté
         if (this.isLogged) {
-          this.showMyLikes(likesDto);
+          this.showMyLikes(data[0]);
         }
         this.loading = false;
       },
@@ -158,5 +177,9 @@ export class TutorialListComponent implements OnInit {
         (like) => like.tutorialId === tutorial.id
       );
     }
+  }
+
+  public newData(): void {
+    this.loadData();
   }
 }

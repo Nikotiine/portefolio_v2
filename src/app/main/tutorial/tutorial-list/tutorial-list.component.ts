@@ -180,6 +180,11 @@ export class TutorialListComponent implements OnInit {
     }
   }
 
+  /**
+   * Creer le comment view model pour comment-list
+   * Met a jour l'attribut isMyComment en cas de connection ou deconnexion
+   * @param comments la liste des commentaires provenann du trie par tutorial
+   */
   private createCommentViewModel(comments: CommentDto[]): CommentViewModel[] {
     const userProfile: UserProfileDto = this.profileService.getUserProfile();
     return comments.map((comment) => ({
@@ -188,7 +193,8 @@ export class TutorialListComponent implements OnInit {
     }));
   }
 
-  public newData(): void {
+  //Rafrechi les donnee apres un nouveau commentaire ou supression
+  public refreshData(): void {
     this.loadData();
   }
 }

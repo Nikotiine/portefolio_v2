@@ -55,11 +55,14 @@
             (onClick)="like(tutorial.id)"
           ></p-button>
         </div>
-        <app-comment-list [comments]="tutorial.comments"></app-comment-list>
+        <app-comment-list
+          [comments]="tutorial.comments"
+          (deleteConfirmation)="refreshData()"
+        ></app-comment-list>
         <app-comment-form
           [tutorialId]="tutorial.id"
           *ngIf="isLogged"
-          (newComment)="newData()"
+          (newComment)="refreshData()"
         ></app-comment-form>
       </p-accordionTab>
     </ng-container>

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ProfileService } from '../../../core/services/profile.service';
 import { UserProfileDto } from '../../../core/api/models/user-profile-dto';
 import { CommentService } from '../../../core/api/services/comment.service';
@@ -26,6 +26,7 @@ export class CommentListComponent {
     return this._comments;
   }
 
+  @Output() deleteConfirmation: EventEmitter<void> = new EventEmitter<void>();
   private _comments: CommentViewModel[] = [];
   public filteredComment: CommentViewModel[] = [];
   public startIndex = 0;
@@ -76,6 +77,7 @@ export class CommentListComponent {
               'tutorial',
               'commentDeleted'
             );
+            this.deleteConfirmation.emit();
           }
         },
         error: (err) => {

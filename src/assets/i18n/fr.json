@@ -117,7 +117,8 @@
     "authenticate": "Connexion valide",
     "like": "Vous aimez",
     "unlike": "Vous n'aimez plus",
-    "newComment": "Commentaire ajouté"
+    "newComment": "Commentaire ajouté",
+    "commentDeleted": "Commentaire supprimé"
   },
   "errorMessage":{
     "invalidPassword": "Les mots de passe ne correspondent pas",

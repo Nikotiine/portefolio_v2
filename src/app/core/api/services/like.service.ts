@@ -23,7 +23,7 @@ export class LikeService extends BaseService {
   static readonly LikeControllerLikeTutorialPath = '/api/like/tutorial';
 
   /**
-   * Like pour tutorials.
+   * Post d'un like tutorials.
    *
    * Mettre ou supprimer un like d'un tutorial
    *
@@ -54,7 +54,7 @@ export class LikeService extends BaseService {
   }
 
   /**
-   * Like pour tutorials.
+   * Post d'un like tutorials.
    *
    * Mettre ou supprimer un like d'un tutorial
    *
@@ -78,7 +78,7 @@ export class LikeService extends BaseService {
   static readonly LikeControllerGetAllLikesOfTutorialsPath = '/api/like/tutorials';
 
   /**
-   * Recupere tous les likes.
+   * Get all l' des likes.
    *
    * Recupere en bdd tout les likes actifs des tutoriels
    *
@@ -107,7 +107,7 @@ export class LikeService extends BaseService {
   }
 
   /**
-   * Recupere tous les likes.
+   * Get all l' des likes.
    *
    * Recupere en bdd tout les likes actifs des tutoriels
    *

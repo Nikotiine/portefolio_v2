@@ -1,4 +1,4 @@
-import { CommentDto } from '../api/models/comment-dto';
+import { CommentViewModel } from './CommentViewModel.model';
 
 export class TutorialAccordion {
   id: number;
@@ -7,5 +7,5 @@ export class TutorialAccordion {
   totalComments: number;
   likes: number;
   likedByMe: boolean;
-  comments: CommentDto[];
+  comments: CommentViewModel[];
 }

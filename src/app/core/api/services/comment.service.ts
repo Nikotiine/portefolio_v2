@@ -12,6 +12,7 @@ import { RequestBuilder } from '../request-builder';
 
 import { CommentCreateDto } from '../models/comment-create-dto';
 import { CommentDto } from '../models/comment-dto';
+import { DeleteConfirmationDto } from '../models/delete-confirmation-dto';
 
 @Injectable({ providedIn: 'root' })
 export class CommentService extends BaseService {
@@ -78,6 +79,10 @@ export class CommentService extends BaseService {
   static readonly CommentControllerFindCommentForTutorialPath = '/api/comment/tutorial/{id}';
 
   /**
+   * Retourne les commentaires.
+   *
+   * Renvoie tous les commentaires actif des tutoriels
+   *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `commentControllerFindCommentForTutorial()` instead.
    *
@@ -103,6 +108,10 @@ export class CommentService extends BaseService {
   }
 
   /**
+   * Retourne les commentaires.
+   *
+   * Renvoie tous les commentaires actif des tutoriels
+   *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `commentControllerFindCommentForTutorial$Response()` instead.
    *
@@ -115,6 +124,61 @@ export class CommentService extends BaseService {
   ): Observable<Array<CommentDto>> {
     return this.commentControllerFindCommentForTutorial$Response(params, context).pipe(
       map((r: StrictHttpResponse<Array<CommentDto>>): Array<CommentDto> => r.body)
+    );
+  }
+
+  /** Path part for operation `commentControllerDeleteComment()` */
+  static readonly CommentControllerDeleteCommentPath = '/api/comment/tutorial/{id}';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `commentControllerDeleteComment()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  commentControllerDeleteComment$Response(
+    params: {
+
+    /**
+     * Id du commentaire de tutoriel a supprimer
+     */
+      id: any;
+    },
+    context?: HttpContext
+  ): Observable<StrictHttpResponse<DeleteConfirmationDto>> {
+    const rb = new RequestBuilder(this.rootUrl, CommentService.CommentControllerDeleteCommentPath, 'delete');
+    if (params) {
+      rb.path('id', params.id, {});
+    }
+
+    return this.http.request(
+      rb.build({ responseType: 'json', accept: 'application/json', context })
+    ).pipe(
+      filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<DeleteConfirmationDto>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `commentControllerDeleteComment$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  commentControllerDeleteComment(
+    params: {
+
+    /**
+     * Id du commentaire de tutoriel a supprimer
+     */
+      id: any;
+    },
+    context?: HttpContext
+  ): Observable<DeleteConfirmationDto> {
+    return this.commentControllerDeleteComment$Response(params, context).pipe(
+      map((r: StrictHttpResponse<DeleteConfirmationDto>): DeleteConfirmationDto => r.body)
     );
   }
 

@@ -11,6 +11,7 @@ import { UserProfileDto } from '../../../core/api/models/user-profile-dto';
 import { CommentService } from '../../../core/api/services/comment.service';
 import { CommentDto } from '../../../core/api/models/comment-dto';
 import { forkJoin } from 'rxjs';
+import { CommentViewModel } from '../../../core/models/CommentViewModel.model';
 
 @Component({
   selector: 'app-tutorial-list',
@@ -79,9 +80,9 @@ export class TutorialListComponent implements OnInit {
     this.securityService.authenticated$.subscribe({
       next: (isLogged) => {
         this.isLogged = isLogged;
+        this.loadData();
       },
     });
-    this.loadData();
   }
 
   /**
@@ -145,7 +146,7 @@ export class TutorialListComponent implements OnInit {
             (comment) => comment.tutorialId === tutorial.id
           );
           tutorial.totalComments = comments.length;
-          tutorial.comments = comments;
+          tutorial.comments = this.createCommentViewModel(comments);
           tutorial.likes = likes.length;
         }
         // Si l'utilisateur est connecté
@@ -167,7 +168,7 @@ export class TutorialListComponent implements OnInit {
    * Modifie l'attribut likeByMe du model TutorialAccordion en fonction des like de l'utilisateur connecté
    * @param likes La liste de tout les like en Bdd
    */
-  private showMyLikes(likes: LikeDto[]) {
+  private showMyLikes(likes: LikeDto[]): void {
     const userProfile: UserProfileDto = this.profileService.getUserProfile();
     const myLikes: LikeDto[] = likes.filter(
       (like) => like.user.id === userProfile.id
@@ -177,6 +178,14 @@ export class TutorialListComponent implements OnInit {
         (like) => like.tutorialId === tutorial.id
       );
     }
+  }
+
+  private createCommentViewModel(comments: CommentDto[]): CommentViewModel[] {
+    const userProfile: UserProfileDto = this.profileService.getUserProfile();
+    return comments.map((comment) => ({
+      ...comment,
+      isMyComment: this.isLogged && comment.author.id === userProfile.id,
+    }));
   }
 
   public newData(): void {

@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from '../shared/shared.module';
-import { LegalNoticesComponent } from './legal-notices/legal-notices.component';
+
 import { CardModule } from 'primeng/card';
 import { SidebarModule } from 'primeng/sidebar';
 import { ApplicationsComponent } from './applications/applications.component';
@@ -30,7 +30,6 @@ import { ToastModule } from 'primeng/toast';
   declarations: [
     LayoutComponent,
     HomeComponent,
-    LegalNoticesComponent,
     ApplicationsComponent,
     SettingComponent,
     KnowledgeComponent,

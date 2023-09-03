@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
 import { HomeComponent } from './home/home.component';
-import { LegalNoticesComponent } from './legal-notices/legal-notices.component';
+import { LegalNoticesComponent } from '../shared/legal-notices/legal-notices.component';
 import { SettingComponent } from './setting/setting.component';
 import { Routing } from '../core/enum/Routing.enum';
 import { KnowledgeComponent } from './knowledge/knowledge.component';

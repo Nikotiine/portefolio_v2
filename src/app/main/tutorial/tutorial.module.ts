@@ -18,6 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CommentListComponent } from './comment-list/comment-list.component';
 import { ChipModule } from 'primeng/chip';
 import { PaginatorModule } from 'primeng/paginator';
+import { AuthModule } from '../auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { PaginatorModule } from 'primeng/paginator';
     ReactiveFormsModule,
     ChipModule,
     PaginatorModule,
+    AuthModule,
   ],
 })
 export class TutorialModule {}

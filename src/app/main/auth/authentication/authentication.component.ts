@@ -1,12 +1,12 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CustomMessageService } from '../../core/services/custom-message.service';
-import { UserCredentialsDto } from '../../core/api/models/user-credentials-dto';
-import { AuthenticationService } from '../../core/api/services/authentication.service';
-import { SecurityService } from '../../core/services/security.service';
-import { UserProfileDto } from '../../core/api/models/user-profile-dto';
+import { CustomMessageService } from '../../../core/services/custom-message.service';
+import { UserCredentialsDto } from '../../../core/api/models/user-credentials-dto';
+import { AuthenticationService } from '../../../core/api/services/authentication.service';
+import { SecurityService } from '../../../core/services/security.service';
+import { UserProfileDto } from '../../../core/api/models/user-profile-dto';
 import { mergeMap } from 'rxjs';
-import { ProfileService } from '../../core/services/profile.service';
+import { ProfileService } from '../../../core/services/profile.service';
 
 @Component({
   selector: 'app-authentication',

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SecurityService } from '../../core/services/security.service';
-import { UserProfileDto } from '../../core/api/models/user-profile-dto';
+import { SecurityService } from '../../../core/services/security.service';
+import { UserProfileDto } from '../../../core/api/models/user-profile-dto';
 
 @Component({
   selector: 'app-login-button',

@@ -1,9 +1,9 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CustomMessageService } from '../../core/services/custom-message.service';
-import { UserRegisterDto } from '../../core/api/models/user-register-dto';
-import { UserService } from '../../core/api/services/user.service';
-import { UserProfileDto } from '../../core/api/models/user-profile-dto';
+import { CustomMessageService } from '../../../core/services/custom-message.service';
+import { UserRegisterDto } from '../../../core/api/models/user-register-dto';
+import { UserService } from '../../../core/api/services/user.service';
+import { UserProfileDto } from '../../../core/api/models/user-profile-dto';
 
 @Component({
   selector: 'app-register',

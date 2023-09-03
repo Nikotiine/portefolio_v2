@@ -19,6 +19,7 @@ import { CommentListComponent } from './comment-list/comment-list.component';
 import { ChipModule } from 'primeng/chip';
 import { PaginatorModule } from 'primeng/paginator';
 import { AuthModule } from '../auth/auth.module';
+import { AdminModule } from '../admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { AuthModule } from '../auth/auth.module';
     ChipModule,
     PaginatorModule,
     AuthModule,
+    AdminModule,
   ],
 })
 export class TutorialModule {}

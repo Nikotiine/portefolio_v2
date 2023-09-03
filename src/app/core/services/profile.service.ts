@@ -25,10 +25,11 @@ export class ProfileService {
    * Mise en cache du UserProfile
    * @param user le dto UserProfileDto
    */
-  public setUserProfile(user: UserProfileDto) {
+  public setUserProfile(user: UserProfileDto): void {
     this.user = user;
-    this.admin = user.role === UserRoles.ADMIN;
+    this.admin = user ? user.role === UserRoles.ADMIN : false;
   }
+
   // Indique si l'utlisateur est admin ou non
   public isAdmin(): boolean {
     return this.admin;

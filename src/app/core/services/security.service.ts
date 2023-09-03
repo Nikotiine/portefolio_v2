@@ -3,6 +3,7 @@ import { CookieService } from 'ngx-cookie';
 import { Token } from '../api/models/token';
 import { BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
+import { ProfileService } from './profile.service';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +13,8 @@ export class SecurityService {
   public authenticated$: BehaviorSubject<boolean> = new BehaviorSubject(false);
   constructor(
     private readonly cookieService: CookieService,
-    private readonly router: Router
+    private readonly router: Router,
+    private readonly profileService: ProfileService
   ) {}
 
   /**
@@ -41,6 +43,7 @@ export class SecurityService {
   public logout(): void {
     this.cookieService.remove(this.access_token_key);
     this.authenticated$.next(false);
+    this.profileService.setUserProfile(null);
   }
 
   // Utilise la methode de logout si le token de l'utilisateur est expirer

@@ -9,8 +9,12 @@
 }
 
 .logout-button{
-  top: 15%;
+  top: 12%;
   right: 1.4%;
+}
+.admin-button{
+  top: 21%;
+  right:1.4%
 }
 @media screen and (max-width: 480px){
   .markdown-container{
@@ -20,6 +24,14 @@
   .accordion-container{
     padding: .5rem;
     margin: .2rem;
+  }
+  .logout-button{
+    top: 2%;
+    right: 80%;
+  }
+  .admin-button{
+    top: 2%;
+    right:65%
   }
 
 }

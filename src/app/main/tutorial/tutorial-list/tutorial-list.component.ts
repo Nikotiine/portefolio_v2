@@ -61,6 +61,7 @@ export class TutorialListComponent implements OnInit {
     },
   ];
   public comments: CommentDto[];
+  public isAdmin = false;
 
   private readonly summaryCustomMessage: string = 'tutorial';
 
@@ -77,9 +78,13 @@ export class TutorialListComponent implements OnInit {
   }
   ngOnInit(): void {
     //Surveille si l'utilisateur se connecte ou se deconnecte
+
     this.securityService.authenticated$.subscribe({
       next: (isLogged) => {
         this.isLogged = isLogged;
+        if (this.isLogged) {
+          console.log(this.profileService.isAdmin());
+        }
         this.loadData();
       },
     });
@@ -103,9 +108,10 @@ export class TutorialListComponent implements OnInit {
       (tutorial: TutorialAccordion) => tutorial.id === tutorialId
     );
     const message: string = tutorial.likedByMe ? 'unlike' : 'like';
+    const user: UserProfileDto = this.profileService.getUserProfile();
     const like: LikeCreateDto = {
       tutorialId: tutorialId,
-      user: this.profileService.getUserProfile(),
+      user: user,
     };
     this.likeService
       .likeControllerLikeTutorial({
@@ -149,10 +155,7 @@ export class TutorialListComponent implements OnInit {
           tutorial.comments = this.createCommentViewModel(comments);
           tutorial.likes = likes.length;
         }
-        // Si l'utilisateur est connecté
-        if (this.isLogged) {
-          this.showMyLikes(data[0]);
-        }
+        this.showMyLikes(data[0]);
         this.loading = false;
       },
       error: (err) => {
@@ -169,15 +172,18 @@ export class TutorialListComponent implements OnInit {
    * @param likes La liste de tout les like en Bdd
    */
   private showMyLikes(likes: LikeDto[]): void {
-    const userProfile: UserProfileDto = this.profileService.getUserProfile();
-    const myLikes: LikeDto[] = likes.filter(
-      (like) => like.user.id === userProfile.id
-    );
-    for (const tutorial of this.tutorials) {
-      tutorial.likedByMe = !!myLikes.find(
-        (like) => like.tutorialId === tutorial.id
+    const user: UserProfileDto = this.profileService.getUserProfile();
+    if (user) {
+      const myLikes: LikeDto[] = likes.filter(
+        (like) => like.user.id === user.id
       );
+      for (const tutorial of this.tutorials) {
+        tutorial.likedByMe = !!myLikes.find(
+          (like) => like.tutorialId === tutorial.id
+        );
+      }
     }
+    this.isAdmin = this.profileService.isAdmin();
   }
 
   /**
@@ -186,10 +192,10 @@ export class TutorialListComponent implements OnInit {
    * @param comments la liste des commentaires provenann du trie par tutorial
    */
   private createCommentViewModel(comments: CommentDto[]): CommentViewModel[] {
-    const userProfile: UserProfileDto = this.profileService.getUserProfile();
+    const user: UserProfileDto = this.profileService.getUserProfile();
     return comments.map((comment) => ({
       ...comment,
-      isMyComment: this.isLogged && comment.author.id === userProfile.id,
+      isMyComment: user && comment.author.id === user.id,
     }));
   }
 

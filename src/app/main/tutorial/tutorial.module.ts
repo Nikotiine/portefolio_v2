@@ -45,5 +45,6 @@ import { AdminModule } from '../admin/admin.module';
     AuthModule,
     AdminModule,
   ],
+  exports: [CommentListComponent],
 })
 export class TutorialModule {}

@@ -122,13 +122,15 @@
   },
   "errorMessage":{
     "invalidPassword": "Les mots de passe ne correspondent pas",
+    "unauthorized": "Vous n'avez pas le droit",
     "001": "Ce compte existe deja",
     "002": "Identifiants invalides",
     "003": "Like impossible"
   },
   "summaryMessage": {
     "account":  "Gestion des comptes",
-    "tutorial": "Gestion des tutoriels"
+    "tutorial": "Gestion des tutoriels",
+    "admin": "Access administrateur"
   },
   "auth": {
     "login": "Connexion",

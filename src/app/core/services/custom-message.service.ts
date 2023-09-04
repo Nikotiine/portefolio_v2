@@ -35,6 +35,7 @@ export class CustomMessageService {
    * @param message Message afficher dans le taost, traduit a partir de i18n dans l'object errorMessage
    */
   public errorMessage(summary: string, message: string): void {
+    console.log(summary);
     this.messageService.add({
       severity: 'error',
       summary: this.languageService.instantTranslate(

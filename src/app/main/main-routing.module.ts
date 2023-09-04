@@ -10,6 +10,8 @@ import { CurriculumComponent } from './curriculum/curriculum.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { SocialNetworkComponent } from './social-network/social-network.component';
 import { UserResolver } from '../core/resolvers/user.resolver';
+import { AdminGuard } from '../core/admin.guard';
+import { NotFoundComponent } from '../shared/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -50,12 +52,22 @@ const routes: Routes = [
           import('./tutorial/tutorial.module').then((m) => m.TutorialModule),
       },
       {
+        path: Routing.ADMIN,
+        canActivate: [AdminGuard],
+        loadChildren: () =>
+          import('./admin/admin.module').then((m) => m.AdminModule),
+      },
+      {
         path: Routing.SETTING,
         component: SettingComponent,
       },
       {
         path: Routing.LEGAL_NOTICE,
         component: LegalNoticesComponent,
+      },
+      {
+        path: Routing.NOT_FOUND,
+        component: NotFoundComponent,
       },
     ],
   },

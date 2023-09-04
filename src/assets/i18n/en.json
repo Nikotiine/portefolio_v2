@@ -122,13 +122,15 @@
   },
   "errorMessage":{
     "invalidPassword": "The password arent not the same",
+    "unauthorized": "Unauthorized action",
     "001": "This account is already used",
     "002": "Invalid Credentials",
     "003": "Invalid Like"
   },
   "summaryMessage": {
     "account":  "Account Service",
-    "tutorial": "Tutorial Service"
+    "tutorial": "Tutorial Service",
+    "admin": "Admin Service"
   },
   "auth": {
     "login": "Log-In",

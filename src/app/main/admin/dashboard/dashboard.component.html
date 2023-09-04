@@ -1,0 +1,11 @@
+<p-card>
+  <h3 class="text-center">Admin Dashboard</h3>
+  <p-accordion [activeIndex]="[0]">
+    <p-accordionTab header="Users">
+      <app-user-list></app-user-list>
+    </p-accordionTab>
+    <p-accordionTab header="Comments">
+      <app-comment-list></app-comment-list>
+    </p-accordionTab>
+  </p-accordion>
+</p-card>

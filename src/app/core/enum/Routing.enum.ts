@@ -7,5 +7,8 @@ enum Routing {
   PROJECTS = 'projects',
   SOCIAL_NETWORK = 'social-network',
   TUTORIAL = 'tutorial',
+  ADMIN = 'admin',
+  ADMIN_DASHBOARD = 'dashboard',
+  NOT_FOUND = 'not-found',
 }
 export { Routing };

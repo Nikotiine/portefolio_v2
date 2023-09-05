@@ -1,1 +1,11 @@
-<p>not-found works!</p>
+<p-card *ngIf="message">
+  <div class="text-center h-screen">
+    <h2 class="my-3">Erreur {{ message }}</h2>
+    <h3 class="my-5">{{ "errorMessage." + message | translate }}</h3>
+    <a
+      class="p-button p-button-danger p-button-rounded"
+      [routerLink]="['/' + ROUTING.HOME]"
+      >Retour a l'accueil</a
+    >
+  </div>
+</p-card>

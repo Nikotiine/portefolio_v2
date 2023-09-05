@@ -31,9 +31,14 @@ export class AdminGuard implements CanActivate {
     | boolean
     | UrlTree {
     const isLogged = this.securityService.isLogged();
+    const unauthorizedRedirection = this.router.navigateByUrl(
+      Routing.NOT_FOUND,
+      {
+        state: { message: '403' },
+      }
+    );
     if (!isLogged) {
-      this.router.navigate([Routing.NOT_FOUND]);
-      return false;
+      return unauthorizedRedirection;
     }
     if (!this.profileService.getUserProfile()) {
       return this.profileService.getUserProfileObservable().pipe(
@@ -41,12 +46,12 @@ export class AdminGuard implements CanActivate {
           if (user.role === UserRoles.ADMIN) {
             return true;
           }
-          this.router.navigate([Routing.NOT_FOUND]);
+          unauthorizedRedirection;
           return false;
         })
       );
     }
     const isAdmin = this.profileService.isAdmin();
-    return isAdmin ? true : this.router.navigate([Routing.NOT_FOUND]);
+    return isAdmin ? true : unauthorizedRedirection;
   }
 }

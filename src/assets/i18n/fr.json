@@ -122,7 +122,7 @@
   },
   "errorMessage":{
     "invalidPassword": "Les mots de passe ne correspondent pas",
-    "unauthorized": "Vous n'avez pas le droit",
+    "403": "Vous n'avez pas les droits",
     "001": "Ce compte existe deja",
     "002": "Identifiants invalides",
     "003": "Like impossible"

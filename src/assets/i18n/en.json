@@ -148,5 +148,9 @@
     "likeIt": "Like",
     "unlikeIt": "Don't like",
     "downloadMD": "Download Markdown"
+  },
+  "notFound": {
+    "error": "Error",
+    "backToHome": "Back to homepage"
   }
 }

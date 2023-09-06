@@ -82,9 +82,6 @@ export class TutorialListComponent implements OnInit {
     this.securityService.authenticated$.subscribe({
       next: (isLogged) => {
         this.isLogged = isLogged;
-        if (this.isLogged) {
-          console.log(this.profileService.isAdmin());
-        }
         this.loadData();
       },
     });

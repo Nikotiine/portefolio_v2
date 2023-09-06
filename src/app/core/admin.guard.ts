@@ -31,27 +31,27 @@ export class AdminGuard implements CanActivate {
     | boolean
     | UrlTree {
     const isLogged = this.securityService.isLogged();
-    const unauthorizedRedirection = this.router.navigateByUrl(
-      Routing.NOT_FOUND,
-      {
+    const unauthorizedRedirection = () =>
+      this.router.navigateByUrl(Routing.NOT_FOUND, {
         state: { message: '403' },
-      }
-    );
+      });
+
     if (!isLogged) {
-      return unauthorizedRedirection;
+      return unauthorizedRedirection();
     }
+
     if (!this.profileService.getUserProfile()) {
       return this.profileService.getUserProfileObservable().pipe(
         map((user) => {
           if (user.role === UserRoles.ADMIN) {
             return true;
           }
-          unauthorizedRedirection;
+          unauthorizedRedirection();
           return false;
         })
       );
     }
     const isAdmin = this.profileService.isAdmin();
-    return isAdmin ? true : unauthorizedRedirection;
+    return isAdmin ? true : unauthorizedRedirection();
   }
 }

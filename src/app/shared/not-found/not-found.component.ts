@@ -17,6 +17,7 @@ export class NotFoundComponent implements OnInit {
   public ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe({
       next: () => {
+        console.log(window.history);
         this.message = window.history.state.message;
       },
     });

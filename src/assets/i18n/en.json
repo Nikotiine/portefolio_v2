@@ -147,10 +147,20 @@
     "pleaseConnect": "Please connect to like",
     "likeIt": "Like",
     "unlikeIt": "Don't like",
-    "downloadMD": "Download Markdown"
+    "downloadMD": "Download Markdown",
+    "postedAt": "Posted at :"
   },
   "notFound": {
     "error": "Error",
     "backToHome": "Back to homepage"
+  },
+  "admin": {
+    "name": "Name",
+    "role": "Role",
+    "status": "Status",
+    "isActive": "Active",
+    "isNotActive": "Not-Active",
+    "active": "Active",
+    "disable": "Disable"
   }
 }

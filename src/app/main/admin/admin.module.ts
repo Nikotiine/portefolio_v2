@@ -9,9 +9,17 @@ import { CardModule } from 'primeng/card';
 import { AccordionModule } from 'primeng/accordion';
 import { UserListComponent } from './user-list/user-list.component';
 import { CommentListComponent } from './comment-list/comment-list.component';
+import { TableModule } from 'primeng/table';
+import { TranslateModule } from '@ngx-translate/core';
+import { TooltipModule } from 'primeng/tooltip';
 
 @NgModule({
-  declarations: [AdminButtonComponent, DashboardComponent, UserListComponent, CommentListComponent],
+  declarations: [
+    AdminButtonComponent,
+    DashboardComponent,
+    UserListComponent,
+    CommentListComponent,
+  ],
   imports: [
     CommonModule,
     ButtonModule,
@@ -19,6 +27,9 @@ import { CommentListComponent } from './comment-list/comment-list.component';
     AdminRoutingModule,
     CardModule,
     AccordionModule,
+    TableModule,
+    TranslateModule,
+    TooltipModule,
   ],
   exports: [AdminButtonComponent],
 })

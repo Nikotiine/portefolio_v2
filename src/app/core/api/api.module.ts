@@ -8,6 +8,7 @@ import { UserService } from './services/user.service';
 import { AuthenticationService } from './services/authentication.service';
 import { LikeService } from './services/like.service';
 import { CommentService } from './services/comment.service';
+import { AdminService } from './services/admin.service';
 
 /**
  * Module that provides all services and configuration.
@@ -21,6 +22,7 @@ import { CommentService } from './services/comment.service';
     AuthenticationService,
     LikeService,
     CommentService,
+    AdminService,
     ApiConfiguration
   ],
 })

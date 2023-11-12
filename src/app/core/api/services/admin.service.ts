@@ -10,38 +10,36 @@ import { ApiConfiguration } from '../api-configuration';
 import { StrictHttpResponse } from '../strict-http-response';
 import { RequestBuilder } from '../request-builder';
 
-import { CommentCreateDto } from '../models/comment-create-dto';
 import { CommentDto } from '../models/comment-dto';
 import { DeleteConfirmationDto } from '../models/delete-confirmation-dto';
+import { UserProfileDto } from '../models/user-profile-dto';
 
 @Injectable({ providedIn: 'root' })
-export class CommentService extends BaseService {
+export class AdminService extends BaseService {
   constructor(config: ApiConfiguration, http: HttpClient) {
     super(config, http);
   }
 
-  /** Path part for operation `commentControllerNewComment()` */
-  static readonly CommentControllerNewCommentPath = '/api/comment/tutorial';
+  /** Path part for operation `adminControllerGetAllUsers()` */
+  static readonly AdminControllerGetAllUsersPath = '/api/admin/users';
 
   /**
-   * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `commentControllerNewComment()` instead.
+   * Retourne tous les utilisateurs.
    *
-   * This method sends `application/json` and handles request body of type `application/json`.
+   *
+   *
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `adminControllerGetAllUsers()` instead.
+   *
+   * This method doesn't expect any request body.
    */
-  commentControllerNewComment$Response(
-    params: {
-  
-    /**
-     * Pour voir la connaitre le body merci de regarder dans les DTO => CommentCreateDto
-     */
-    body: CommentCreateDto
+  adminControllerGetAllUsers$Response(
+    params?: {
     },
     context?: HttpContext
-  ): Observable<StrictHttpResponse<CommentDto>> {
-    const rb = new RequestBuilder(this.rootUrl, CommentService.CommentControllerNewCommentPath, 'post');
+  ): Observable<StrictHttpResponse<Array<UserProfileDto>>> {
+    const rb = new RequestBuilder(this.rootUrl, AdminService.AdminControllerGetAllUsersPath, 'get');
     if (params) {
-      rb.body(params.body, 'application/json');
     }
 
     return this.http.request(
@@ -49,51 +47,50 @@ export class CommentService extends BaseService {
     ).pipe(
       filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return r as StrictHttpResponse<CommentDto>;
+        return r as StrictHttpResponse<Array<UserProfileDto>>;
       })
     );
   }
 
   /**
+   * Retourne tous les utilisateurs.
+   *
+   *
+   *
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `commentControllerNewComment$Response()` instead.
-   *
-   * This method sends `application/json` and handles request body of type `application/json`.
-   */
-  commentControllerNewComment(
-    params: {
-  
-    /**
-     * Pour voir la connaitre le body merci de regarder dans les DTO => CommentCreateDto
-     */
-    body: CommentCreateDto
-    },
-    context?: HttpContext
-  ): Observable<CommentDto> {
-    return this.commentControllerNewComment$Response(params, context).pipe(
-      map((r: StrictHttpResponse<CommentDto>): CommentDto => r.body)
-    );
-  }
-
-  /** Path part for operation `commentControllerFindCommentForTutorial()` */
-  static readonly CommentControllerFindCommentForTutorialPath = '/api/comment/tutorial/{id}';
-
-  /**
-   * Retourne les commentaires.
-   *
-   * Renvoie tous les commentaires actif des tutoriels
-   *
-   * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `commentControllerFindCommentForTutorial()` instead.
+   * To access the full response (for headers, for example), `adminControllerGetAllUsers$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  commentControllerFindCommentForTutorial$Response(
+  adminControllerGetAllUsers(
+    params?: {
+    },
+    context?: HttpContext
+  ): Observable<Array<UserProfileDto>> {
+    return this.adminControllerGetAllUsers$Response(params, context).pipe(
+      map((r: StrictHttpResponse<Array<UserProfileDto>>): Array<UserProfileDto> => r.body)
+    );
+  }
+
+  /** Path part for operation `adminControllerFindAllComments()` */
+  static readonly AdminControllerFindAllCommentsPath = '/api/admin/comments';
+
+  /**
+   * Retourne tous les commentaires.
+   *
+   *
+   *
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `adminControllerFindAllComments()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  adminControllerFindAllComments$Response(
     params?: {
     },
     context?: HttpContext
   ): Observable<StrictHttpResponse<Array<CommentDto>>> {
-    const rb = new RequestBuilder(this.rootUrl, CommentService.CommentControllerFindCommentForTutorialPath, 'get');
+    const rb = new RequestBuilder(this.rootUrl, AdminService.AdminControllerFindAllCommentsPath, 'get');
     if (params) {
     }
 
@@ -108,45 +105,49 @@ export class CommentService extends BaseService {
   }
 
   /**
-   * Retourne les commentaires.
+   * Retourne tous les commentaires.
    *
-   * Renvoie tous les commentaires actif des tutoriels
+   *
    *
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `commentControllerFindCommentForTutorial$Response()` instead.
+   * To access the full response (for headers, for example), `adminControllerFindAllComments$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  commentControllerFindCommentForTutorial(
+  adminControllerFindAllComments(
     params?: {
     },
     context?: HttpContext
   ): Observable<Array<CommentDto>> {
-    return this.commentControllerFindCommentForTutorial$Response(params, context).pipe(
+    return this.adminControllerFindAllComments$Response(params, context).pipe(
       map((r: StrictHttpResponse<Array<CommentDto>>): Array<CommentDto> => r.body)
     );
   }
 
-  /** Path part for operation `commentControllerDeleteComment()` */
-  static readonly CommentControllerDeleteCommentPath = '/api/comment/tutorial/{id}';
+  /** Path part for operation `adminControllerSwitchUserStatus()` */
+  static readonly AdminControllerSwitchUserStatusPath = '/api/admin/user/{id}';
 
   /**
+   * Active ou desactive l'utilisateur.
+   *
+   *
+   *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `commentControllerDeleteComment()` instead.
+   * To access only the response body, use `adminControllerSwitchUserStatus()` instead.
    *
    * This method doesn't expect any request body.
    */
-  commentControllerDeleteComment$Response(
+  adminControllerSwitchUserStatus$Response(
     params: {
 
     /**
-     * Id du commentaire de tutoriel a supprimer
+     * id de l' utilisateur
      */
       id: number;
     },
     context?: HttpContext
   ): Observable<StrictHttpResponse<DeleteConfirmationDto>> {
-    const rb = new RequestBuilder(this.rootUrl, CommentService.CommentControllerDeleteCommentPath, 'delete');
+    const rb = new RequestBuilder(this.rootUrl, AdminService.AdminControllerSwitchUserStatusPath, 'put');
     if (params) {
       rb.path('id', params.id, {});
     }
@@ -162,22 +163,26 @@ export class CommentService extends BaseService {
   }
 
   /**
+   * Active ou desactive l'utilisateur.
+   *
+   *
+   *
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `commentControllerDeleteComment$Response()` instead.
+   * To access the full response (for headers, for example), `adminControllerSwitchUserStatus$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  commentControllerDeleteComment(
+  adminControllerSwitchUserStatus(
     params: {
 
     /**
-     * Id du commentaire de tutoriel a supprimer
+     * id de l' utilisateur
      */
       id: number;
     },
     context?: HttpContext
   ): Observable<DeleteConfirmationDto> {
-    return this.commentControllerDeleteComment$Response(params, context).pipe(
+    return this.adminControllerSwitchUserStatus$Response(params, context).pipe(
       map((r: StrictHttpResponse<DeleteConfirmationDto>): DeleteConfirmationDto => r.body)
     );
   }

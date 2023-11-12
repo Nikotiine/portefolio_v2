@@ -6,5 +6,6 @@ export interface CommentDto {
   comment: string;
   createdAt: string;
   id: number;
+  isActive: boolean;
   tutorialId: number;
 }

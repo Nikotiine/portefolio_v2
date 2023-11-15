@@ -59,7 +59,7 @@ export class AuthenticationComponent {
       )
       .subscribe({
         next: (user) => {
-          this.profileService.setUserProfile(user);
+          this.securityService.login(user);
           this.customMessageService.successMessage('account', 'authenticate');
           this.authenticate.emit(true);
         },

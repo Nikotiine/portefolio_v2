@@ -4,6 +4,7 @@ import { Token } from '../api/models/token';
 import { BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
 import { ProfileService } from './profile.service';
+import { UserProfileDto } from '../api/models/user-profile-dto';
 
 @Injectable({
   providedIn: 'root',
@@ -24,6 +25,10 @@ export class SecurityService {
    */
   public saveToken(token: Token): void {
     this.cookieService.put(this.access_token_key, token.access_token);
+  }
+
+  public login(user: UserProfileDto): void {
+    this.profileService.setUserProfile(user);
     this.authenticated$.next(true);
   }
 
@@ -32,9 +37,7 @@ export class SecurityService {
   }
 
   public isLogged(): boolean {
-    const isLogged = !!this.getToken();
-    this.authenticated$.next(isLogged);
-    return isLogged;
+    return !!this.getToken();
   }
 
   /**

@@ -19,8 +19,8 @@ export class LoginButtonComponent implements OnInit {
 
   public ngOnInit(): void {
     this.securityService.authenticated$.subscribe({
-      next: (isLogged) => {
-        this.isLogged = isLogged;
+      next: () => {
+        this.isLogged = this.securityService.isLogged();
       },
     });
   }

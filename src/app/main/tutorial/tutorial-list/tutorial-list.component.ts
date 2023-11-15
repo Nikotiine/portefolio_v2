@@ -12,6 +12,7 @@ import { CommentService } from '../../../core/api/services/comment.service';
 import { CommentDto } from '../../../core/api/models/comment-dto';
 import { forkJoin } from 'rxjs';
 import { CommentViewModel } from '../../../core/models/CommentViewModel.model';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-tutorial-list',
@@ -22,47 +23,9 @@ export class TutorialListComponent implements OnInit {
   public isLogged: boolean;
   public likes: LikeDto[];
   public loading: boolean;
-  public tutorials: TutorialAccordion[] = [
-    {
-      id: 1,
-      title: 'PL-Sql Server',
-      src: 'plsql-server.md',
-      totalComments: 0,
-      likes: 0,
-      likedByMe: false,
-      comments: [],
-    },
-    {
-      id: 2,
-      title: 'MS-Sql Server',
-      src: 'mssql-server.md',
-      totalComments: 0,
-      likes: 0,
-      likedByMe: false,
-      comments: [],
-    },
-    {
-      id: 3,
-      title: 'Git-Lab CE',
-      src: 'gitlab.md',
-      totalComments: 0,
-      likes: 0,
-      likedByMe: false,
-      comments: [],
-    },
-    {
-      id: 4,
-      title: 'Api Nodejs sous Apache',
-      src: 'server-debian.md',
-      totalComments: 0,
-      likes: 0,
-      likedByMe: false,
-      comments: [],
-    },
-  ];
+  public tutorials: TutorialAccordion[] = [];
   public comments: CommentDto[];
   public isAdmin = false;
-
   private readonly summaryCustomMessage: string = 'tutorial';
 
   constructor(
@@ -71,17 +34,17 @@ export class TutorialListComponent implements OnInit {
     private readonly likeService: LikeService,
     private readonly profileService: ProfileService,
     private readonly customMessageService: CustomMessageService,
-    private readonly commentService: CommentService
+    private readonly commentService: CommentService,
+    private readonly http: HttpClient
   ) {
     this.isLogged = this.securityService.isLogged();
     this.loading = true;
   }
   ngOnInit(): void {
     //Surveille si l'utilisateur se connecte ou se deconnecte
-
     this.securityService.authenticated$.subscribe({
-      next: (isLogged) => {
-        this.isLogged = isLogged;
+      next: () => {
+        this.isLogged = this.securityService.isLogged();
         this.loadData();
       },
     });
@@ -115,7 +78,7 @@ export class TutorialListComponent implements OnInit {
         body: like,
       })
       .subscribe({
-        next: (res) => {
+        next: () => {
           this.customMessageService.infoMessage(
             this.summaryCustomMessage,
             message
@@ -138,8 +101,10 @@ export class TutorialListComponent implements OnInit {
     forkJoin([
       this.likeService.likeControllerGetAllLikesOfTutorials(),
       this.commentService.commentControllerFindCommentForTutorial(),
+      this.http.get('assets/data/tutorial.json'),
     ]).subscribe({
       next: (data) => {
+        this.tutorials = data[2] as TutorialAccordion[];
         this.likes = data[0];
         for (const tutorial of this.tutorials) {
           const likes: LikeDto[] = data[0].filter(

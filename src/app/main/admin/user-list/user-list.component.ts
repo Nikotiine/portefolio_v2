@@ -29,5 +29,17 @@ export class UserListComponent implements OnInit {
 
   switch(id: number): void {
     console.log(id);
+    this.adminService
+      .adminControllerDisableUser({
+        id: id,
+      })
+      .subscribe({
+        next: (data) => {
+          console.log(data);
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
   }
 }

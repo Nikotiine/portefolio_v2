@@ -18,7 +18,8 @@ interface PageEvent {
   styleUrls: ['./comment-list.component.scss'],
 })
 export class CommentListComponent {
-  @Input() set comments(comments: CommentViewModel[]) {
+  @Input()
+  set comments(comments: CommentViewModel[]) {
     this._comments = comments;
     this.filteredComment = this.getCurrentPageComments(this.startIndex);
   }
@@ -27,6 +28,7 @@ export class CommentListComponent {
   }
 
   @Output() deleteConfirmation: EventEmitter<void> = new EventEmitter<void>();
+
   private _comments: CommentViewModel[] = [];
   public filteredComment: CommentViewModel[] = [];
   public startIndex = 0;

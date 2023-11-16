@@ -130,7 +130,8 @@
   "summaryMessage": {
     "account":  "Account Service",
     "tutorial": "Tutorial Service",
-    "admin": "Admin Service"
+    "admin": "Admin Service",
+    "comment": "Comment Service"
   },
   "auth": {
     "login": "Log-In",
@@ -155,12 +156,15 @@
     "backToHome": "Back to homepage"
   },
   "admin": {
-    "name": "Name",
+    "user": "User",
     "role": "Role",
     "status": "Status",
     "isActive": "Active",
     "isNotActive": "Not-Active",
     "active": "Active",
-    "disable": "Disable"
+    "disable": "Disable",
+    "comment": "Comment",
+    "tutorialName": "Tutorial",
+    "action": "Action"
   }
 }

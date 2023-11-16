@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { TutorialAccordion } from '../../../core/models/TutorialAccordion.model';
 import { forkJoin } from 'rxjs';
 import { AdminCommentViewModel } from '../../../core/models/AdminCommentViewModel';
+import { CustomMessageService } from '../../../core/services/custom-message.service';
 
 @Component({
   selector: 'app-comment-list',
@@ -12,38 +13,49 @@ import { AdminCommentViewModel } from '../../../core/models/AdminCommentViewMode
   styleUrls: ['./comment-list.component.scss'],
 })
 export class CommentListComponent implements OnInit {
-  public comments: CommentDto[] = [];
-  private tutorials: TutorialAccordion[] = [];
-  public commentViewModel: AdminCommentViewModel[] = [];
+  public comments: AdminCommentViewModel[] = [];
   constructor(
     private readonly adminService: AdminService,
-    private readonly http: HttpClient
+    private readonly http: HttpClient,
+    private readonly customMessageService: CustomMessageService
   ) {}
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.loadData();
   }
 
-  private loadData() {
+  private loadData(): void {
     forkJoin([
       this.adminService.adminControllerFindAllComments(),
-      this.http.get('assets/data/tutorials.json'),
+      this.http.get('assets/data/tutorial.json'),
     ]).subscribe({
       next: (data) => {
-        this.comments = data[0];
-        this.tutorials = data[1] as TutorialAccordion[];
         this.createAdminViewModel(data[0], data[1] as TutorialAccordion[]);
       },
       error: (err) => {
-        console.log(err);
+        this.customMessageService.errorMessage('comment', err.error.message);
       },
     });
   }
 
   private createAdminViewModel(
-    comment: CommentDto[],
+    comments: CommentDto[],
     tutorials: TutorialAccordion[]
-  ) {
-    console.log(comment);
-    console.log(tutorials);
+  ): void {
+    const commentsViewModel: AdminCommentViewModel[] = [];
+    for (const comment of comments) {
+      const tutorial = tutorials.find(
+        (tutorial) => tutorial.id === comment.tutorialId
+      );
+      const commentViewModel: AdminCommentViewModel = {
+        ...comment,
+        tutorialName: tutorial.title,
+      };
+      commentsViewModel.push(commentViewModel);
+    }
+    this.comments = commentsViewModel;
+  }
+
+  switch(commentId: number): void {
+    console.log(commentId);
   }
 }

@@ -2,9 +2,11 @@
   <ng-template pTemplate="header">
     <tr>
       <th>ID</th>
-      <th>{{ "admin.name" | translate }}</th>
-      <th>{{ "admin.role" | translate }}</th>
+      <th>{{ "admin.user" | translate }}</th>
+      <th>{{ "admin.comment" | translate }}</th>
+      <th>{{ "admin.tutorialName" | translate }}</th>
       <th>{{ "admin.status" | translate }}</th>
+      <th>{{ "admin.action" | translate }}</th>
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-comment>
@@ -12,13 +14,25 @@
       <td>{{ comment.id }}</td>
       <td>{{ comment.author.username }}</td>
       <td>{{ comment.comment }}</td>
-      <td>{{ comment.tutorialId }}</td>
+      <td>{{ comment.tutorialName }}</td>
       <td>
         {{
           comment.isActive
             ? ("admin.isActive" | translate)
             : ("admin.isNotActive" | translate)
         }}
+      </td>
+      <td>
+        <p-button
+          icon="{{ comment.isActive ? 'pi pi-lock' : 'pi pi-unlock' }}"
+          styleClass="p-button-text p-button-danger p-button-rounded"
+          pTooltip="{{
+            comment.isActive
+              ? ('admin.disable' | translate)
+              : ('admin.active' | translate)
+          }}"
+          (onClick)="switch(comment.id)"
+        ></p-button>
       </td>
     </tr>
   </ng-template>

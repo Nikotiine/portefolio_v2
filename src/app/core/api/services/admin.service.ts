@@ -124,8 +124,8 @@ export class AdminService extends BaseService {
     );
   }
 
-  /** Path part for operation `adminControllerSwitchUserStatus()` */
-  static readonly AdminControllerSwitchUserStatusPath = '/api/admin/user/{id}';
+  /** Path part for operation `adminControllerDisableUser()` */
+  static readonly AdminControllerDisableUserPath = '/api/admin/user/{id}';
 
   /**
    * Active ou desactive l'utilisateur.
@@ -133,11 +133,11 @@ export class AdminService extends BaseService {
    *
    *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `adminControllerSwitchUserStatus()` instead.
+   * To access only the response body, use `adminControllerDisableUser()` instead.
    *
    * This method doesn't expect any request body.
    */
-  adminControllerSwitchUserStatus$Response(
+  adminControllerDisableUser$Response(
     params: {
 
     /**
@@ -147,7 +147,7 @@ export class AdminService extends BaseService {
     },
     context?: HttpContext
   ): Observable<StrictHttpResponse<DeleteConfirmationDto>> {
-    const rb = new RequestBuilder(this.rootUrl, AdminService.AdminControllerSwitchUserStatusPath, 'put');
+    const rb = new RequestBuilder(this.rootUrl, AdminService.AdminControllerDisableUserPath, 'put');
     if (params) {
       rb.path('id', params.id, {});
     }
@@ -168,11 +168,11 @@ export class AdminService extends BaseService {
    *
    *
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `adminControllerSwitchUserStatus$Response()` instead.
+   * To access the full response (for headers, for example), `adminControllerDisableUser$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  adminControllerSwitchUserStatus(
+  adminControllerDisableUser(
     params: {
 
     /**
@@ -182,7 +182,7 @@ export class AdminService extends BaseService {
     },
     context?: HttpContext
   ): Observable<DeleteConfirmationDto> {
-    return this.adminControllerSwitchUserStatus$Response(params, context).pipe(
+    return this.adminControllerDisableUser$Response(params, context).pipe(
       map((r: StrictHttpResponse<DeleteConfirmationDto>): DeleteConfirmationDto => r.body)
     );
   }

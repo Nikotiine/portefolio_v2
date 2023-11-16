@@ -130,7 +130,8 @@
   "summaryMessage": {
     "account":  "Gestion des comptes",
     "tutorial": "Gestion des tutoriels",
-    "admin": "Access administrateur"
+    "admin": "Access administrateur",
+    "comment": "Gestion des commentaires"
   },
   "auth": {
     "login": "Connexion",
@@ -155,12 +156,15 @@
     "backToHome": "Retour à l'accueil"
   },
   "admin": {
-    "name": "Nom",
+    "user": "Utilisateur",
     "role": "Role",
     "status": "Status",
     "isActive": "Actif",
     "isNotActive": "Desactivé",
     "active": "Activer",
-    "disable": "Desactiver"
+    "disable": "Desactiver",
+    "comment": "Commentaire",
+    "tutorialName": "Nom du tutoriel",
+    "action": "Action"
   }
 }

@@ -2,9 +2,10 @@
   <ng-template pTemplate="header">
     <tr>
       <th>ID</th>
-      <th>{{ "admin.name" | translate }}</th>
+      <th>{{ "admin.user" | translate }}</th>
       <th>{{ "admin.role" | translate }}</th>
       <th>{{ "admin.status" | translate }}</th>
+      <th>{{ "admin.action" | translate }}</th>
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-user>
@@ -22,7 +23,9 @@
       <td>
         <p-button
           icon="{{ user.isActive ? 'pi pi-lock' : 'pi pi-unlock' }}"
-          styleClass="p-button-text p-button-danger p-button-rounded"
+          styleClass="p-button-text {{
+            user.isActive ? 'p-button-danger' : 'p-button-info'
+          }} p-button-rounded"
           pTooltip="{{
             user.isActive
               ? ('admin.disable' | translate)

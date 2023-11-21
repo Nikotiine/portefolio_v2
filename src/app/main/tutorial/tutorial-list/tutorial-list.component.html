@@ -1,14 +1,14 @@
-<h3 class="text-center text-xl">Tutorial</h3>
-
-<div class="accordion-container" *ngIf="!loading">
+<div class="flex justify-content-center">
   <app-login-button
-    *ngIf="isLogged"
-    class="absolute logout-button"
+    *ngIf="!isLogged"
+    pTooltip="Connectez vous pour liker ou commenter"
   ></app-login-button>
-  <app-admin-button
-    class="absolute admin-button"
-    *ngIf="isAdmin"
-  ></app-admin-button>
+  <app-login-button *ngIf="isLogged"></app-login-button>
+
+  <app-admin-button *ngIf="isAdmin" class="ml-3"></app-admin-button>
+</div>
+<h3 class="text-center text-3xl">Tutorial</h3>
+<div class="accordion-container" *ngIf="!loading">
   <p-accordion [multiple]="false">
     <ng-container *ngFor="let tutorial of tutorials; let index = index">
       <p-accordionTab [tabIndex]="index">
@@ -42,10 +42,7 @@
             (onClick)="downloadMarkdown(tutorial.src)"
             styleClass="p-button-rounded p-button-info mr-2"
           ></p-button>
-          <app-login-button
-            *ngIf="!isLogged"
-            pTooltip="Connectez vous pour liker ou commenter"
-          ></app-login-button>
+
           <p-button
             icon="{{
               tutorial.likedByMe ? 'pi pi-thumbs-up-fill' : 'pi pi-thumbs-up'

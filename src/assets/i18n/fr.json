@@ -118,7 +118,8 @@
     "like": "Vous aimez",
     "unlike": "Vous n'aimez plus",
     "newComment": "Commentaire ajouté",
-    "commentDeleted": "Commentaire supprimé"
+    "commentDeleted": "Commentaire supprimé",
+    "userDisable": "Utilisateur desactivé"
   },
   "errorMessage":{
     "invalidPassword": "Les mots de passe ne correspondent pas",

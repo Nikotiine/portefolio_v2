@@ -118,7 +118,8 @@
     "like": "You like",
     "unlike": "You no longer like",
     "newComment": "Comment added",
-    "commentDeleted": "Comment deleted"
+    "commentDeleted": "Comment deleted",
+    "userDisable": "User disable"
   },
   "errorMessage":{
     "invalidPassword": "The password arent not the same",

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../../../core/api/services/admin.service';
 import { UserProfileDto } from '../../../core/api/models/user-profile-dto';
+import { CustomMessageService } from '../../../core/services/custom-message.service';
 
 @Component({
   selector: 'app-user-list',
@@ -9,7 +10,10 @@ import { UserProfileDto } from '../../../core/api/models/user-profile-dto';
 })
 export class UserListComponent implements OnInit {
   public users: UserProfileDto[] = [];
-  constructor(private readonly adminService: AdminService) {}
+  constructor(
+    private readonly adminService: AdminService,
+    private readonly customMessageService: CustomMessageService
+  ) {}
 
   public ngOnInit(): void {
     this.loadUsers();
@@ -27,7 +31,7 @@ export class UserListComponent implements OnInit {
     });
   }
 
-  switch(id: number): void {
+  deleteUser(id: number): void {
     console.log(id);
     this.adminService
       .adminControllerDisableUser({
@@ -36,9 +40,11 @@ export class UserListComponent implements OnInit {
       .subscribe({
         next: (data) => {
           console.log(data);
+          this.customMessageService.successMessage('account', 'userDisable');
+          this.loadUsers();
         },
         error: (err) => {
-          console.log(err);
+          this.customMessageService.errorMessage('', err.error.message);
         },
       });
   }

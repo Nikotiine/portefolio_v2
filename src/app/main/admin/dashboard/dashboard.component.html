@@ -10,9 +10,10 @@
     <p-accordionTab header="{{ 'admin.database' | translate }}">
       <div class="flex justify-content-center">
         <p-button
-          icon="pi pi-power-off"
-          styleClass="p-button-text p-button-danger p-button-rounded"
-          (onClick)="clearDatabase()"
+          icon="pi pi-exclamation-circle"
+          label="{{ 'admin.clearDatabaseLabel' | translate }}"
+          styleClass=" p-button-danger p-button-rounded"
+          (onClick)="confirm()"
         ></p-button>
       </div>
     </p-accordionTab>

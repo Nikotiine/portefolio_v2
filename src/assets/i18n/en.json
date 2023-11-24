@@ -121,7 +121,8 @@
     "unlike": "You no longer like",
     "newComment": "Comment added",
     "commentDeleted": "Comment deleted",
-    "userDisable": "User disable"
+    "userDisable": "User disable",
+    "databaseErased": "Database erased"
   },
   "errorMessage":{
     "invalidPassword": "The password arent not the same",
@@ -134,7 +135,8 @@
     "account":  "Account Service",
     "tutorial": "Tutorial Service",
     "admin": "Admin Service",
-    "comment": "Comment Service"
+    "comment": "Comment Service",
+    "database": "Database Service"
   },
   "auth": {
     "login": "Log-In",
@@ -173,6 +175,9 @@
     "comments": "Comments",
     "database": "Database",
     "deleteUser": "Delete User ?",
-    "deleteComment": "Delete Comment ?"
+    "deleteComment": "Delete Comment ?",
+    "warning": "Warning",
+    "clearDatabase": "Clear database ? This operation is irreversible",
+    "clearDatabaseLabel": "Clear database"
   }
 }

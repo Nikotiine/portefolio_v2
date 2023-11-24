@@ -95,7 +95,7 @@ export class CommentListComponent implements OnInit {
         id: id,
       })
       .subscribe({
-        next: (data) => {
+        next: () => {
           this.customMessageService.successMessage('comment', 'commentDeleted');
         },
         error: (err) => {

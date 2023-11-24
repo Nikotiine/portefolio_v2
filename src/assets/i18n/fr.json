@@ -121,7 +121,8 @@
     "unlike": "Vous n'aimez plus",
     "newComment": "Commentaire ajouté",
     "commentDeleted": "Commentaire supprimé",
-    "userDisable": "utilisateur desactivé"
+    "userDisable": "utilisateur desactivé",
+    "databaseErased": "Base de données netoyée"
   },
   "errorMessage":{
     "invalidPassword": "Les mots de passe ne correspondent pas",
@@ -134,7 +135,8 @@
     "account":  "Gestion des comptes",
     "tutorial": "Gestion des tutoriels",
     "admin": "Access administrateur",
-    "comment": "Gestion des commentaires"
+    "comment": "Gestion des commentaires",
+    "database": "Gestion de la bdd"
   },
   "auth": {
     "login": "Connexion",
@@ -173,6 +175,9 @@
     "comments":"Commentaires",
     "database": "Base de données",
     "deleteUser": "Supprimer l'utilisateur ?",
-    "deleteComment": "Supprimer le commentaire ?"
+    "deleteComment": "Supprimer le commentaire ?",
+    "warning": "Attention",
+    "clearDatabase": "Vider la base de données ? Cette operation est irréversible",
+    "clearDatabaseLabel": "Nettoyer la base de donnée"
   }
 }

@@ -3,6 +3,8 @@ import { AdminService } from '../../../core/api/services/admin.service';
 import { ConfirmationService } from 'primeng/api';
 import { LanguageService } from '../../../core/services/language.service';
 import { CustomMessageService } from '../../../core/services/custom-message.service';
+import { SecurityService } from '../../../core/services/security.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,7 +16,8 @@ export class DashboardComponent {
     private readonly adminService: AdminService,
     private readonly confirmationService: ConfirmationService,
     private readonly languageService: LanguageService,
-    private readonly customMessageService: CustomMessageService
+    private readonly customMessageService: CustomMessageService,
+    private readonly securityService: SecurityService
   ) {}
 
   /**
@@ -44,5 +47,9 @@ export class DashboardComponent {
         this.customMessageService.errorMessage('database', err.error.message);
       },
     });
+  }
+
+  public logout(): void {
+    this.securityService.logout();
   }
 }

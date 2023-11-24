@@ -1,6 +1,8 @@
 {
   "common": {
-    "appTitle": "Bienvenue sur mon portfolio"
+    "appTitle": "Bienvenue sur mon portfolio",
+    "yes": "Oui",
+    "no": "Non"
   },
   "setting": {
     "light": "Clair",
@@ -119,7 +121,7 @@
     "unlike": "Vous n'aimez plus",
     "newComment": "Commentaire ajouté",
     "commentDeleted": "Commentaire supprimé",
-    "userDisable": "Utilisateur desactivé"
+    "userDisable": "utilisateur desactivé"
   },
   "errorMessage":{
     "invalidPassword": "Les mots de passe ne correspondent pas",
@@ -158,6 +160,7 @@
   },
   "admin": {
     "user": "Utilisateur",
+    "users": "Utilisateurs",
     "role": "Role",
     "status": "Status",
     "isActive": "Actif",
@@ -166,6 +169,10 @@
     "disable": "Desactiver",
     "comment": "Commentaire",
     "tutorialName": "Nom du tutoriel",
-    "action": "Action"
+    "action": "Action",
+    "comments":"Commentaires",
+    "database": "Base de données",
+    "deleteUser": "Supprimer l'utilisateur ?",
+    "deleteComment": "Supprimer le commentaire ?"
   }
 }

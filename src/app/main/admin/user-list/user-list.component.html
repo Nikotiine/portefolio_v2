@@ -22,16 +22,11 @@
       </td>
       <td>
         <p-button
-          icon="{{ user.isActive ? 'pi pi-lock' : 'pi pi-unlock' }}"
-          styleClass="p-button-text {{
-            user.isActive ? 'p-button-danger' : 'p-button-info'
-          }} p-button-rounded"
-          pTooltip="{{
-            user.isActive
-              ? ('admin.disable' | translate)
-              : ('admin.active' | translate)
-          }}"
-          (onClick)="deleteUser(user.id)"
+          icon="pi pi-power-off"
+          *ngIf="user.isActive"
+          styleClass="p-button-text p-button-danger p-button-rounded"
+          pTooltip="{{ 'admin.disable' | translate }}"
+          (onClick)="confirm(user.id)"
         ></p-button>
       </td>
     </tr>

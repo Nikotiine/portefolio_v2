@@ -128,7 +128,7 @@ export class AdminService extends BaseService {
   static readonly AdminControllerDisableUserPath = '/api/admin/user/{id}';
 
   /**
-   * Active ou desactive l'utilisateur.
+   * Desactive l'utilisateur.
    *
    *
    *
@@ -163,7 +163,7 @@ export class AdminService extends BaseService {
   }
 
   /**
-   * Active ou desactive l'utilisateur.
+   * Desactive l'utilisateur.
    *
    *
    *
@@ -184,6 +184,121 @@ export class AdminService extends BaseService {
   ): Observable<DeleteConfirmationDto> {
     return this.adminControllerDisableUser$Response(params, context).pipe(
       map((r: StrictHttpResponse<DeleteConfirmationDto>): DeleteConfirmationDto => r.body)
+    );
+  }
+
+  /** Path part for operation `adminControllerDisableComment()` */
+  static readonly AdminControllerDisableCommentPath = '/api/admin/comment/{id}';
+
+  /**
+   * Desactive le commentaire.
+   *
+   *
+   *
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `adminControllerDisableComment()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  adminControllerDisableComment$Response(
+    params: {
+
+    /**
+     * id du commentaire
+     */
+      id: number;
+    },
+    context?: HttpContext
+  ): Observable<StrictHttpResponse<DeleteConfirmationDto>> {
+    const rb = new RequestBuilder(this.rootUrl, AdminService.AdminControllerDisableCommentPath, 'put');
+    if (params) {
+      rb.path('id', params.id, {});
+    }
+
+    return this.http.request(
+      rb.build({ responseType: 'json', accept: 'application/json', context })
+    ).pipe(
+      filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<DeleteConfirmationDto>;
+      })
+    );
+  }
+
+  /**
+   * Desactive le commentaire.
+   *
+   *
+   *
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `adminControllerDisableComment$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  adminControllerDisableComment(
+    params: {
+
+    /**
+     * id du commentaire
+     */
+      id: number;
+    },
+    context?: HttpContext
+  ): Observable<DeleteConfirmationDto> {
+    return this.adminControllerDisableComment$Response(params, context).pipe(
+      map((r: StrictHttpResponse<DeleteConfirmationDto>): DeleteConfirmationDto => r.body)
+    );
+  }
+
+  /** Path part for operation `adminControllerClearDatabase()` */
+  static readonly AdminControllerClearDatabasePath = '/api/admin/database';
+
+  /**
+   * Nettoyage de la base de donnée.
+   *
+   * Vide les entre de la base de donnee (utilisateur/like/comment) qui sont en status inactif
+   *
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `adminControllerClearDatabase()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  adminControllerClearDatabase$Response(
+    params?: {
+    },
+    context?: HttpContext
+  ): Observable<StrictHttpResponse<void>> {
+    const rb = new RequestBuilder(this.rootUrl, AdminService.AdminControllerClearDatabasePath, 'delete');
+    if (params) {
+    }
+
+    return this.http.request(
+      rb.build({ responseType: 'text', accept: '*/*', context })
+    ).pipe(
+      filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return (r as HttpResponse<any>).clone({ body: undefined }) as StrictHttpResponse<void>;
+      })
+    );
+  }
+
+  /**
+   * Nettoyage de la base de donnée.
+   *
+   * Vide les entre de la base de donnee (utilisateur/like/comment) qui sont en status inactif
+   *
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `adminControllerClearDatabase$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  adminControllerClearDatabase(
+    params?: {
+    },
+    context?: HttpContext
+  ): Observable<void> {
+    return this.adminControllerClearDatabase$Response(params, context).pipe(
+      map((r: StrictHttpResponse<void>): void => r.body)
     );
   }
 

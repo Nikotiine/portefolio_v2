@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 import { CookieModule } from 'ngx-cookie';
 import { MarkdownModule } from 'ngx-markdown';
 import { ApiInterceptorProvider } from './core/api-portfolio.interceptor';
@@ -29,7 +29,7 @@ import { ApiInterceptorProvider } from './core/api-portfolio.interceptor';
       },
     }),
   ],
-  providers: [MessageService, ApiInterceptorProvider],
+  providers: [MessageService, ApiInterceptorProvider, ConfirmationService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

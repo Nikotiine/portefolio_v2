@@ -4,9 +4,17 @@
 
 ### Descritpion
 
-Version 2.0 de mon portfolio avec section tuturial consultable.
+Version 2.0 de mon portfolio avec section tuturial consultable et telechargeable.
 Possiblilite de like les tuto et de les commenter.
-Il sera possible aussi de liker les commentaire ou d'y repondre.
+
+## Installation
+1. Cloner le repo :
+   https://github.com/Nikotiine/api_portfolio.git
+
+```bash
+npm install
+```
+
 
 ## Development server
 

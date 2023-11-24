@@ -24,14 +24,10 @@
       </td>
       <td>
         <p-button
-          icon="{{ comment.isActive ? 'pi pi-lock' : 'pi pi-unlock' }}"
+          icon="pi pi-power-off"
           styleClass="p-button-text p-button-danger p-button-rounded"
-          pTooltip="{{
-            comment.isActive
-              ? ('admin.disable' | translate)
-              : ('admin.active' | translate)
-          }}"
-          (onClick)="switch(comment.id)"
+          pTooltip="{{ 'admin.disable' | translate }}"
+          (onClick)="confirm(comment.id)"
         ></p-button>
       </td>
     </tr>

@@ -1,6 +1,8 @@
 {
   "common": {
-    "appTitle": "Welcome on my portfolio"
+    "appTitle": "Welcome on my portfolio",
+    "yes": "Yes",
+    "no": "No"
   },
   "setting": {
     "light": "Light",
@@ -158,6 +160,7 @@
   },
   "admin": {
     "user": "User",
+    "users": "Users",
     "role": "Role",
     "status": "Status",
     "isActive": "Active",
@@ -166,6 +169,10 @@
     "disable": "Disable",
     "comment": "Comment",
     "tutorialName": "Tutorial",
-    "action": "Action"
+    "action": "Action",
+    "comments": "Comments",
+    "database": "Database",
+    "deleteUser": "Delete User ?",
+    "deleteComment": "Delete Comment ?"
   }
 }

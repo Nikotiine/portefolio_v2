@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../../../core/api/services/admin.service';
 import { UserProfileDto } from '../../../core/api/models/user-profile-dto';
 import { CustomMessageService } from '../../../core/services/custom-message.service';
+import { ConfirmationService } from 'primeng/api';
+import { LanguageService } from '../../../core/services/language.service';
 
 @Component({
   selector: 'app-user-list',
@@ -12,39 +14,61 @@ export class UserListComponent implements OnInit {
   public users: UserProfileDto[] = [];
   constructor(
     private readonly adminService: AdminService,
-    private readonly customMessageService: CustomMessageService
+    private readonly customMessageService: CustomMessageService,
+    private readonly confirmationService: ConfirmationService,
+    private readonly languageService: LanguageService
   ) {}
 
   public ngOnInit(): void {
     this.loadUsers();
   }
 
+  /**
+   * Charge les tous les utilisateurs de la bdd
+   */
   private loadUsers(): void {
     this.adminService.adminControllerGetAllUsers().subscribe({
       next: (users) => {
-        console.log(users);
         this.users = users;
       },
       error: (err) => {
-        console.log(err);
+        this.customMessageService.errorMessage('account', err.error.message);
       },
     });
   }
 
-  deleteUser(id: number): void {
-    console.log(id);
+  /**
+   * Pop-up de confirmation avant la desactivation du compte utlisateur
+   * @param id number : id de l'utilisateur
+   */
+  public confirm(id: number): void {
+    this.confirmationService.confirm({
+      message: this.languageService.instantTranslate('admin.deleteUser'),
+      header: 'Confirmation',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.deleteUser(id);
+      },
+    });
+  }
+
+  /**
+   * Requete api pour desactivation du compte utilisateur,
+   * Message de reussite / echec
+   * @param id number : id de l'utilisateur
+   */
+  private deleteUser(id: number): void {
     this.adminService
       .adminControllerDisableUser({
         id: id,
       })
       .subscribe({
         next: (data) => {
-          console.log(data);
           this.customMessageService.successMessage('account', 'userDisable');
           this.loadUsers();
         },
         error: (err) => {
-          this.customMessageService.errorMessage('', err.error.message);
+          this.customMessageService.errorMessage('account', err.error.message);
         },
       });
   }

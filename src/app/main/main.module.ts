@@ -25,6 +25,7 @@ import { CurriculumComponent } from './curriculum/curriculum.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { SocialNetworkComponent } from './social-network/social-network.component';
 import { ToastModule } from 'primeng/toast';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { ToastModule } from 'primeng/toast';
     ProgressBarModule,
     ChipModule,
     ToastModule,
+    ConfirmDialogModule,
   ],
 })
 export class MainModule {}

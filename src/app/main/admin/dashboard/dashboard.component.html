@@ -1,11 +1,20 @@
 <p-card>
   <h3 class="text-center">Admin Dashboard</h3>
   <p-accordion [activeIndex]="[0]">
-    <p-accordionTab header="Users">
+    <p-accordionTab header="{{ 'admin.users' | translate }}">
       <app-user-list></app-user-list>
     </p-accordionTab>
-    <p-accordionTab header="Comments">
+    <p-accordionTab header="{{ 'admin.comments' | translate }}">
       <app-comment-list></app-comment-list>
+    </p-accordionTab>
+    <p-accordionTab header="{{ 'admin.database' | translate }}">
+      <div class="flex justify-content-center">
+        <p-button
+          icon="pi pi-power-off"
+          styleClass="p-button-text p-button-danger p-button-rounded"
+          (onClick)="clearDatabase()"
+        ></p-button>
+      </div>
     </p-accordionTab>
   </p-accordion>
 </p-card>

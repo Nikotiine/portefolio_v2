@@ -6,7 +6,7 @@
       styleClass="p-button-rounded p-button-text p-button-danger"
       icon="pi pi-trash"
       *ngIf="comment.isMyComment"
-      (onClick)="deleteComment(comment.id)"
+      (onClick)="confirm(comment.id)"
     ></p-button>
   </div>
   <p class="text-blue-500">

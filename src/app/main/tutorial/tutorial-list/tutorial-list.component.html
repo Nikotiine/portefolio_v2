@@ -7,9 +7,9 @@
 
   <app-admin-button *ngIf="isAdmin" class="ml-3"></app-admin-button>
 </div>
-<h3 class="text-center text-3xl">Tutorial</h3>
+<h3 class="text-center text-3xl">{{ "tutorial.title" | translate }}</h3>
 <div class="accordion-container" *ngIf="!loading">
-  <p-accordion [multiple]="false">
+  <p-accordion [multiple]="false" [activeIndex]="accordionActiveIndex">
     <ng-container *ngFor="let tutorial of tutorials; let index = index">
       <p-accordionTab [tabIndex]="index">
         <ng-template pTemplate="header">
@@ -54,17 +54,17 @@
                 ? ('tutorial.unlikeIt' | translate)
                 : ('tutorial.likeIt' | translate)
             }}"
-            (onClick)="like(tutorial.id)"
+            (onClick)="toggleLike(tutorial.id)"
           ></p-button>
         </div>
         <app-comment-list
           [comments]="tutorial.comments"
-          (deleteConfirmation)="refreshData()"
+          (deleteConfirmation)="refreshData(index)"
         ></app-comment-list>
         <app-comment-form
           [tutorialId]="tutorial.id"
           *ngIf="isLogged"
-          (newComment)="refreshData()"
+          (newComment)="refreshData(index)"
         ></app-comment-form>
       </p-accordionTab>
     </ng-container>

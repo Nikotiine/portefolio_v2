@@ -21,6 +21,7 @@ export class CommentFormComponent {
   @Output() newComment: EventEmitter<void> = new EventEmitter<void>();
   public form: FormGroup;
   private tutorialId$: number;
+
   constructor(
     private readonly fb: FormBuilder,
     private readonly customMessageService: CustomMessageService,

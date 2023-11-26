@@ -154,7 +154,8 @@
     "likeIt": "Like",
     "unlikeIt": "Don't like",
     "downloadMD": "Download Markdown",
-    "postedAt": "Posted at :"
+    "postedAt": "Posted at :",
+    "title": "Tutorials"
   },
   "notFound": {
     "error": "Error",

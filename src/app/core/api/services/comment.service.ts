@@ -75,8 +75,8 @@ export class CommentService extends BaseService {
     );
   }
 
-  /** Path part for operation `commentControllerFindCommentForTutorial()` */
-  static readonly CommentControllerFindCommentForTutorialPath = '/api/comment/tutorial/{id}';
+  /** Path part for operation `commentControllerGetAllCommentsOfTutorial()` */
+  static readonly CommentControllerGetAllCommentsOfTutorialPath = '/api/comment/tutorials';
 
   /**
    * Retourne les commentaires.
@@ -84,16 +84,16 @@ export class CommentService extends BaseService {
    * Renvoie tous les commentaires actif des tutoriels
    *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `commentControllerFindCommentForTutorial()` instead.
+   * To access only the response body, use `commentControllerGetAllCommentsOfTutorial()` instead.
    *
    * This method doesn't expect any request body.
    */
-  commentControllerFindCommentForTutorial$Response(
+  commentControllerGetAllCommentsOfTutorial$Response(
     params?: {
     },
     context?: HttpContext
   ): Observable<StrictHttpResponse<Array<CommentDto>>> {
-    const rb = new RequestBuilder(this.rootUrl, CommentService.CommentControllerFindCommentForTutorialPath, 'get');
+    const rb = new RequestBuilder(this.rootUrl, CommentService.CommentControllerGetAllCommentsOfTutorialPath, 'get');
     if (params) {
     }
 
@@ -113,16 +113,79 @@ export class CommentService extends BaseService {
    * Renvoie tous les commentaires actif des tutoriels
    *
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `commentControllerFindCommentForTutorial$Response()` instead.
+   * To access the full response (for headers, for example), `commentControllerGetAllCommentsOfTutorial$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  commentControllerFindCommentForTutorial(
+  commentControllerGetAllCommentsOfTutorial(
     params?: {
     },
     context?: HttpContext
   ): Observable<Array<CommentDto>> {
-    return this.commentControllerFindCommentForTutorial$Response(params, context).pipe(
+    return this.commentControllerGetAllCommentsOfTutorial$Response(params, context).pipe(
+      map((r: StrictHttpResponse<Array<CommentDto>>): Array<CommentDto> => r.body)
+    );
+  }
+
+  /** Path part for operation `commentControllerGetCommentsByTutorial()` */
+  static readonly CommentControllerGetCommentsByTutorialPath = '/api/comment/tutorial/{id}';
+
+  /**
+   * Retourne les commentaires.
+   *
+   * Renvoie tous les commentaires actif du tutoriel passer en param
+   *
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `commentControllerGetCommentsByTutorial()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  commentControllerGetCommentsByTutorial$Response(
+    params: {
+
+    /**
+     * Id du tutoriel
+     */
+      id: number;
+    },
+    context?: HttpContext
+  ): Observable<StrictHttpResponse<Array<CommentDto>>> {
+    const rb = new RequestBuilder(this.rootUrl, CommentService.CommentControllerGetCommentsByTutorialPath, 'get');
+    if (params) {
+      rb.path('id', params.id, {});
+    }
+
+    return this.http.request(
+      rb.build({ responseType: 'json', accept: 'application/json', context })
+    ).pipe(
+      filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<Array<CommentDto>>;
+      })
+    );
+  }
+
+  /**
+   * Retourne les commentaires.
+   *
+   * Renvoie tous les commentaires actif du tutoriel passer en param
+   *
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `commentControllerGetCommentsByTutorial$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  commentControllerGetCommentsByTutorial(
+    params: {
+
+    /**
+     * Id du tutoriel
+     */
+      id: number;
+    },
+    context?: HttpContext
+  ): Observable<Array<CommentDto>> {
+    return this.commentControllerGetCommentsByTutorial$Response(params, context).pipe(
       map((r: StrictHttpResponse<Array<CommentDto>>): Array<CommentDto> => r.body)
     );
   }

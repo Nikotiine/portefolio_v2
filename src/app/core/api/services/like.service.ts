@@ -23,7 +23,7 @@ export class LikeService extends BaseService {
   static readonly LikeControllerLikeTutorialPath = '/api/like/tutorial';
 
   /**
-   * Post d'un like tutorials.
+   * Post d'un like.
    *
    * Mettre ou supprimer un like d'un tutorial
    *
@@ -37,7 +37,7 @@ export class LikeService extends BaseService {
       body: LikeCreateDto
     },
     context?: HttpContext
-  ): Observable<StrictHttpResponse<LikeDto>> {
+  ): Observable<StrictHttpResponse<Array<LikeDto>>> {
     const rb = new RequestBuilder(this.rootUrl, LikeService.LikeControllerLikeTutorialPath, 'post');
     if (params) {
       rb.body(params.body, 'application/json');
@@ -48,13 +48,13 @@ export class LikeService extends BaseService {
     ).pipe(
       filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return r as StrictHttpResponse<LikeDto>;
+        return r as StrictHttpResponse<Array<LikeDto>>;
       })
     );
   }
 
   /**
-   * Post d'un like tutorials.
+   * Post d'un like.
    *
    * Mettre ou supprimer un like d'un tutorial
    *
@@ -68,9 +68,9 @@ export class LikeService extends BaseService {
       body: LikeCreateDto
     },
     context?: HttpContext
-  ): Observable<LikeDto> {
+  ): Observable<Array<LikeDto>> {
     return this.likeControllerLikeTutorial$Response(params, context).pipe(
-      map((r: StrictHttpResponse<LikeDto>): LikeDto => r.body)
+      map((r: StrictHttpResponse<Array<LikeDto>>): Array<LikeDto> => r.body)
     );
   }
 
@@ -78,7 +78,7 @@ export class LikeService extends BaseService {
   static readonly LikeControllerGetAllLikesOfTutorialsPath = '/api/like/tutorials';
 
   /**
-   * Get all l' des likes.
+   * Get all  des likes.
    *
    * Recupere en bdd tout les likes actifs des tutoriels
    *
@@ -107,7 +107,7 @@ export class LikeService extends BaseService {
   }
 
   /**
-   * Get all l' des likes.
+   * Get all  des likes.
    *
    * Recupere en bdd tout les likes actifs des tutoriels
    *
@@ -122,6 +122,69 @@ export class LikeService extends BaseService {
     context?: HttpContext
   ): Observable<Array<LikeDto>> {
     return this.likeControllerGetAllLikesOfTutorials$Response(params, context).pipe(
+      map((r: StrictHttpResponse<Array<LikeDto>>): Array<LikeDto> => r.body)
+    );
+  }
+
+  /** Path part for operation `likeControllerGetLikeByTutorial()` */
+  static readonly LikeControllerGetLikeByTutorialPath = '/api/like/tutorial/{id}';
+
+  /**
+   * Renvoie les like par tuto.
+   *
+   *
+   *
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `likeControllerGetLikeByTutorial()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  likeControllerGetLikeByTutorial$Response(
+    params: {
+
+    /**
+     * Id du tuto
+     */
+      id: number;
+    },
+    context?: HttpContext
+  ): Observable<StrictHttpResponse<Array<LikeDto>>> {
+    const rb = new RequestBuilder(this.rootUrl, LikeService.LikeControllerGetLikeByTutorialPath, 'get');
+    if (params) {
+      rb.path('id', params.id, {});
+    }
+
+    return this.http.request(
+      rb.build({ responseType: 'json', accept: 'application/json', context })
+    ).pipe(
+      filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<Array<LikeDto>>;
+      })
+    );
+  }
+
+  /**
+   * Renvoie les like par tuto.
+   *
+   *
+   *
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `likeControllerGetLikeByTutorial$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  likeControllerGetLikeByTutorial(
+    params: {
+
+    /**
+     * Id du tuto
+     */
+      id: number;
+    },
+    context?: HttpContext
+  ): Observable<Array<LikeDto>> {
+    return this.likeControllerGetLikeByTutorial$Response(params, context).pipe(
       map((r: StrictHttpResponse<Array<LikeDto>>): Array<LikeDto> => r.body)
     );
   }

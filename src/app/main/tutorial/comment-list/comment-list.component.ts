@@ -5,6 +5,8 @@ import { CommentService } from '../../../core/api/services/comment.service';
 import { SecurityService } from '../../../core/services/security.service';
 import { CustomMessageService } from '../../../core/services/custom-message.service';
 import { CommentViewModel } from '../../../core/models/CommentViewModel.model';
+import { ConfirmationService } from 'primeng/api';
+import { LanguageService } from '../../../core/services/language.service';
 interface PageEvent {
   first: number;
   rows: number;
@@ -34,12 +36,15 @@ export class CommentListComponent {
   public startIndex = 0;
   public itemPerPage = 5;
   public user: UserProfileDto;
+  private accordionIndex$: number;
 
   constructor(
     private readonly profileService: ProfileService,
     private readonly commentService: CommentService,
     private readonly securityService: SecurityService,
-    private readonly customMessageService: CustomMessageService
+    private readonly customMessageService: CustomMessageService,
+    private readonly confirmationService: ConfirmationService,
+    private readonly languageService: LanguageService
   ) {
     this.user = this.profileService.getUserProfile();
   }
@@ -63,11 +68,22 @@ export class CommentListComponent {
     return this._comments.slice(startIndex, startIndex + this.itemPerPage);
   }
 
+  public confirm(id: number): void {
+    this.confirmationService.confirm({
+      message: this.languageService.instantTranslate('admin.deleteComment'),
+      header: 'Confirmation',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.deleteComment(id);
+      },
+    });
+  }
+
   /**
    * Suppression d'un commentaire par l'utilisateur connecter
    * @param id
    */
-  public deleteComment(id: number): void {
+  private deleteComment(id: number): void {
     this.commentService
       .commentControllerDeleteComment({
         id: id,

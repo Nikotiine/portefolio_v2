@@ -26,6 +26,7 @@ export class TutorialListComponent implements OnInit {
   public tutorials: TutorialAccordion[] = [];
   public comments: CommentDto[];
   public isAdmin = false;
+  public accordionActiveIndex = -1;
   private readonly summaryCustomMessage: string = 'tutorial';
 
   constructor(
@@ -63,7 +64,7 @@ export class TutorialListComponent implements OnInit {
    * Like ou Unlike du tutoriel
    * @param tutorialId l'id du tutoriel ciblé
    */
-  public like(tutorialId: number): void {
+  public toggleLike(tutorialId: number): void {
     const tutorial: TutorialAccordion = this.tutorials.find(
       (tutorial: TutorialAccordion) => tutorial.id === tutorialId
     );
@@ -72,18 +73,20 @@ export class TutorialListComponent implements OnInit {
     const like: LikeCreateDto = {
       tutorialId: tutorialId,
       user: user,
+      isActive: !tutorial.likedByMe,
     };
     this.likeService
       .likeControllerLikeTutorial({
         body: like,
       })
       .subscribe({
-        next: () => {
+        next: (likes) => {
           this.customMessageService.infoMessage(
             this.summaryCustomMessage,
             message
           );
-          this.loadData();
+          tutorial.likes = likes.filter((l) => l.isActive).length;
+          tutorial.likedByMe = !tutorial.likedByMe;
         },
         error: (err) => {
           this.customMessageService.errorMessage(
@@ -100,7 +103,7 @@ export class TutorialListComponent implements OnInit {
   private loadData(): void {
     forkJoin([
       this.likeService.likeControllerGetAllLikesOfTutorials(),
-      this.commentService.commentControllerFindCommentForTutorial(),
+      this.commentService.commentControllerGetAllCommentsOfTutorial(),
       this.http.get('assets/data/tutorial.json'),
     ]).subscribe({
       next: (data) => {
@@ -162,7 +165,8 @@ export class TutorialListComponent implements OnInit {
   }
 
   //Rafrechi les donnee apres un nouveau commentaire ou supression
-  public refreshData(): void {
+  public refreshData(index: number): void {
+    this.accordionActiveIndex = index;
     this.loadData();
   }
 }

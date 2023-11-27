@@ -4,6 +4,7 @@ import { CommentCreateDto } from '../../../core/api/models/comment-create-dto';
 import { CustomMessageService } from '../../../core/services/custom-message.service';
 import { ProfileService } from '../../../core/services/profile.service';
 import { CommentService } from '../../../core/api/services/comment.service';
+import { CommentDto } from '../../../core/api/models/comment-dto';
 
 @Component({
   selector: 'app-comment-form',
@@ -18,7 +19,9 @@ export class CommentFormComponent {
     return this.tutorialId$;
   }
 
-  @Output() newComment: EventEmitter<void> = new EventEmitter<void>();
+  @Output() newComment: EventEmitter<CommentDto[]> = new EventEmitter<
+    CommentDto[]
+  >();
   public form: FormGroup;
   private tutorialId$: number;
 
@@ -45,9 +48,11 @@ export class CommentFormComponent {
         body: comment,
       })
       .subscribe({
-        next: (res) => {
+        next: (comments) => {
           this.customMessageService.successMessage('tutorial', 'newComment');
-          this.newComment.emit();
+          console.log(comments);
+          this.newComment.emit(comments);
+
           this.form.controls['comment'].setValue('');
         },
         error: (err) => {

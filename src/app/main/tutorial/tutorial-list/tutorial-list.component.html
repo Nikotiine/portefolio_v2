@@ -59,12 +59,12 @@
         </div>
         <app-comment-list
           [comments]="tutorial.comments"
-          (deleteConfirmation)="refreshData(index)"
+          (deleteConfirmation)="updateComments($event, tutorial.id)"
         ></app-comment-list>
         <app-comment-form
           [tutorialId]="tutorial.id"
           *ngIf="isLogged"
-          (newComment)="refreshData(index)"
+          (newComment)="updateComments($event, tutorial.id)"
         ></app-comment-form>
       </p-accordionTab>
     </ng-container>

@@ -62,6 +62,7 @@ export class TutorialListComponent implements OnInit {
 
   /**
    * Like ou Unlike du tutoriel
+   * Met a jour la liste des like et l'attibut isMyLike a retour de la reponse
    * @param tutorialId l'id du tutoriel ciblé
    */
   public toggleLike(tutorialId: number): void {
@@ -164,9 +165,13 @@ export class TutorialListComponent implements OnInit {
     }));
   }
 
-  //Rafrechi les donnee apres un nouveau commentaire ou supression
-  public refreshData(index: number): void {
-    this.accordionActiveIndex = index;
-    this.loadData();
+  /**
+   * Rafraichi les commentaires apres l'ajout d'un nouveau ou la suppression
+   * @param comments le tableau des commentaires du tutoriel concerne
+   * @param tutorialId l'id du tuto
+   */
+  updateComments(comments: CommentDto[], tutorialId: number) {
+    const tutorial = this.tutorials.find((t) => t.id === tutorialId);
+    tutorial.comments = this.createCommentViewModel(comments);
   }
 }

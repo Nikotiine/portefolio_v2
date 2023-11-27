@@ -7,6 +7,7 @@ import { CustomMessageService } from '../../../core/services/custom-message.serv
 import { CommentViewModel } from '../../../core/models/CommentViewModel.model';
 import { ConfirmationService } from 'primeng/api';
 import { LanguageService } from '../../../core/services/language.service';
+import { CommentDto } from '../../../core/api/models/comment-dto';
 interface PageEvent {
   first: number;
   rows: number;
@@ -29,14 +30,15 @@ export class CommentListComponent {
     return this._comments;
   }
 
-  @Output() deleteConfirmation: EventEmitter<void> = new EventEmitter<void>();
+  @Output() deleteConfirmation: EventEmitter<CommentDto[]> = new EventEmitter<
+    CommentDto[]
+  >();
 
   private _comments: CommentViewModel[] = [];
   public filteredComment: CommentViewModel[] = [];
   public startIndex = 0;
   public itemPerPage = 5;
   public user: UserProfileDto;
-  private accordionIndex$: number;
 
   constructor(
     private readonly profileService: ProfileService,
@@ -89,14 +91,13 @@ export class CommentListComponent {
         id: id,
       })
       .subscribe({
-        next: (res) => {
-          if (res.deleted) {
-            this.customMessageService.successMessage(
-              'tutorial',
-              'commentDeleted'
-            );
-            this.deleteConfirmation.emit();
-          }
+        next: (comments) => {
+          this.customMessageService.successMessage(
+            'tutorial',
+            'commentDeleted'
+          );
+          console.log(comments);
+          this.deleteConfirmation.emit(comments);
         },
         error: (err) => {
           this.customMessageService.errorMessage('tutorial', err.error.message);

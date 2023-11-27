@@ -12,7 +12,6 @@ import { RequestBuilder } from '../request-builder';
 
 import { CommentCreateDto } from '../models/comment-create-dto';
 import { CommentDto } from '../models/comment-dto';
-import { DeleteConfirmationDto } from '../models/delete-confirmation-dto';
 
 @Injectable({ providedIn: 'root' })
 export class CommentService extends BaseService {
@@ -38,7 +37,7 @@ export class CommentService extends BaseService {
     body: CommentCreateDto
     },
     context?: HttpContext
-  ): Observable<StrictHttpResponse<CommentDto>> {
+  ): Observable<StrictHttpResponse<Array<CommentDto>>> {
     const rb = new RequestBuilder(this.rootUrl, CommentService.CommentControllerNewCommentPath, 'post');
     if (params) {
       rb.body(params.body, 'application/json');
@@ -49,7 +48,7 @@ export class CommentService extends BaseService {
     ).pipe(
       filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return r as StrictHttpResponse<CommentDto>;
+        return r as StrictHttpResponse<Array<CommentDto>>;
       })
     );
   }
@@ -69,9 +68,9 @@ export class CommentService extends BaseService {
     body: CommentCreateDto
     },
     context?: HttpContext
-  ): Observable<CommentDto> {
+  ): Observable<Array<CommentDto>> {
     return this.commentControllerNewComment$Response(params, context).pipe(
-      map((r: StrictHttpResponse<CommentDto>): CommentDto => r.body)
+      map((r: StrictHttpResponse<Array<CommentDto>>): Array<CommentDto> => r.body)
     );
   }
 
@@ -127,69 +126,6 @@ export class CommentService extends BaseService {
     );
   }
 
-  /** Path part for operation `commentControllerGetCommentsByTutorial()` */
-  static readonly CommentControllerGetCommentsByTutorialPath = '/api/comment/tutorial/{id}';
-
-  /**
-   * Retourne les commentaires.
-   *
-   * Renvoie tous les commentaires actif du tutoriel passer en param
-   *
-   * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `commentControllerGetCommentsByTutorial()` instead.
-   *
-   * This method doesn't expect any request body.
-   */
-  commentControllerGetCommentsByTutorial$Response(
-    params: {
-
-    /**
-     * Id du tutoriel
-     */
-      id: number;
-    },
-    context?: HttpContext
-  ): Observable<StrictHttpResponse<Array<CommentDto>>> {
-    const rb = new RequestBuilder(this.rootUrl, CommentService.CommentControllerGetCommentsByTutorialPath, 'get');
-    if (params) {
-      rb.path('id', params.id, {});
-    }
-
-    return this.http.request(
-      rb.build({ responseType: 'json', accept: 'application/json', context })
-    ).pipe(
-      filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
-      map((r: HttpResponse<any>) => {
-        return r as StrictHttpResponse<Array<CommentDto>>;
-      })
-    );
-  }
-
-  /**
-   * Retourne les commentaires.
-   *
-   * Renvoie tous les commentaires actif du tutoriel passer en param
-   *
-   * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `commentControllerGetCommentsByTutorial$Response()` instead.
-   *
-   * This method doesn't expect any request body.
-   */
-  commentControllerGetCommentsByTutorial(
-    params: {
-
-    /**
-     * Id du tutoriel
-     */
-      id: number;
-    },
-    context?: HttpContext
-  ): Observable<Array<CommentDto>> {
-    return this.commentControllerGetCommentsByTutorial$Response(params, context).pipe(
-      map((r: StrictHttpResponse<Array<CommentDto>>): Array<CommentDto> => r.body)
-    );
-  }
-
   /** Path part for operation `commentControllerDeleteComment()` */
   static readonly CommentControllerDeleteCommentPath = '/api/comment/tutorial/{id}';
 
@@ -208,7 +144,7 @@ export class CommentService extends BaseService {
       id: number;
     },
     context?: HttpContext
-  ): Observable<StrictHttpResponse<DeleteConfirmationDto>> {
+  ): Observable<StrictHttpResponse<Array<CommentDto>>> {
     const rb = new RequestBuilder(this.rootUrl, CommentService.CommentControllerDeleteCommentPath, 'delete');
     if (params) {
       rb.path('id', params.id, {});
@@ -219,7 +155,7 @@ export class CommentService extends BaseService {
     ).pipe(
       filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return r as StrictHttpResponse<DeleteConfirmationDto>;
+        return r as StrictHttpResponse<Array<CommentDto>>;
       })
     );
   }
@@ -239,9 +175,9 @@ export class CommentService extends BaseService {
       id: number;
     },
     context?: HttpContext
-  ): Observable<DeleteConfirmationDto> {
+  ): Observable<Array<CommentDto>> {
     return this.commentControllerDeleteComment$Response(params, context).pipe(
-      map((r: StrictHttpResponse<DeleteConfirmationDto>): DeleteConfirmationDto => r.body)
+      map((r: StrictHttpResponse<Array<CommentDto>>): Array<CommentDto> => r.body)
     );
   }
 

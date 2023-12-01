@@ -10,6 +10,7 @@ import { ApiConfiguration } from '../api-configuration';
 import { StrictHttpResponse } from '../strict-http-response';
 import { RequestBuilder } from '../request-builder';
 
+import { ClearDatabaseResultDto } from '../models/clear-database-result-dto';
 import { CommentDto } from '../models/comment-dto';
 import { UserProfileDto } from '../models/user-profile-dto';
 
@@ -266,17 +267,17 @@ export class AdminService extends BaseService {
     params?: {
     },
     context?: HttpContext
-  ): Observable<StrictHttpResponse<void>> {
+  ): Observable<StrictHttpResponse<ClearDatabaseResultDto>> {
     const rb = new RequestBuilder(this.rootUrl, AdminService.AdminControllerClearDatabasePath, 'delete');
     if (params) {
     }
 
     return this.http.request(
-      rb.build({ responseType: 'text', accept: '*/*', context })
+      rb.build({ responseType: 'json', accept: 'application/json', context })
     ).pipe(
       filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return (r as HttpResponse<any>).clone({ body: undefined }) as StrictHttpResponse<void>;
+        return r as StrictHttpResponse<ClearDatabaseResultDto>;
       })
     );
   }
@@ -295,9 +296,9 @@ export class AdminService extends BaseService {
     params?: {
     },
     context?: HttpContext
-  ): Observable<void> {
+  ): Observable<ClearDatabaseResultDto> {
     return this.adminControllerClearDatabase$Response(params, context).pipe(
-      map((r: StrictHttpResponse<void>): void => r.body)
+      map((r: StrictHttpResponse<ClearDatabaseResultDto>): ClearDatabaseResultDto => r.body)
     );
   }
 

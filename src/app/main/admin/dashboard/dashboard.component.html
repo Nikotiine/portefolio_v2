@@ -12,10 +12,10 @@
 
   <p-accordion [activeIndex]="[0]">
     <p-accordionTab header="{{ 'admin.users' | translate }}">
-      <app-user-list></app-user-list>
+      <app-user-list [allUsers]="users"></app-user-list>
     </p-accordionTab>
     <p-accordionTab header="{{ 'admin.comments' | translate }}">
-      <app-comment-list></app-comment-list>
+      <app-comment-list [allComments]="comments"></app-comment-list>
     </p-accordionTab>
     <p-accordionTab header="{{ 'admin.database' | translate }}">
       <div class="flex justify-content-center">

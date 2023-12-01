@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AdminService } from '../../../core/api/services/admin.service';
 import { CommentDto } from '../../../core/api/models/comment-dto';
 import { HttpClient } from '@angular/common/http';
 import { TutorialAccordion } from '../../../core/models/TutorialAccordion.model';
-import { forkJoin } from 'rxjs';
 import { AdminCommentViewModel } from '../../../core/models/AdminCommentViewModel';
 import { CustomMessageService } from '../../../core/services/custom-message.service';
 import { ConfirmationService } from 'primeng/api';
@@ -15,7 +14,17 @@ import { LanguageService } from '../../../core/services/language.service';
   styleUrls: ['./comment-list.component.scss'],
 })
 export class CommentListComponent implements OnInit {
-  public comments: AdminCommentViewModel[] = [];
+  @Input() set allComments(comments: CommentDto[]) {
+    this._comments = comments;
+    if (this.tutorials.length > 0) {
+      this.createAdminViewModel(comments, this.tutorials);
+    }
+  }
+  get comments(): CommentDto[] {
+    return this._comments;
+  }
+  private _comments: CommentDto[] = [];
+  public commentsVM: AdminCommentViewModel[] = [];
   private tutorials: TutorialAccordion[] = [];
   constructor(
     private readonly adminService: AdminService,
@@ -33,13 +42,10 @@ export class CommentListComponent implements OnInit {
    * Charge la liste des tutoriels
    */
   private loadData(): void {
-    forkJoin([
-      this.adminService.adminControllerFindAllComments(),
-      this.http.get('assets/data/tutorial.json'),
-    ]).subscribe({
+    this.http.get('assets/data/tutorial.json').subscribe({
       next: (data) => {
-        this.tutorials = data[1] as TutorialAccordion[];
-        this.createAdminViewModel(data[0], data[1] as TutorialAccordion[]);
+        this.tutorials = data as TutorialAccordion[];
+        this.createAdminViewModel(this.comments, data as TutorialAccordion[]);
       },
       error: (err) => {
         this.customMessageService.errorMessage('comment', err.error.message);
@@ -68,7 +74,7 @@ export class CommentListComponent implements OnInit {
       };
       commentsViewModel.push(commentViewModel);
     }
-    this.comments = commentsViewModel;
+    this.commentsVM = commentsViewModel;
   }
 
   /**

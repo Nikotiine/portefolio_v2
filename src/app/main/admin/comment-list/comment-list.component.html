@@ -1,4 +1,8 @@
-<p-table [value]="comments" [tableStyle]="{ 'min-width': '50rem' }">
+<p-table
+  [value]="commentsVM"
+  [tableStyle]="{ 'min-width': '50rem' }"
+  *ngIf="commentsVM.length > 0"
+>
   <ng-template pTemplate="header">
     <tr>
       <th>ID</th>

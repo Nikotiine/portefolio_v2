@@ -1,17 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../../../core/api/services/admin.service';
 import { ConfirmationService } from 'primeng/api';
 import { LanguageService } from '../../../core/services/language.service';
 import { CustomMessageService } from '../../../core/services/custom-message.service';
 import { SecurityService } from '../../../core/services/security.service';
-import { Router } from '@angular/router';
+import { forkJoin } from 'rxjs';
+import { CommentDto } from '../../../core/api/models/comment-dto';
+import { UserProfileDto } from '../../../core/api/models/user-profile-dto';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
+  public comments: CommentDto[] = [];
+  public users: UserProfileDto[] = [];
   constructor(
     private readonly adminService: AdminService,
     private readonly confirmationService: ConfirmationService,
@@ -40,8 +44,10 @@ export class DashboardComponent {
    */
   private clearDatabase(): void {
     this.adminService.adminControllerClearDatabase().subscribe({
-      next: () => {
-        this.customMessageService.errorMessage('database', 'databaseErased');
+      next: (res) => {
+        this.users = res.users;
+        this.comments = res.comments;
+        this.customMessageService.successMessage('database', 'databaseErased');
       },
       error: (err) => {
         this.customMessageService.errorMessage('database', err.error.message);
@@ -51,5 +57,28 @@ export class DashboardComponent {
 
   public logout(): void {
     this.securityService.logout();
+  }
+
+  public ngOnInit(): void {
+    this.loadData();
+  }
+
+  /**
+   * Charge les commentaire et les utilisateurs acrtifs ou non
+   * @private
+   */
+  private loadData(): void {
+    forkJoin([
+      this.adminService.adminControllerFindAllComments(),
+      this.adminService.adminControllerGetAllUsers(),
+    ]).subscribe({
+      next: (data) => {
+        this.comments = data[0];
+        this.users = data[1];
+      },
+      error: (err) => {
+        this.customMessageService.errorMessage('database', err.error.message);
+      },
+    });
   }
 }

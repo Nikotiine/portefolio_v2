@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { AdminService } from '../../../core/api/services/admin.service';
 import { UserProfileDto } from '../../../core/api/models/user-profile-dto';
 import { CustomMessageService } from '../../../core/services/custom-message.service';
@@ -10,7 +10,11 @@ import { LanguageService } from '../../../core/services/language.service';
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.scss'],
 })
-export class UserListComponent implements OnInit {
+export class UserListComponent {
+  @Input() set allUsers(users: UserProfileDto[]) {
+    this.users = users;
+  }
+
   public users: UserProfileDto[] = [];
   constructor(
     private readonly adminService: AdminService,
@@ -18,24 +22,6 @@ export class UserListComponent implements OnInit {
     private readonly confirmationService: ConfirmationService,
     private readonly languageService: LanguageService
   ) {}
-
-  public ngOnInit(): void {
-    this.loadUsers();
-  }
-
-  /**
-   * Charge les tous les utilisateurs de la bdd
-   */
-  private loadUsers(): void {
-    this.adminService.adminControllerGetAllUsers().subscribe({
-      next: (users) => {
-        this.users = users;
-      },
-      error: (err) => {
-        this.customMessageService.errorMessage('account', err.error.message);
-      },
-    });
-  }
 
   /**
    * Pop-up de confirmation avant la desactivation du compte utlisateur

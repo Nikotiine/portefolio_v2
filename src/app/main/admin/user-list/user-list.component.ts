@@ -40,6 +40,7 @@ export class UserListComponent {
 
   /**
    * Requete api pour desactivation du compte utilisateur,
+   * met a jour le tableau des utilisateur
    * Message de reussite / echec
    * @param id number : id de l'utilisateur
    */

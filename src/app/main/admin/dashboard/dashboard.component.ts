@@ -39,7 +39,7 @@ export class DashboardComponent implements OnInit {
   }
 
   /**
-   * Purge la bdd
+   * Purge la bdd et met a jour les tableau utilisateur et commentaire dans les accordion respectifs
    * @private
    */
   private clearDatabase(): void {
@@ -64,7 +64,7 @@ export class DashboardComponent implements OnInit {
   }
 
   /**
-   * Charge les commentaire et les utilisateurs acrtifs ou non
+   * Charge les commentaires et les utilisateurs acrtifs ou non
    * @private
    */
   private loadData(): void {

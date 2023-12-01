@@ -38,7 +38,6 @@ export class CommentListComponent implements OnInit {
   }
 
   /**
-   * Charge la liste des commentaire en bbd
    * Charge la liste des tutoriels
    */
   private loadData(): void {
@@ -93,7 +92,8 @@ export class CommentListComponent implements OnInit {
   }
 
   /**
-   * Requete api pour desactivation du compte utilisateur,
+   * Requete api pour desactivation du commentaire
+   * Met a jour le tableau des commentaires
    * Message de reussite / echec
    * @param id number : id du commentaire
    */

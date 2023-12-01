@@ -1,55 +1,54 @@
-<div class="card">
-  <p-dataView #dv [value]="knowledges">
-    <ng-template let-knowledge pTemplate="listItem">
-      <div class="col-4">
+<h1 class="text-center mt-5 text-primary">
+  {{ "knowledge.title" | translate }}
+</h1>
+<p-dataView #dv [value]="knowledges">
+  <ng-template let-knowledge pTemplate="listItem">
+    <div class="col-4">
+      <div class="flex flex-column xl:flex-row xl:align-items-start p-4 gap-4">
+        <img
+          class="w-9 sm:w-16rem xl:w-6rem block xl:block mx-auto border-round"
+          src="assets/img/{{ knowledge.logo }}"
+          [alt]="knowledge.name"
+        />
         <div
-          class="flex flex-column xl:flex-row xl:align-items-start p-4 gap-4"
+          class="flex flex-column sm:flex-row justify-content-between align-items-center xl:align-items-start flex-1 gap-4"
         >
-          <img
-            class="w-9 sm:w-16rem xl:w-6rem block xl:block mx-auto border-round"
-            src="assets/img/{{ knowledge.logo }}"
-            [alt]="knowledge.name"
-          />
           <div
-            class="flex flex-column sm:flex-row justify-content-between align-items-center xl:align-items-start flex-1 gap-4"
+            class="flex flex-column align-items-center sm:align-items-start gap-3"
           >
-            <div
-              class="flex flex-column align-items-center sm:align-items-start gap-3"
+            <div class="text-xl font-bold text-900">
+              {{ knowledge.name }}
+            </div>
+            <p-rating
+              [(ngModel)]="knowledge.rating"
+              [readonly]="true"
+              [cancel]="false"
             >
-              <div class="text-2xl font-bold text-900">
-                {{ knowledge.name }}
-              </div>
-              <p-rating
-                [(ngModel)]="knowledge.rating"
-                [readonly]="true"
-                [cancel]="false"
-              >
-                <ng-template pTemplate="onicon">
-                  <img
-                    src="assets/img/engrenage-actif.png"
-                    class="logo-rating"
-                    alt="logo icone active"
-                  />
-                </ng-template>
-                <ng-template pTemplate="officon">
-                  <img
-                    src="assets/img/engrenage.png"
-                    class="opacity-custom-50 logo-rating"
-                    alt="logo icone non active"
-                  />
-                </ng-template>
-              </p-rating>
+              <ng-template pTemplate="onicon">
+                <img
+                  src="assets/img/engrenage-actif.png"
+                  class="logo-rating"
+                  alt="logo icone active"
+                />
+              </ng-template>
+              <ng-template pTemplate="officon">
+                <img
+                  src="assets/img/engrenage.png"
+                  class="opacity-custom-50 logo-rating"
+                  alt="logo icone non active"
+                />
+              </ng-template>
+            </p-rating>
 
-              <div class="flex align-items-center gap-3">
-                <p-chip
-                  label="{{ 'knowledge.' + knowledge.category | translate }}"
-                  icon="pi pi-info-circle"
-                ></p-chip>
-              </div>
+            <div class="flex align-items-center gap-3">
+              <p-chip
+                label="{{ 'knowledge.' + knowledge.category | translate }}"
+                icon="pi pi-info-circle"
+              ></p-chip>
             </div>
           </div>
         </div>
       </div>
-    </ng-template>
-  </p-dataView>
-</div>
+    </div>
+  </ng-template>
+</p-dataView>

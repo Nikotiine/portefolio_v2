@@ -30,9 +30,11 @@
 <p-sidebar [(visible)]="sidebarVisible" [fullScreen]="true" (onHide)="onHide()">
   <app-applications></app-applications>
 </p-sidebar>
-<div class="card h-full">
-  <router-outlet></router-outlet>
-</div>
-<footer>
-  <app-footer></app-footer>
-</footer>
+<p-card>
+  <div class="card h-full">
+    <router-outlet></router-outlet>
+  </div>
+  <footer>
+    <app-footer></app-footer>
+  </footer>
+</p-card>

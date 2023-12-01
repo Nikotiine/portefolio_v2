@@ -1,42 +1,50 @@
-<div class="flex flex-wrap">
-  <div class="col-4 p-3" *ngFor="let project of projects">
-    <p-card
-      header="{{ project.name }}"
-      styleClass="flex justify-content-between flex-column h-full"
-    >
-      <ng-template pTemplate="header">
-        <div class="flex justify-content-center">
-          <img
-            alt="logo projet {{ project.name }}"
-            src="assets/img/{{ project.logo }}"
-          />
-        </div>
-      </ng-template>
-      <p class="h-17rem">
-        <span class="pi pi-tag mr-2" aria-hidden="true"></span>
-        <span class="underline"> {{ "project.projectType" | translate }} :</span
-        ><br />
-        {{ "project." + project.type | translate }}<br /><br />
-        <span class="pi pi-question-circle mr-2" aria-hidden="true"></span>
-        <span class="underline">Description :</span><br />
-        {{ "project." + project.description | translate }}<br /><br />
-        <span class="pi pi-code mr-2" aria-hidden="true"></span>
-        <span class="underline">{{ "project.tech" | translate }} :</span><br />
-        {{ project.techno }}<br />
-      </p>
-      <ng-template pTemplate="footer">
-        <div class="flex-footer mb-2">
-          <ng-container *ngFor="let site of project.website">
-            <a
-              class="p-button p-button-rounded text-white-alpha-90"
-              target="_blank"
-              href="{{ site.link }}"
-              ><span class="pi pi-globe mr-2" aria-hidden="true"></span
-              >{{ site.label }}</a
-            >
-          </ng-container>
-        </div>
-      </ng-template>
-    </p-card>
+<div class="card">
+  <h1 class="text-center mt-5 text-primary">
+    {{ "project.title" | translate }}
+  </h1>
+
+  <div class="flex flex-wrap">
+    <div class="col-4 p-3" *ngFor="let project of projects">
+      <p-card
+        header="{{ project.name }}"
+        styleClass="flex justify-content-between flex-column h-full"
+      >
+        <ng-template pTemplate="header">
+          <div class="flex justify-content-center">
+            <img
+              alt="logo projet {{ project.name }}"
+              src="assets/img/{{ project.logo }}"
+            />
+          </div>
+        </ng-template>
+        <p class="h-17rem">
+          <span class="pi pi-tag mr-2" aria-hidden="true"></span>
+          <span class="underline">
+            {{ "project.projectType" | translate }} :</span
+          ><br />
+          {{ "project." + project.type | translate }}<br /><br />
+          <span class="pi pi-question-circle mr-2" aria-hidden="true"></span>
+          <span class="underline">Description :</span><br />
+          {{ "project." + project.description | translate }}<br /><br />
+          <span class="pi pi-code mr-2" aria-hidden="true"></span>
+          <span class="underline">{{ "project.tech" | translate }} :</span
+          ><br />
+          {{ project.techno }}<br />
+        </p>
+        <ng-template pTemplate="footer">
+          <div class="flex-footer mb-2">
+            <ng-container *ngFor="let site of project.website">
+              <a
+                class="p-button p-button-rounded text-white-alpha-90"
+                target="_blank"
+                href="{{ site.link }}"
+                ><span class="pi pi-globe mr-2" aria-hidden="true"></span
+                >{{ site.label }}</a
+              >
+            </ng-container>
+          </div>
+        </ng-template>
+      </p-card>
+    </div>
   </div>
 </div>

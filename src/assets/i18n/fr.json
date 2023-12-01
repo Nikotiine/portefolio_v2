@@ -56,6 +56,7 @@
     "sideProject": " J'ai également consacré du temps à la réalisation de plusieurs projets personnels. J'ai développé une application dédiée aux grimpeurs en utilisant Angular et Nest, ainsi qu'une application pour les randonneurs basée sur Symfony. De plus, j'ai créé mon premier portfolio en utilisant Vue.js. En parallèle, j'ai répondu aux demandes de quelques clients pour la création de leurs sites web. En décembre 2022, j'ai lancé mon premier site web en ligne, intitulé 'MetaHomeopathie', que vous pourrez découvrir parmi mes réalisations."
   },
   "knowledge": {
+    "title": "Mes connaissances",
     "language": "Langage",
     "virtualization": "Virtualisation",
     "versioning": "Gestion de version",
@@ -66,6 +67,7 @@
     "server": "Serveur"
   },
   "curriculum": {
+    "title": "Mon CV",
     "developer": "Développeur",
     "goals": "Mes ojectifs",
     "transition": "Développeur en reconversion, après un premier diplôme à l’ENI (DWWM) j'ai décidé de continuer à me former pour me spécialiser d' avantage sur le back-end.",
@@ -101,6 +103,7 @@
     "downloadPdf": "Telecharger en pdf"
   },
   "project": {
+    "title": "Mes projets",
     "sideProject": "Projet perso",
     "website": "Site web",
     "tech": "Technos",
@@ -155,7 +158,7 @@
     "unlikeIt": "Je n'aime plus",
     "downloadMD": "Telecharger le Markdown",
     "postedAt": "Posté le :",
-    "title": "Tutoriels"
+    "title": "Mes tutoriels"
   },
   "notFound": {
     "error": "Erreur",

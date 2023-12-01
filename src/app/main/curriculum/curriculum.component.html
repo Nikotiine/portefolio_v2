@@ -1,125 +1,126 @@
-<p-card>
-  <div class="flex padding-4">
-    <div class="col-3 bg-curriculum">
-      <h1>Nicolas Godin</h1>
-      <h2 class="font-italic font-medium">
-        {{ "curriculum.developer" | translate }} Full-Stack
-      </h2>
-      <h4 class="underline mt-5 semibold subtitle">
-        <span class="pi pi-id-card mr-2" aria-hidden="true"></span
-        >{{ "curriculum.goals" | translate }} :
-      </h4>
-      <p>
-        {{ "curriculum.transition" | translate }}
-      </p>
-      <p>
-        {{ "curriculum.certification" | translate }}
-      </p>
-      <h4 class="underline mt-5 font-semibold subtitle">
-        <span class="pi pi-globe mr-2" aria-hidden="true"></span
-        >{{ "curriculum.languages" | translate }} :
-      </h4>
-      <p>{{ "curriculum.english" | translate }}</p>
-      <h4 class="underline mt-5 font-semibold subtitle">
-        <span class="pi pi-heart mr-2" aria-hidden="true"></span
-        >{{ "curriculum.interests" | translate }} :
-      </h4>
-      <p>{{ "curriculum.climbing" | translate }}</p>
-      <p>{{ "curriculum.hiking" | translate }}</p>
-      <p>{{ "curriculum.boardGame" | translate }}</p>
-    </div>
-    <div class="col-9 padding-4">
-      <div class="flex w-full justify-content-end mobile-text-center">
-        <p-button
-          label="{{ 'curriculum.downloadPdf' | translate }}"
-          (onClick)="downloadPdf()"
-          styleClass="p-button-rounded p-button-info"
-        ></p-button>
-      </div>
-
-      <h3 class="underline subtitle">
-        <span class="pi pi-inbox mr-2" aria-hidden="true"></span
-        >{{ "curriculum.trainings" | translate }}
-      </h3>
-      <p>
-        <span class="font-bold"
-          >CDA - {{ "curriculum.eni" | translate }} (ENI), 12/22 - 07/23</span
-        >
-        <br />{{ "curriculum.cdaTitle" | translate }}<br /><br />
-        <span class="font-bold"
-          >DWWM - {{ "curriculum.eni" | translate }} (ENI), 05/22 - 12/22</span
-        >
-        <br />
-        {{ "curriculum.dwwmTitle" | translate }}<br /><br />
-        <span class="font-bold"> DTBI-AFPA, 2021 - 2022 </span> <br />{{
-          "curriculum.dtbi" | translate
-        }}
-        (HTML/CSS/JS/W.P)<br /><br />
-        <span class="font-bold"
-          >{{ "curriculum.preparation" | translate }} DEJEPS (AFRAT), 2018
-        </span>
-        <br />{{ "curriculum.dejeps" | translate }}<br /><br />
-        <span class="font-bold">
-          DEA - {{ "curriculum.redCross" | translate }}, 2009
-        </span>
-        <br />{{ "curriculum.dea" | translate }}
-      </p>
-
-      <h3 class="underline subtitle">
-        <span class="pi pi-wallet mr-2" aria-hidden="true"></span
-        >{{ "curriculum.professionalExp" | translate }}
-      </h3>
-      <p>
-        <span class="font-bold">
-          {{ "curriculum.workStudyWebDev" | translate }} </span
-        >, Quantior
-        <br />
-        12/2022 – 07/2023 | Voiron (38)<br />
-        {{ "curriculum.hq6v2" | translate }} <br /><br />
-
-        <span class="font-bold">
-          {{ "curriculum.internshipWebDev" | translate }} </span
-        >, Quantior <br />
-        10/2022 – 12/2022 | Voiron (38)<br />
-        {{ "curriculum.hq6v1" | translate }} <br /><br />
-
-        <span class="font-bold">{{
-          "curriculum.internshipWebDev" | translate
-        }}</span
-        >, Graaly <br />
-        01/2022 | Meylan (38)<br />
-        {{ "curriculum.graaly" | translate }} <br /><br />
-
-        <span class="font-bold">{{ "curriculum.paramedic" | translate }}</span>
-        <br />
-        2007 - 2020 <br />
-        {{ "curriculum.deaExp" | translate }} (Région parisienne, Isère, Savoie,
-        Drome, Gard).<br /><br />
-
-        <span class="font-bold"> {{ "curriculum.fusco" | translate }}</span
-        >, {{ "curriculum.airForce" | translate }}<br />
-        1998 - 2005 {{ "curriculum.airForceExp" | translate }}
-      </p>
-      <h3 class="underline subtitle">
-        <span class="pi pi-wrench mr-2" aria-hidden="true"></span
-        >{{ "curriculum.skills" | translate }}
-      </h3>
-
-      <p>
-        <span class="font-bold"> Front-end </span><br />
-        {{ "knowledge.language" | translate }}: Javascript/Typescript,
-        HTML5/CSS3/Sass Frameworks: Angular, VueJS, Quazar, PrimeNG, Bulma,
-        Bootstrap<br /><br />
-
-        <span class="font-bold"> Back-end </span><br />
-        {{ "knowledge.language" | translate }}: Java, PHP, JS <br />
-        {{ "curriculum.tools" | translate }}: NodeJS, Nest, TypeORM, Symfony,
-        OpenAPI Bases de données: SQL/PL-SQL, MySQL, MS-Sql, Oracle <br /><br />
-
-        <span class="font-bold">{{ "curriculum.tools" | translate }}</span
-        ><br />
-        Git, Docker, Apache, Méthodes agiles (SCRUM)
-      </p>
-    </div>
+<h1 class="text-center mt-5 text-primary">
+  {{ "curriculum.title" | translate }}
+</h1>
+<div class="flex padding-4">
+  <div class="col-3 bg-curriculum">
+    <h2>Nicolas Godin</h2>
+    <h2 class="font-italic font-medium">
+      {{ "curriculum.developer" | translate }} Full-Stack
+    </h2>
+    <h4 class="underline mt-5 semibold subtitle">
+      <span class="pi pi-id-card mr-2" aria-hidden="true"></span
+      >{{ "curriculum.goals" | translate }} :
+    </h4>
+    <p>
+      {{ "curriculum.transition" | translate }}
+    </p>
+    <p>
+      {{ "curriculum.certification" | translate }}
+    </p>
+    <h4 class="underline mt-5 font-semibold subtitle">
+      <span class="pi pi-globe mr-2" aria-hidden="true"></span
+      >{{ "curriculum.languages" | translate }} :
+    </h4>
+    <p>{{ "curriculum.english" | translate }}</p>
+    <h4 class="underline mt-5 font-semibold subtitle">
+      <span class="pi pi-heart mr-2" aria-hidden="true"></span
+      >{{ "curriculum.interests" | translate }} :
+    </h4>
+    <p>{{ "curriculum.climbing" | translate }}</p>
+    <p>{{ "curriculum.hiking" | translate }}</p>
+    <p>{{ "curriculum.boardGame" | translate }}</p>
   </div>
-</p-card>
+  <div class="col-9 padding-4">
+    <div class="flex w-full justify-content-end mobile-text-center">
+      <p-button
+        label="{{ 'curriculum.downloadPdf' | translate }}"
+        (onClick)="downloadPdf()"
+        styleClass="p-button-rounded p-button-info"
+      ></p-button>
+    </div>
+
+    <h3 class="underline subtitle">
+      <span class="pi pi-inbox mr-2" aria-hidden="true"></span
+      >{{ "curriculum.trainings" | translate }}
+    </h3>
+    <p>
+      <span class="font-bold"
+        >CDA - {{ "curriculum.eni" | translate }} (ENI), 12/22 - 07/23</span
+      >
+      <br />{{ "curriculum.cdaTitle" | translate }}<br /><br />
+      <span class="font-bold"
+        >DWWM - {{ "curriculum.eni" | translate }} (ENI), 05/22 - 12/22</span
+      >
+      <br />
+      {{ "curriculum.dwwmTitle" | translate }}<br /><br />
+      <span class="font-bold"> DTBI-AFPA, 2021 - 2022 </span> <br />{{
+        "curriculum.dtbi" | translate
+      }}
+      (HTML/CSS/JS/W.P)<br /><br />
+      <span class="font-bold"
+        >{{ "curriculum.preparation" | translate }} DEJEPS (AFRAT), 2018
+      </span>
+      <br />{{ "curriculum.dejeps" | translate }}<br /><br />
+      <span class="font-bold">
+        DEA - {{ "curriculum.redCross" | translate }}, 2009
+      </span>
+      <br />{{ "curriculum.dea" | translate }}
+    </p>
+
+    <h3 class="underline subtitle">
+      <span class="pi pi-wallet mr-2" aria-hidden="true"></span
+      >{{ "curriculum.professionalExp" | translate }}
+    </h3>
+    <p>
+      <span class="font-bold">
+        {{ "curriculum.workStudyWebDev" | translate }} </span
+      >, Quantior
+      <br />
+      12/2022 – 07/2023 | Voiron (38)<br />
+      {{ "curriculum.hq6v2" | translate }} <br /><br />
+
+      <span class="font-bold">
+        {{ "curriculum.internshipWebDev" | translate }} </span
+      >, Quantior <br />
+      10/2022 – 12/2022 | Voiron (38)<br />
+      {{ "curriculum.hq6v1" | translate }} <br /><br />
+
+      <span class="font-bold">{{
+        "curriculum.internshipWebDev" | translate
+      }}</span
+      >, Graaly <br />
+      01/2022 | Meylan (38)<br />
+      {{ "curriculum.graaly" | translate }} <br /><br />
+
+      <span class="font-bold">{{ "curriculum.paramedic" | translate }}</span>
+      <br />
+      2007 - 2020 <br />
+      {{ "curriculum.deaExp" | translate }} (Région parisienne, Isère, Savoie,
+      Drome, Gard).<br /><br />
+
+      <span class="font-bold"> {{ "curriculum.fusco" | translate }}</span
+      >, {{ "curriculum.airForce" | translate }}<br />
+      1998 - 2005 {{ "curriculum.airForceExp" | translate }}
+    </p>
+    <h3 class="underline subtitle">
+      <span class="pi pi-wrench mr-2" aria-hidden="true"></span
+      >{{ "curriculum.skills" | translate }}
+    </h3>
+
+    <p>
+      <span class="font-bold"> Front-end </span><br />
+      {{ "knowledge.language" | translate }}: Javascript/Typescript,
+      HTML5/CSS3/Sass Frameworks: Angular, VueJS, Quazar, PrimeNG, Bulma,
+      Bootstrap<br /><br />
+
+      <span class="font-bold"> Back-end </span><br />
+      {{ "knowledge.language" | translate }}: Java, PHP, JS <br />
+      {{ "curriculum.tools" | translate }}: NodeJS, Nest, TypeORM, Symfony,
+      OpenAPI Bases de données: SQL/PL-SQL, MySQL, MS-Sql, Oracle <br /><br />
+
+      <span class="font-bold">{{ "curriculum.tools" | translate }}</span
+      ><br />
+      Git, Docker, Apache, Méthodes agiles (SCRUM)
+    </p>
+  </div>
+</div>

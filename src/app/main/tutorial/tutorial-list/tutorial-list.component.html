@@ -7,7 +7,9 @@
 
   <app-admin-button *ngIf="isAdmin" class="ml-3"></app-admin-button>
 </div>
-<h3 class="text-center text-3xl">{{ "tutorial.title" | translate }}</h3>
+<h1 class="text-center mt-5 text-primary">
+  {{ "tutorial.title" | translate }}
+</h1>
 <div class="accordion-container" *ngIf="!loading">
   <p-accordion [multiple]="false" [activeIndex]="accordionActiveIndex">
     <ng-container *ngFor="let tutorial of tutorials; let index = index">

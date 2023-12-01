@@ -56,6 +56,7 @@
     "sideProject": "I also dedicated time to completing several personal projects. I developed an application tailored for climbers using Angular and Nest, as well as an application for hikers built on Symfony. Additionally, I created my first portfolio using Vue.js. Concurrently, I addressed requests from clients for the creation of their websites. In December 2022, I launched my inaugural website online, titled 'MetaHomeopathie', which you can explore among my achievements."
   },
   "knowledge": {
+    "title": "My knowledges",
     "language": "Language",
     "virtualization": "Virtualization",
     "versioning": "Versioning",
@@ -66,6 +67,7 @@
     "server": "Server"
   },
   "curriculum": {
+    "title": "My CV",
     "developer": "Developer",
     "goals": "My goals",
     "transition": "As a transitioning developer, following my initial diploma from ENI (DWWM), I opted to pursue further education to specialize more deeply in the back-end.",
@@ -101,6 +103,7 @@
     "downloadPdf": "Download in pdf"
   },
   "project": {
+    "title": "My projects",
     "sideProject": "Side Project",
     "website": "Website",
     "tech": "Techs",
@@ -155,7 +158,7 @@
     "unlikeIt": "Don't like",
     "downloadMD": "Download Markdown",
     "postedAt": "Posted at :",
-    "title": "Tutorials"
+    "title": "My tutorials"
   },
   "notFound": {
     "error": "Error",

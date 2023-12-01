@@ -16,6 +16,7 @@ import { LanguageService } from '../../../core/services/language.service';
 })
 export class CommentListComponent implements OnInit {
   public comments: AdminCommentViewModel[] = [];
+  private tutorials: TutorialAccordion[] = [];
   constructor(
     private readonly adminService: AdminService,
     private readonly http: HttpClient,
@@ -37,6 +38,7 @@ export class CommentListComponent implements OnInit {
       this.http.get('assets/data/tutorial.json'),
     ]).subscribe({
       next: (data) => {
+        this.tutorials = data[1] as TutorialAccordion[];
         this.createAdminViewModel(data[0], data[1] as TutorialAccordion[]);
       },
       error: (err) => {
@@ -95,8 +97,9 @@ export class CommentListComponent implements OnInit {
         id: id,
       })
       .subscribe({
-        next: () => {
+        next: (comments) => {
           this.customMessageService.successMessage('comment', 'commentDeleted');
+          this.createAdminViewModel(comments, this.tutorials);
         },
         error: (err) => {
           this.customMessageService.errorMessage('comment', err.error.message);

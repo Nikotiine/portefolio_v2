@@ -11,7 +11,6 @@ import { StrictHttpResponse } from '../strict-http-response';
 import { RequestBuilder } from '../request-builder';
 
 import { CommentDto } from '../models/comment-dto';
-import { DeleteConfirmationDto } from '../models/delete-confirmation-dto';
 import { UserProfileDto } from '../models/user-profile-dto';
 
 @Injectable({ providedIn: 'root' })
@@ -146,7 +145,7 @@ export class AdminService extends BaseService {
       id: number;
     },
     context?: HttpContext
-  ): Observable<StrictHttpResponse<DeleteConfirmationDto>> {
+  ): Observable<StrictHttpResponse<Array<UserProfileDto>>> {
     const rb = new RequestBuilder(this.rootUrl, AdminService.AdminControllerDisableUserPath, 'put');
     if (params) {
       rb.path('id', params.id, {});
@@ -157,7 +156,7 @@ export class AdminService extends BaseService {
     ).pipe(
       filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return r as StrictHttpResponse<DeleteConfirmationDto>;
+        return r as StrictHttpResponse<Array<UserProfileDto>>;
       })
     );
   }
@@ -181,9 +180,9 @@ export class AdminService extends BaseService {
       id: number;
     },
     context?: HttpContext
-  ): Observable<DeleteConfirmationDto> {
+  ): Observable<Array<UserProfileDto>> {
     return this.adminControllerDisableUser$Response(params, context).pipe(
-      map((r: StrictHttpResponse<DeleteConfirmationDto>): DeleteConfirmationDto => r.body)
+      map((r: StrictHttpResponse<Array<UserProfileDto>>): Array<UserProfileDto> => r.body)
     );
   }
 
@@ -209,7 +208,7 @@ export class AdminService extends BaseService {
       id: number;
     },
     context?: HttpContext
-  ): Observable<StrictHttpResponse<DeleteConfirmationDto>> {
+  ): Observable<StrictHttpResponse<Array<CommentDto>>> {
     const rb = new RequestBuilder(this.rootUrl, AdminService.AdminControllerDisableCommentPath, 'put');
     if (params) {
       rb.path('id', params.id, {});
@@ -220,7 +219,7 @@ export class AdminService extends BaseService {
     ).pipe(
       filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return r as StrictHttpResponse<DeleteConfirmationDto>;
+        return r as StrictHttpResponse<Array<CommentDto>>;
       })
     );
   }
@@ -244,9 +243,9 @@ export class AdminService extends BaseService {
       id: number;
     },
     context?: HttpContext
-  ): Observable<DeleteConfirmationDto> {
+  ): Observable<Array<CommentDto>> {
     return this.adminControllerDisableComment$Response(params, context).pipe(
-      map((r: StrictHttpResponse<DeleteConfirmationDto>): DeleteConfirmationDto => r.body)
+      map((r: StrictHttpResponse<Array<CommentDto>>): Array<CommentDto> => r.body)
     );
   }
 

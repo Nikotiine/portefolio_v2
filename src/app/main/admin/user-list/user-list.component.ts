@@ -63,9 +63,9 @@ export class UserListComponent implements OnInit {
         id: id,
       })
       .subscribe({
-        next: (data) => {
+        next: (users) => {
           this.customMessageService.successMessage('account', 'userDisable');
-          this.loadUsers();
+          this.users = users;
         },
         error: (err) => {
           this.customMessageService.errorMessage('account', err.error.message);

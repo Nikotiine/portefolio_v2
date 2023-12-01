@@ -1,18 +1,24 @@
 <div class="flex flex-wrap">
-  <div class="col-3 p-5" *ngFor="let app of applications">
+  <div class="col-3 p-3" *ngFor="let app of applications">
     <p-card class="text-center">
       <ng-template pTemplate="header">
         <img
           alt="Logo {{ app.title }}"
           src="assets/img/{{ app.logo }}"
           [routerLink]="['/' + app.routerLink]"
-          (click)="closeSideBar()"
+          (click)="closeSideBar(app.index)"
+          class="cursor-pointer"
         />
       </ng-template>
       <div class="p-card-header text-center">
-        <a [routerLink]="['/' + app.routerLink]" (click)="closeSideBar()">{{
-          "application." + app.title | translate
-        }}</a>
+        <a
+          [routerLink]="['/' + app.routerLink]"
+          (click)="closeSideBar(app.index)"
+          class="underline {{
+            app.index === currentIndex ? 'text-primary' : ''
+          }} "
+          >{{ "application." + app.title | translate }}
+        </a>
       </div>
     </p-card>
   </div>

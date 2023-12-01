@@ -6,5 +6,6 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class ApplicationService {
   public sidebarVisible$: BehaviorSubject<boolean> = new BehaviorSubject(false);
+
   constructor() {}
 }

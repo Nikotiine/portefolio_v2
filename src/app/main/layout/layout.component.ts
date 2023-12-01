@@ -38,6 +38,6 @@ export class LayoutComponent implements OnInit {
   }
 
   public onHide(): void {
-    this.router.navigate(['/home']);
+    this.applicationService.sidebarVisible$.next(false);
   }
 }

@@ -8,8 +8,8 @@ import { ApplicationCard } from '../../core/models/ApplicationCard.model';
   templateUrl: './applications.component.html',
   styleUrls: ['./applications.component.scss'],
 })
-export class ApplicationsComponent {
-  public currentIndex = 1;
+export class ApplicationsComponent implements OnInit {
+  public currentIndex: number;
 
   public applications: ApplicationCard[] = [
     {
@@ -61,9 +61,19 @@ export class ApplicationsComponent {
       title: 'setting',
     },
   ];
+  private _key = 'currentIndex';
   constructor(private readonly applicationService: ApplicationService) {}
   public closeSideBar(index: number): void {
+    sessionStorage.setItem(this._key, index.toString());
     this.currentIndex = index;
     this.applicationService.sidebarVisible$.next(false);
+  }
+
+  ngOnInit(): void {
+    const index = parseInt(sessionStorage.getItem(this._key));
+    if (!index) {
+      sessionStorage.setItem(this._key, '1');
+    }
+    this.currentIndex = index;
   }
 }

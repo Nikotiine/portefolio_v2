@@ -1,0 +1,70 @@
+<h1 class="text-center mt-5 text-primary">
+  {{ "contactMe.title" | translate }}
+</h1>
+<div class="flex justify-content-center flex-column align-items-center">
+  <form [formGroup]="form">
+    <div>
+      <span class="p-input-icon-left mr-2">
+        <i class="pi pi-user"></i>
+        <input
+          type="text"
+          pInputText
+          formControlName="firstName"
+          placeholder="{{ 'contactMe.firstName' | translate }}"
+        />
+      </span>
+
+      <span class="p-input-icon-left">
+        <i class="pi pi-user"></i>
+        <input
+          type="text"
+          pInputText
+          formControlName="lastName"
+          placeholder="{{ 'contactMe.lastName' | translate }}"
+        />
+      </span>
+    </div>
+    <div>
+      <span class="p-input-icon-left my-3 w-full">
+        <i class="pi pi-envelope"></i>
+        <input
+          type="email"
+          pInputText
+          class="w-full"
+          formControlName="email"
+          placeholder="{{ 'contactMe.email' | translate }}"
+        />
+      </span>
+    </div>
+    <div class="w-full">
+      <span class="p-input-icon-left w-full">
+        <i class="pi pi-info-circle"></i>
+        <input
+          type="text"
+          class="w-full"
+          pInputText
+          formControlName="object"
+          placeholder="{{ 'contactMe.object' | translate }}"
+        />
+      </span>
+    </div>
+    <div>
+      <span class="p-float-label mt-3">
+        <textarea
+          id="float-input"
+          rows="5"
+          cols="53"
+          pInputTextarea
+          formControlName="message"
+        ></textarea>
+        <label for="float-input">{{ "contactMe.message" | translate }}</label>
+      </span>
+    </div>
+    <div class="text-right mt-3">
+      <p-button
+        label="{{ 'auth.confirm' | translate }}"
+        (onClick)="submit()"
+      ></p-button>
+    </div>
+  </form>
+</div>

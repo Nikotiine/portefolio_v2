@@ -28,8 +28,7 @@ export class AuthenticationComponent {
     private readonly fb: FormBuilder,
     private readonly customMessageService: CustomMessageService,
     private readonly authenticationService: AuthenticationService,
-    private readonly securityService: SecurityService,
-    private readonly profileService: ProfileService
+    private readonly securityService: SecurityService
   ) {
     this.form = this.fb.group({
       username: ['', [Validators.required]],

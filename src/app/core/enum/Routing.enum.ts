@@ -10,5 +10,6 @@ enum Routing {
   ADMIN = 'admin',
   ADMIN_DASHBOARD = 'dashboard',
   NOT_FOUND = 'not-found',
+  CONTACT_ME = 'contact-me',
 }
 export { Routing };

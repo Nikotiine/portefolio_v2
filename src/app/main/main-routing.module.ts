@@ -12,6 +12,7 @@ import { SocialNetworkComponent } from './social-network/social-network.componen
 import { UserResolver } from '../core/resolvers/user.resolver';
 import { AdminGuard } from '../core/admin.guard';
 import { NotFoundComponent } from '../shared/not-found/not-found.component';
+import { ContactMeComponent } from './contact-me/contact-me.component';
 
 const routes: Routes = [
   {
@@ -45,6 +46,10 @@ const routes: Routes = [
       {
         path: Routing.SOCIAL_NETWORK,
         component: SocialNetworkComponent,
+      },
+      {
+        path: Routing.CONTACT_ME,
+        component: ContactMeComponent,
       },
       {
         path: Routing.TUTORIAL,

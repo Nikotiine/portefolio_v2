@@ -45,7 +45,7 @@ export class ApplicationsComponent implements OnInit {
     {
       index: 6,
       logo: 'contact.png',
-      routerLink: Routing.SOCIAL_NETWORK,
+      routerLink: Routing.CONTACT_ME,
       title: 'contactMe',
     },
     {

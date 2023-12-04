@@ -125,21 +125,24 @@
     "newComment": "Commentaire ajouté",
     "commentDeleted": "Commentaire supprimé",
     "userDisable": "utilisateur desactivé",
-    "databaseErased": "Base de données netoyée"
+    "databaseErased": "Base de données netoyée",
+    "successMail": "Message correctement envoyé, merci"
   },
   "errorMessage":{
     "invalidPassword": "Les mots de passe ne correspondent pas",
     "403": "Vous n'avez pas les droits",
     "001": "Ce compte existe deja",
     "002": "Identifiants invalides",
-    "003": "Like impossible"
+    "003": "Like impossible",
+    "errorMail": "Votre message n'as pas pu etre envoyer merci de recommencer"
   },
   "summaryMessage": {
     "account":  "Gestion des comptes",
     "tutorial": "Gestion des tutoriels",
     "admin": "Access administrateur",
     "comment": "Gestion des commentaires",
-    "database": "Gestion de la bdd"
+    "database": "Gestion de la bdd",
+    "contact": "Formulaire de contact"
   },
   "auth": {
     "login": "Connexion",
@@ -183,5 +186,13 @@
     "warning": "Attention",
     "clearDatabase": "Vider la base de données ? Cette operation est irréversible",
     "clearDatabaseLabel": "Nettoyer la base de donnée"
+  },
+  "contactMe": {
+    "title": "Contactez moi",
+    "firstName": "Prenom",
+    "lastName": "Nom",
+    "email": "Votre email",
+    "object": "Objet du message",
+    "message": "Votre message"
   }
 }

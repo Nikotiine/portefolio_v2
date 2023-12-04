@@ -125,21 +125,24 @@
     "newComment": "Comment added",
     "commentDeleted": "Comment deleted",
     "userDisable": "User disable",
-    "databaseErased": "Database erased"
+    "databaseErased": "Database erased",
+    "successMail": "Email correctly sent, thanks"
   },
   "errorMessage":{
     "invalidPassword": "The password arent not the same",
     "403": "Unauthorized action",
     "001": "This account is already used",
     "002": "Invalid Credentials",
-    "003": "Invalid Like"
+    "003": "Invalid Like",
+    "errorMail": "Your email doesnt sent please retry"
   },
   "summaryMessage": {
     "account":  "Account Service",
     "tutorial": "Tutorial Service",
     "admin": "Admin Service",
     "comment": "Comment Service",
-    "database": "Database Service"
+    "database": "Database Service",
+    "contact": "Contact form"
   },
   "auth": {
     "login": "Log-In",
@@ -183,5 +186,13 @@
     "warning": "Warning",
     "clearDatabase": "Clear database ? This operation is irreversible",
     "clearDatabaseLabel": "Clear database"
+  },
+  "contactMe": {
+    "title": "Contact me",
+    "fistName": "FirstName",
+    "lastName": "LastName",
+    "email": "Your email",
+    "object": "Object",
+    "message": "Your message"
   }
 }

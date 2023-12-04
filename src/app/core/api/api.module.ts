@@ -9,6 +9,7 @@ import { AuthenticationService } from './services/authentication.service';
 import { LikeService } from './services/like.service';
 import { CommentService } from './services/comment.service';
 import { AdminService } from './services/admin.service';
+import { MailingService } from './services/mailing.service';
 
 /**
  * Module that provides all services and configuration.
@@ -23,6 +24,7 @@ import { AdminService } from './services/admin.service';
     LikeService,
     CommentService,
     AdminService,
+    MailingService,
     ApiConfiguration
   ],
 })

@@ -5,7 +5,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { HomeComponent } from './home/home.component';
 import { MenubarModule } from 'primeng/menubar';
 import { ToggleButtonModule } from 'primeng/togglebutton';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from '../shared/shared.module';
@@ -26,6 +26,9 @@ import { ProjectsComponent } from './projects/projects.component';
 import { SocialNetworkComponent } from './social-network/social-network.component';
 import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ContactMeComponent } from './contact-me/contact-me.component';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 
 @NgModule({
   declarations: [
@@ -37,6 +40,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
     CurriculumComponent,
     ProjectsComponent,
     SocialNetworkComponent,
+    ContactMeComponent,
   ],
   imports: [
     CommonModule,
@@ -58,6 +62,9 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
     ChipModule,
     ToastModule,
     ConfirmDialogModule,
+    InputTextModule,
+    ReactiveFormsModule,
+    InputTextareaModule,
   ],
 })
 export class MainModule {}

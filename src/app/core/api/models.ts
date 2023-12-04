@@ -9,3 +9,4 @@ export { LikeDto } from './models/like-dto';
 export { CommentCreateDto } from './models/comment-create-dto';
 export { CommentDto } from './models/comment-dto';
 export { ClearDatabaseResultDto } from './models/clear-database-result-dto';
+export { MailDto } from './models/mail-dto';

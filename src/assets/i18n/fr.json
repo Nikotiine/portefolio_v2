@@ -10,31 +10,31 @@
     "french": "Francais",
     "english": "Anglais",
     "language": "Langue",
-    "theme": "Theme",
-    "chooseTheme": "Choissiez votre theme",
-    "chooseLanguage": "Choisiez votre langue"
+    "theme": "Thème",
+    "chooseTheme": "Choisissez votre thème",
+    "chooseLanguage": "Choisissez votre langue"
   },
 
   "application": {
-    "whoIAm": "Qui suis-je",
+    "whoIAm": "Qui suis-je ?",
     "knowledge": "Mes connaissances",
     "projects": "Mes projets",
     "cv": "Mon CV",
-    "socialNetwork": "Reseau social",
+    "socialNetwork": "Reseaux sociaux",
     "tutorial": "Mes tutoriels",
     "contactMe":"Me contacter",
-    "setting": "Parametres"
+    "setting": "Paramètres"
   },
   "legalNotices": {
     "title": "Mentions légales & CGU",
     "responsibility": "Responsabilité des contenus",
-    "contactDetails": "Coordonnées de l’éditeur: Godin Nicolas 1 rue des pies sassenage",
+    "contactDetails": "Coordonnées de l’éditeur: Godin Nicolas 4 rue du petit Jean, 38 Gières",
     "responsible": "Responsable publication :",
     "accommodation": "Hébergement et réalisation Hébergement :",
     "achievement": "Réalisation",
     "noPersonalRecord": "Aucune information personnelle n’est collectée à votre insu. Aucune information personnelle n’est cédée à des tiers",
     "sendForm": "Envoie du formulaire de contact :",
-    "noPersonalRecordOnForm": "Seul votre mail est conservé dans la boite de réception de contact@nicolasgodin.fr afin de pouvoir vous répondre \n Vous pouvez exercer votre droit d’accès et de rectification aux informations vous concernant en écrivant à:\n contact@nicolasgodin.fr"
+    "noPersonalRecordOnForm": "Seul votre adresse mail est conservée dans la boite de réception de contact@nicolasgodin.fr afin de pouvoir vous répondre \n Vous pouvez exercer votre droit d’accès et de rectification aux informations vous concernant en écrivant à:\n contact@nicolasgodin.fr"
   },
   "homepage": {
     "whoIam": "Qui suis-je ?",
@@ -100,7 +100,7 @@
     "airForceExp": "Protection et sécurité des sites militaires Gestion de groupe",
     "skills": "Compétences",
     "tools": "Outils",
-    "downloadPdf": "Telecharger en pdf"
+    "downloadPdf": "Télécharger en pdf"
   },
   "project": {
     "title": "Mes projets",
@@ -118,23 +118,23 @@
   },
   "socialNetwork": "Réseaux Sociaux",
   "successMessage": {
-    "registered": "Compte bien enregister, vous pouvez vous connecter",
-    "authenticate": "Connexion valide",
+    "registered": "Compte bien enregisté, vous pouvez vous connecter",
+    "authenticate": "Connexion validée",
     "like": "Vous aimez",
     "unlike": "Vous n'aimez plus",
     "newComment": "Commentaire ajouté",
     "commentDeleted": "Commentaire supprimé",
-    "userDisable": "utilisateur desactivé",
+    "userDisable": "Utilisateur desactivé",
     "databaseErased": "Base de données netoyée",
-    "successMail": "Message correctement envoyé, merci"
+    "successMail": "Votre message a été correctement envoyé, Merci"
   },
   "errorMessage":{
     "invalidPassword": "Les mots de passe ne correspondent pas",
     "403": "Vous n'avez pas les droits",
-    "001": "Ce compte existe deja",
+    "001": "Ce compte existe déjà",
     "002": "Identifiants invalides",
     "003": "Like impossible",
-    "errorMail": "Votre message n'as pas pu etre envoyer merci de recommencer"
+    "errorMail": "Votre message n'as pas pu etre envoyé merci de recommencer"
   },
   "summaryMessage": {
     "account":  "Gestion des comptes",
@@ -170,7 +170,7 @@
   "admin": {
     "user": "Utilisateur",
     "users": "Utilisateurs",
-    "role": "Role",
+    "role": "Rôle",
     "status": "Status",
     "isActive": "Actif",
     "isNotActive": "Desactivé",

@@ -86,7 +86,7 @@ export class TutorialListComponent implements OnInit {
             this.summaryCustomMessage,
             message
           );
-          tutorial.likes = likes.filter((l) => l.isActive).length;
+          tutorial.likes = likes.filter((like) => like.isActive).length;
           tutorial.likedByMe = !tutorial.likedByMe;
         },
         error: (err) => {

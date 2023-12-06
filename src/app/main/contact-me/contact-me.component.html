@@ -1,7 +1,7 @@
 <h1 class="text-center mt-5 text-primary">
   {{ "contactMe.title" | translate }}
 </h1>
-<div class="flex justify-content-center flex-column align-items-center">
+<div class="flex justify-content-center flex-column align-items-center toto">
   <form [formGroup]="form">
     <div>
       <span class="p-input-icon-left mr-2">
@@ -53,9 +53,9 @@
         <textarea
           id="float-input"
           rows="5"
-          cols="53"
           pInputTextarea
           formControlName="message"
+          class="w-full"
         ></textarea>
         <label for="float-input">{{ "contactMe.message" | translate }}</label>
       </span>

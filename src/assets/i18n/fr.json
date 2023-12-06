@@ -134,7 +134,8 @@
     "001": "Ce compte existe déjà",
     "002": "Identifiants invalides",
     "003": "Like impossible",
-    "errorMail": "Votre message n'as pas pu etre envoyé merci de recommencer"
+    "errorMail": "Votre message n'as pas pu etre envoyé merci de recommencer",
+    "invalidToken": "Token captcha invalide, merci de recommencer"
   },
   "summaryMessage": {
     "account":  "Gestion des comptes",

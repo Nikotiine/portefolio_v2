@@ -29,6 +29,8 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ContactMeComponent } from './contact-me/contact-me.component';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
+import { RECAPTCHA_V3_SITE_KEY, RecaptchaV3Module } from 'ng-recaptcha';
+import { environment } from '../../environments/environment';
 
 @NgModule({
   declarations: [
@@ -65,6 +67,13 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
     InputTextModule,
     ReactiveFormsModule,
     InputTextareaModule,
+    RecaptchaV3Module,
+  ],
+  providers: [
+    {
+      provide: RECAPTCHA_V3_SITE_KEY,
+      useValue: environment.recaptcha.siteKey,
+    },
   ],
 })
 export class MainModule {}

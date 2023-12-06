@@ -4,6 +4,8 @@ import { MailDto } from '../../core/api/models/mail-dto';
 import { MailingService } from '../../core/api/services/mailing.service';
 import { CustomMessageService } from '../../core/services/custom-message.service';
 import { Router } from '@angular/router';
+import { ReCaptchaV3Service } from 'ng-recaptcha';
+import { catchError, of, switchMap, throwError } from 'rxjs';
 
 @Component({
   selector: 'app-contact-me',
@@ -16,7 +18,8 @@ export class ContactMeComponent {
     private readonly fb: FormBuilder,
     private readonly mailingService: MailingService,
     private readonly customMessageService: CustomMessageService,
-    private readonly router: Router
+    private readonly router: Router,
+    private readonly recaptchaV3Service: ReCaptchaV3Service
   ) {
     this.form = this.fb.group({
       email: ['', [Validators.required]],
@@ -40,10 +43,19 @@ export class ContactMeComponent {
       object: this.form.controls['object'].value,
       message: this.form.controls['message'].value,
     };
-    this.mailingService
-      .mailingControllerContact({
-        body: mail,
-      })
+    this.recaptchaV3Service
+      .execute('importantAction')
+      .pipe(
+        catchError(() => {
+          // Envoye un message d'erreur spécifique
+          this.customMessageService.errorMessage('contact', 'invalidToken');
+          return throwError(() => 'invalidToken');
+        }),
+        switchMap(() => {
+          // Envoi du mail ici
+          return this.mailingService.mailingControllerContact({ body: mail });
+        })
+      )
       .subscribe({
         next: (res) => {
           res

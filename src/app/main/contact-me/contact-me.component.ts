@@ -5,7 +5,7 @@ import { MailingService } from '../../core/api/services/mailing.service';
 import { CustomMessageService } from '../../core/services/custom-message.service';
 import { Router } from '@angular/router';
 import { ReCaptchaV3Service } from 'ng-recaptcha';
-import { catchError, of, switchMap, throwError } from 'rxjs';
+import { catchError, switchMap, throwError } from 'rxjs';
 
 @Component({
   selector: 'app-contact-me',

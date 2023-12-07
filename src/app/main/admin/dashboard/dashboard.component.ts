@@ -40,7 +40,6 @@ export class DashboardComponent implements OnInit {
 
   /**
    * Purge la bdd et met a jour les tableau utilisateur et commentaire dans les accordion respectifs
-   * @private
    */
   private clearDatabase(): void {
     this.adminService.adminControllerClearDatabase().subscribe({
@@ -55,6 +54,9 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  /**
+   * Deconnexion de l'admin
+   */
   public logout(): void {
     this.securityService.logout();
   }
@@ -65,7 +67,6 @@ export class DashboardComponent implements OnInit {
 
   /**
    * Charge les commentaires et les utilisateurs acrtifs ou non
-   * @private
    */
   private loadData(): void {
     forkJoin([

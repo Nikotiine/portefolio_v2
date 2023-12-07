@@ -96,7 +96,6 @@ export class CommentListComponent {
             'tutorial',
             'commentDeleted'
           );
-          console.log(comments);
           this.deleteConfirmation.emit(comments);
         },
         error: (err) => {

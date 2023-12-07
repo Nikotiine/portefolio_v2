@@ -27,15 +27,26 @@ export class SecurityService {
     this.cookieService.put(this.access_token_key, token.access_token);
   }
 
+  /**
+   * log l'utilisateur apres la connexion / stocke son profil dans le profil service (mise en cache )
+   * met a jour l'observable authenticated$
+   * @param user UserProfileDto
+   */
   public login(user: UserProfileDto): void {
     this.profileService.setUserProfile(user);
     this.authenticated$.next(true);
   }
 
+  /**
+   * Retourne le token socker dans les cookies
+   */
   public getToken(): string | undefined {
     return this.cookieService.get(this.access_token_key);
   }
 
+  /**
+   * Retourne true ou false en fonction du token socker dans les cookie
+   */
   public isLogged(): boolean {
     return !!this.getToken();
   }

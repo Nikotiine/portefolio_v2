@@ -170,7 +170,7 @@ export class TutorialListComponent implements OnInit {
    * @param comments le tableau des commentaires du tutoriel concerne
    * @param tutorialId l'id du tuto
    */
-  updateComments(comments: CommentDto[], tutorialId: number) {
+  public updateComments(comments: CommentDto[], tutorialId: number) {
     const tutorial = this.tutorials.find((t) => t.id === tutorialId);
     tutorial.comments = this.createCommentViewModel(comments);
   }

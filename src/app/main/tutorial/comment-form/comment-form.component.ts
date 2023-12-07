@@ -36,6 +36,10 @@ export class CommentFormComponent {
     });
   }
 
+  /**
+   * Envoie d'un commentaire a propos d'un tutotirel
+   * @param tutorialId l'id du tutoriel
+   */
   public sendComment(tutorialId: number): void {
     const comment: CommentCreateDto = {
       comment: this.form.controls['comment'].value,
@@ -50,9 +54,7 @@ export class CommentFormComponent {
       .subscribe({
         next: (comments) => {
           this.customMessageService.successMessage('tutorial', 'newComment');
-          console.log(comments);
           this.newComment.emit(comments);
-
           this.form.controls['comment'].setValue('');
         },
         error: (err) => {

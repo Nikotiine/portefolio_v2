@@ -14,8 +14,24 @@ Possiblilite de like les tuto et de les commenter.
 ```bash
 npm install
 ```
+2. Creer les variables d'environement
 
-
+```bash
+ng g enviroments
+```
+et ajouter au fichier de dev
+```
+production: false,
+  recaptcha: {
+    siteKey: 'votre_clef_recaptcha_google_V3',
+  },
+```
+et a celui de prod 
+```
+  recaptcha: {
+    siteKey: 'votre_clef_recaptcha_google_V3',
+  },
+```
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.

@@ -7,6 +7,6 @@ import { LanguageService } from './core/services/language.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'portfolio_v2';
+  title = 'Portfolio Nicolas Godin';
   constructor(private readonly languageService: LanguageService) {}
 }

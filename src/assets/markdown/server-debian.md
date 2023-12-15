@@ -1,16 +1,16 @@
-# Mis en place d'un serveur Debian / Apache et Nodejs<p align="center">
+# Mise en place d'un serveur Debian / Apache et Nodejs<p align="center">
  
 ## Description
 
-Aide pour le deployement d'une API REST sous NESTJS et de la partie client sous ANGULAR > 14.0
+Aide pour le déploiement d'une API REST sous NESTJS et de la partie client sous ANGULAR > 14.0
 
-## Pre-requis 
+## Pré-requis 
 
 * Une VM Debian
-* Un terminal ouvert (sous windows preferer Cmdr)
-* Access ssh a la VM Debian > 10
-* Configurer les route de l'api avec le prefix /api
-* Configuerer le proxi de angular avec la redirection sur localhost:3000
+* Un terminal ouvert (sous windows un terminal bash type Cmdr)
+* Accès SSH a la VM Debian > 10
+* Configurer les routes de l'API avec le préfixe /api
+* Configurer le proxy de angular avec la redirection sur localhost:3000
 
 ```
 {
@@ -25,15 +25,15 @@ Aide pour le deployement d'une API REST sous NESTJS et de la partie client sous 
 
 ## Premier pas
 
-* Une fois connecter la machine vituelle commencer par mettre a jour Debian
+* Une fois connecté à la machine virtuelle, commencer par mettre à jour Debian
 ```bash
 apt-get update && apt-get upgrade
 ```
-* Se connecter en Sudo 
+* Se connecter en root 
 ```bash
 sudo -S
 ```
-* Ensuite nous installons les differents paquets necessaires au fonctionement du serveur 
+Ensuite installer les différents paquets nécessaires au fonctionement du serveur:
 * Apache 2 Et Apache-utils
 * Mysql 
 * curl 
@@ -54,11 +54,11 @@ apt-get install apache2
 ```bash
 apt-get install apache2-utils
 ```
-Verification que le serveur est bien installer et qu'il tourne 
+Vérification que le serveur est bien installé et lancé:
 ```bash
 service apache2 status
 ```
-Et sur l'url du serveur vous devriez avoir la page d'accueil du serveur apache :'it's works'
+Et sur l'url du serveur vous devriez avoir la page d'accueil du serveur apache avec inscrit: 'it's works'
 
 ### Installation des gestionnaires de paquets 
 ```bash
@@ -85,10 +85,10 @@ apt update
 ```bash
 apt install mysql-server
 ```
-* Repondre OK a toute les questions pose si pas de configuration particuliere
-* Rentre un mot de passe fort pour l'acces root a mysql 
+* Répondre "OK" à toutes les questions posées si pas de configuration particulière
+* Rentrer un mot de passe fort pour l'accès root a mysql 
 
-Un fois fini verifiez que le service tourne
+Un fois terminé, vérifier que le service tourne
 ```bash
 service mysql status
 ```
@@ -97,7 +97,7 @@ service mysql status
 curl -fsSL https://deb.nodesource.com/setup_18.x | bash - &&\
 apt-get install -y nodejs
 ```
-Verifier la version 
+Vérifier la version 
 ```bash
 node -v
 npm -v
@@ -125,7 +125,7 @@ npm install -g pm2
 cd /var/www
 git clone [https://gitlab.com/[pseudo]/[app-angular].git
 ```
-* Une fois les repos cloner commencons par le front-end
+* Une fois les repos clonés, commençons par le front-end
 * cd /var/www/repertoire-du-front/
 ```bash
 npm run build
@@ -164,7 +164,7 @@ apt-get update
 ```bash
 certbot
 ```
-* Laisser certbot creer un nouveau vhost avec les info du vhost precedement configurer
+* Laisser certbot créer un nouveau vhost avec les infos du vhost précedement configuré
 
 ### Modifions le vhost
 
@@ -195,14 +195,12 @@ certbot
 </IfModule>
 
 ```
-<p align="center">
-A ce stade nous n'avons pas encore mis en route l'api Rest sur le localhost:3000
-</p>
-<p align="center">
-mais le vhost ssl est pret pour applique le proxy
+<p>
+A ce stade nous n'avons pas encore mis en route l'api REST sur le localhost:3000,
+mais le vhost ssl est prêt pour appliquer le proxy
 </p>
 
-### Mise en place de l'api
+### Mise en place de l'API
 ```bash
 cd /var/www
 git clone [https://gitlab.com/[pseudo]/[api-nest].git
@@ -210,20 +208,20 @@ cd /var/www/[api-nest]
 npm run build
 pm2 start npm --name"api-nest" -- start
 ```
-<p align="center">
-Pensez a configueur le port d'ecoute de l'api sur 3000 (configuration par defaut de node)
+<p>
+Pensez à configurer le port d'écoute de l'API sur 3000 (configuration par défaut de node)
 </p>
-<p align="center">
-Pensez a lancer la creation et les migrations de la bbd 
+<p>
+Pensez à lancer la création et les migrations de la BDD. 
 </p>
-Verifier que le serveur node est activer
+Verifier que le serveur node est activé
 
 ```bash
 wget localhost:3000/api
 ```
 
-### Une fois le serveur lancer
-* Pour l'arreter / redemarrer / supprimer
+### Une fois le serveur lancé
+* Pour l'arreter / redémarrer / supprimer
 ```bash
 pm2 stop 0
 pm2 restart 0
@@ -232,7 +230,7 @@ pm2 remove all | pm2 remove 0
 
 ## Conclusion
 * Vous devriez avoir votre site sur https://[www.votre-site.com]
-* Votre serveur back-end devrait trouner sur le localhost:3000/api
+* Votre serveur back-end devrait tourner sur le localhost:3000/api
 
 ### Documention
 * pm2 -> https://pm2.keymetrics.io/

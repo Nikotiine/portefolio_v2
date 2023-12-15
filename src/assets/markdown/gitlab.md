@@ -6,7 +6,7 @@
 
 * Debian 11
 * Docker engine & docker compose 
-* Access ssh /direct au serveur  droit => root 
+* Accès ssh au serveur avec droits root 
 * Avoir un nom de domaine qui pointe sur votre serveur
 
 ## Mise en place des outils 
@@ -68,7 +68,7 @@ sudo systemctl status apache2
 ```
 
 ### Créer le vhost du gitlab
-* Désactiver le vhost par defaut
+* Désactiver le vhost par défaut
 ```bash
 a2dissite 000-default.conf
 ```
@@ -89,7 +89,7 @@ DocumentRoot /var/www/html
 </VirtualHost>
 ```
 
-* Activer le nouveau fichier de configuration
+* Activer le fichier de configuration
 
 ```bash
 sudo a2ensite www.gitlab.conf 
@@ -102,7 +102,7 @@ sudo systemctl restart apache2
 ```bash
 certbot --apache
 ```
-* Une fois fait vous devriez ovoir un nouveau fichier .conf
+* Une fois fait vous devriez avoir un nouveau fichier .conf
 
 ```bash
 <IfModule mod_ssl.c>
@@ -118,7 +118,7 @@ Include /etc/letsencrypt/options-ssl-apache.conf
 </VirtualHost>
 </IfModule>
 ```
-* Si le site est accessible en ssl étape suivante: 
+* Si le site est accessible en ssl, étape suivante: 
 
 ### Modifier les vhosts pour utiliser docker
 * Le vhost http 

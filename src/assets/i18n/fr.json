@@ -14,13 +14,12 @@
     "chooseTheme": "Choisissez votre thème",
     "chooseLanguage": "Choisissez votre langue"
   },
-
   "application": {
     "whoIAm": "Qui suis-je ?",
     "knowledge": "Mes connaissances",
     "projects": "Mes projets",
     "cv": "Mon CV",
-    "socialNetwork": "Reseaux sociaux",
+    "socialNetwork": "Réseaux sociaux",
     "tutorial": "Mes tutoriels",
     "contactMe":"Me contacter",
     "setting": "Paramètres"
@@ -30,22 +29,22 @@
     "responsibility": "Responsabilité des contenus",
     "contactDetails": "Coordonnées de l’éditeur: Godin Nicolas 4 rue du petit Jean, 38 Gières",
     "responsible": "Responsable publication :",
-    "accommodation": "Hébergement et réalisation Hébergement :",
+    "accommodation": "Hébergement et réalisation hébergement :",
     "achievement": "Réalisation",
     "noPersonalRecord": "Aucune information personnelle n’est collectée à votre insu. Aucune information personnelle n’est cédée à des tiers",
-    "sendForm": "Envoie du formulaire de contact :",
-    "noPersonalRecordOnForm": "Seul votre adresse mail est conservée dans la boite de réception de contact@nicolasgodin.fr afin de pouvoir vous répondre \n Vous pouvez exercer votre droit d’accès et de rectification aux informations vous concernant en écrivant à:\n contact@nicolasgodin.fr"
+    "sendForm": "Envoi du formulaire de contact :",
+    "noPersonalRecordOnForm": "Seule votre adresse mail est conservée dans la boîte de réception de contact@nicolasgodin.fr afin de pouvoir vous répondre \n Vous pouvez exercer votre droit d’accès et de rectification aux informations vous concernant en écrivant à:\n contact@nicolasgodin.fr"
   },
   "homepage": {
     "whoIam": "Qui suis-je ?",
     "presentation": "Bonjour et bienvenue sur mon portfolio. Ancien ambulancier, je viens de finir ma reconversion professionnelle et je suis maintenant développeur web",
-    "curriculum": "J'ai suivi deux cursus de formation avec L'Ecole nationale d'informatique",
+    "curriculum": "J'ai suivi deux cursus de formation avec L'ENI (Ecole nationale d'informatique)",
     "dwwm": "Développeur web et web Mobile",
     "cda": "Concepteur et développeur d'appplication",
     "keen": "Passionné par les diverses technologies du web et leurs applications, j'ai complété ma formation de développeur web et web mobile à l'ENI en décembre 2022.",
     "opportunity": "J'ai eu l'opportunité de réaliser deux stages au cours de mes formations",
     "firstIntership1": "Le premier stage, d'une durée de 3 semaines, s'est déroulé chez ",
-    "firstIntership2": "J'y ai contribué à la création d'une application de Quiz destinée aux salles d'escape game,utilisant les technologies Vue.js, Node.js, Docker et MongoDb.",
+    "firstIntership2": "J'y ai contribué à la création d'une application de Quiz destinée aux salles d'escape game, utilisant les technologies Vue.js, Node.js, Docker et MongoDb.",
     "secondIntership1": "Mon second stage, qui s'est étendu sur une période de 2 mois, s'est déroulé chez",
     "secondIntership2": "Pendant cette période, j'ai poursuivi le développement de leur ERP en utilisant PHP et Symfony.",
     "workStudy1": "J'ai pu poursuivre chez Quantior en",
@@ -53,7 +52,7 @@
     "workStudy2": "de décembre 2022 à juillet 2023 avec et obtenir mon diplôme de concepteur et développeur d'application (RNCP 6)",
     "workStudy3": "Au cours de cette alternance, j'ai travaillé avec les technologies Angular, NestJs, Docker et MySQL sur le projet visant à créer une Version 2 de l'ERP de Quantior. J'ai également été responsable de la mise en production de la solution, en déployant un serveur Apache sous Debian.",
     "skill": "Au cours de ma formation j'ai pu monter en compétence avec Java, PHP, Javascript, SQL. J'ai aussi appris le respect des conventions et l'utilisation de patterns de développement.",
-    "sideProject": " J'ai également consacré du temps à la réalisation de plusieurs projets personnels. J'ai développé une application dédiée aux grimpeurs en utilisant Angular et Nest, ainsi qu'une application pour les randonneurs basée sur Symfony. De plus, j'ai créé mon premier portfolio en utilisant Vue.js. En parallèle, j'ai répondu aux demandes de quelques clients pour la création de leurs sites web. En décembre 2022, j'ai lancé mon premier site web en ligne, intitulé 'MetaHomeopathie', que vous pourrez découvrir parmi mes réalisations."
+    "sideProject": " J'ai également consacré du temps à la réalisation de plusieurs projets personnels. J'ai développé une application dédiée aux grimpeurs en utilisant Angular et Nest, ainsi qu'une application pour les randonneurs basée sur Symfony. De plus, j'ai créé mon premier portfolio en utilisant Vue.js. En parallèle, j'ai répondu aux demandes de quelques clients pour la création de leurs sites web. En décembre 2022, j'ai mis en ligne mon premier site web, intitulé 'MetaHomeopathie', que vous pourrez découvrir parmi mes réalisations."
   },
   "knowledge": {
     "title": "Mes connaissances",
@@ -70,13 +69,13 @@
     "title": "Mon CV",
     "developer": "Développeur",
     "goals": "Mes ojectifs",
-    "transition": "Développeur en reconversion, après un premier diplôme à l’ENI (DWWM) j'ai décidé de continuer à me former pour me spécialiser d' avantage sur le back-end.",
+    "transition": "Développeur en reconversion, après un premier diplôme à l’ENI (DWWM) j'ai décidé de continuer à me former pour me spécialiser davantage sur le back-end.",
     "certification": "J'ai obtenu mon titre CDA en Juillet 2023 après une alternance de 6 mois avec Quantior Group. Mon objectif serait de trouver un poste de développeur full-stack avec une grande préférence pour Java/NodeJs-Angular",
     "languages": "Langues",
     "english": "Anglais",
     "interests": "Centres d'interêts",
     "hiking": "Randonnée",
-    "climbing":"Escalade/Alpinisme (Pratique régulière en exterieur et en salle)",
+    "climbing":"Escalade/Alpinisme (pratique régulière en exterieur et en salle)",
     "boardGame": "Jeux de société",
     "trainings": "Formations",
     "cdaTitle":"Titre professionnel Concepteur et Développeur d'application (Titre RNCP 6, équivalent BAC+4)",
@@ -90,14 +89,14 @@
     "professionalExp": "Expériences professionnelles",
     "internshipWebDev": "Stage développeur web",
     "workStudyWebDev": "Alternance développeur web",
-    "hq6v2": "Développement d'une V2 de l'ERP interne : refonte avec une API REST en NodeJS et frontend en Angular. Corrections sur la V1 en parallèle et mise en production de la V2. Technos utilisées : NodeJS (Nest), Angular 15, OpenAPI, Docker",
-    "hq6v1": "Développement d'une solution interne de gestion de l'entreprise (ERP).Gestion des stocks , factures , mise en production. Technos utilisées : Symfony 5 / PHP7 / docker / Git",
-    "graaly": "Développement d'une application mobile de création de quizz Technos utilisées : VueJs / NodeJS /Quasar / Git",
+    "hq6v2": "Développement d'une V2 de l'ERP interne: refonte avec une API REST en NodeJS et frontend en Angular. Corrections sur la V1 en parallèle et mise en production de la V2. Technos utilisées : NodeJS (Nest), Angular 15, OpenAPI, Docker",
+    "hq6v1": "Développement d'une solution interne de gestion de l'entreprise (ERP). Gestion des stocks, factures, mise en production. Technos utilisées : Symfony 5 / PHP7 / docker / Git",
+    "graaly": "Développement d'une application mobile de création de quizz. Technos utilisées : VueJs / NodeJS /Quasar / Git",
     "paramedic": "Ambulancier",
     "deaExp": "Ambulancier diplômé d’état dans différentes sociétés",
     "fusco": "Fusilier commando de l'air",
     "airForce": "Armée de l'air",
-    "airForceExp": "Protection et sécurité des sites militaires Gestion de groupe",
+    "airForceExp": "Protection et sécurité des sites militaires, gestion de groupe",
     "skills": "Compétences",
     "tools": "Outils",
     "downloadPdf": "Télécharger en pdf"
@@ -108,7 +107,7 @@
     "website": "Site web",
     "tech": "Technos",
     "schoolProject": "Projet de groupe",
-    "metaDescription": "Site vitrine pour la présentation de la MetaHomeopathie, technique et laboratoire. Le lien manquant entre l'homéopathie hahnemannienne et les sciences quantiques modernes : la MetaHomeopathie.",
+    "metaDescription": "Site vitrine pour un client pour la présentation de la MetaHoméopathie, technique et laboratoire. Le lien manquant entre l'homéopathie hahnemannienne et les sciences quantiques modernes : la MetaHoméopathie.",
     "oneRouteDescription": "Site destiné aux grimpeurs, permettant de trouver des sites d'escalade avec toutes les informations nécessaires, y compris les emplacements de stationnement pour la nuit, et de suivre les voies déjà parcourues. Affichage des statistiques d'escalade.",
     "carnetDescription": "Application de prise de notes pour les sorties en montagne : randonnées, grandes voies, alpinisme. Statistiques de sortie entre les utilisateurs et possibilité d'apprécier les sorties (likes).",
     "eniSortirDescription": "Création d'un site similaire à OVS, réalisé en 15 jours : Projet de travail d'équipe dans le cadre de la formation DWWM à l'ENI.",
@@ -125,8 +124,8 @@
     "newComment": "Commentaire ajouté",
     "commentDeleted": "Commentaire supprimé",
     "userDisable": "Utilisateur desactivé",
-    "databaseErased": "Base de données netoyée",
-    "successMail": "Votre message a été correctement envoyé, Merci"
+    "databaseErased": "Base de données nettoyée",
+    "successMail": "Votre message a bien été envoyé, merci."
   },
   "errorMessage":{
     "invalidPassword": "Les mots de passe ne correspondent pas",
@@ -147,7 +146,7 @@
   },
   "auth": {
     "login": "Connexion",
-    "logout": "Deconnexion",
+    "logout": "Déconnexion",
     "newAccount": "Nouveau compte",
     "noAccount": "Pas encore de compte ?",
     "username": "Pseudo",
@@ -157,10 +156,10 @@
     "save": "Sauvegarder"
   },
   "tutorial": {
-    "pleaseConnect": "Connectez vous pour liker",
+    "pleaseConnect": "Connectez-vous pour liker",
     "likeIt": "J'aime",
     "unlikeIt": "Je n'aime plus",
-    "downloadMD": "Telecharger le Markdown",
+    "downloadMD": "Télécharger le Markdown",
     "postedAt": "Posté le :",
     "title": "Mes tutoriels"
   },
@@ -172,7 +171,7 @@
     "user": "Utilisateur",
     "users": "Utilisateurs",
     "role": "Rôle",
-    "status": "Status",
+    "status": "Statut",
     "isActive": "Actif",
     "isNotActive": "Desactivé",
     "active": "Activer",
@@ -185,12 +184,12 @@
     "deleteUser": "Supprimer l'utilisateur ?",
     "deleteComment": "Supprimer le commentaire ?",
     "warning": "Attention",
-    "clearDatabase": "Vider la base de données ? Cette operation est irréversible",
+    "clearDatabase": "Vider la base de données ? Cette opération est irréversible",
     "clearDatabaseLabel": "Nettoyer la base de donnée"
   },
   "contactMe": {
     "title": "Contactez moi",
-    "firstName": "Prenom",
+    "firstName": "Prénom",
     "lastName": "Nom",
     "email": "Votre email",
     "object": "Objet du message",

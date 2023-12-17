@@ -6,7 +6,7 @@
     <div class="col-4">
       <div class="flex flex-column xl:flex-row xl:align-items-start p-4 gap-4">
         <img
-          class="w-9 sm:w-16rem xl:w-6rem block xl:block mx-auto border-round"
+          class="w-9 sm:w-10rem xl:w-6rem block xl:block mx-auto border-round"
           src="assets/img/{{ knowledge.logo }}"
           [alt]="knowledge.name"
         />
@@ -42,6 +42,7 @@
 
             <div class="flex align-items-center gap-3">
               <p-chip
+                class="chip-width"
                 label="{{ 'knowledge.' + knowledge.category | translate }}"
                 icon="pi pi-info-circle"
               ></p-chip>

@@ -6,10 +6,23 @@ a{
   font-size: 0.8rem;
 
 }
+.height-card{
+  height: 24rem;
+}
 .flex-footer{
   display: flex;
   justify-content: space-around;
   flex-direction: column;
+}
+@media screen and (max-width: 1024px){
+  .col-4{
+    width: 50%;
+  }
+  .height-card{
+    height: 32rem;
+  }
+
+
 }
 @media screen and (max-width: 480px){
   .col-4{
@@ -24,6 +37,9 @@ a{
   }
   .flex-footer{
     flex-direction: column;
+  }
+  .height-card{
+    height: 24rem;
   }
 }
 

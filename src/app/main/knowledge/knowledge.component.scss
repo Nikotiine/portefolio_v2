@@ -3,6 +3,12 @@
   height: 25px;
   width: 25px;
 }
+@media screen and (max-width: 768px){
+  .chip-width{
+    margin: auto;
+    width: 80%;
+  }
+}
 @media screen and (max-width: 480px){
   .logo-rating{
     height: 15px;
@@ -12,3 +18,4 @@
     width: 50%;
   }
 }
+

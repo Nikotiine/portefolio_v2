@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { Fragment, Routing } from '../../core/enum/Routing.enum';
+import { ViewportScroller } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -6,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  private _anchor: string;
   public firstLoad: boolean;
   private readonly showAnimation: string = 'showAnimation';
-  constructor() {
+  constructor(private readonly router: Router) {
     this.firstLoad = !!localStorage.getItem(this.showAnimation);
   }
   ngOnInit(): void {
@@ -20,4 +24,6 @@ export class HomeComponent implements OnInit {
       }, 3000);
     }
   }
+
+  protected readonly Fragment = Fragment;
 }

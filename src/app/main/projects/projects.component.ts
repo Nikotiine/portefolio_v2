@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ProjectCard } from '../../core/models/ProjectCard.model';
+import { Routing } from '../../core/enum/Routing.enum';
 
 @Component({
   selector: 'app-projects',
@@ -29,11 +30,11 @@ export class ProjectsComponent {
       techno: 'Angular / NestJs / PrimeNg / MySql',
       website: [
         {
-          label: 'Repo Git-Hub Front-end',
+          label: 'Repo GitHub Front-end',
           link: 'https://github.com/Nikotiine/App_une_voie_une_croix',
         },
         {
-          label: 'Repo Git-Hub Back-end',
+          label: 'Repo GitHub Back-end',
           link: 'https://github.com/Nikotiine/Api_une_voie_une_croix',
         },
       ],
@@ -46,7 +47,7 @@ export class ProjectsComponent {
       techno: 'PHP 8/ Symphony 6/ Bootstrap / MySql',
       website: [
         {
-          label: 'Repo Git-Hub WebApp',
+          label: 'Repo GitHub WebApp',
           link: 'https://github.com/Nikotiine/Carnet_de_montagne',
         },
       ],
@@ -59,7 +60,7 @@ export class ProjectsComponent {
       techno: 'PHP 8/ Symphony 5/ Bootstrap / MySql / Git',
       website: [
         {
-          label: 'Repo Git-Hub WebApp',
+          label: 'Repo GitHub WebApp',
           link: 'https://github.com/Nikotiine/EniSortir',
         },
       ],
@@ -72,7 +73,7 @@ export class ProjectsComponent {
       techno: 'JAVA EE (JDK 17) / JSTL / Bulma / Git',
       website: [
         {
-          label: 'Repo Git-Hub WebApp',
+          label: 'Repo GitHub WebApp',
           link: 'https://github.com/Nikotiine/ENI_Encheres',
         },
       ],

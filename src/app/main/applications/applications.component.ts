@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Routing } from '../../core/enum/Routing.enum';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Fragment, Routing } from '../../core/enum/Routing.enum';
 import { ApplicationService } from '../../core/services/application.service';
 import { ApplicationCard } from '../../core/models/ApplicationCard.model';
 
@@ -9,6 +9,8 @@ import { ApplicationCard } from '../../core/models/ApplicationCard.model';
   styleUrls: ['./applications.component.scss'],
 })
 export class ApplicationsComponent implements OnInit {
+  @Output() anchor: EventEmitter<string> = new EventEmitter<string>();
+
   public currentIndex: number;
 
   public applications: ApplicationCard[] = [
@@ -17,48 +19,56 @@ export class ApplicationsComponent implements OnInit {
       logo: 'who.png',
       routerLink: Routing.HOME,
       title: 'whoIAm',
+      fragment: Fragment.WHO_I_AM,
     },
     {
       index: 2,
       logo: 'knowledge.png',
-      routerLink: Routing.KNOWLEDGE,
+      routerLink: Routing.HOME,
       title: 'knowledge',
+      fragment: Fragment.KNOWLEDGE,
     },
     {
       index: 3,
       logo: 'curriculum.png',
-      routerLink: Routing.CURRICULUM,
+      routerLink: Routing.HOME,
       title: 'cv',
+      fragment: Fragment.CURRICULUM,
     },
     {
       index: 4,
       logo: 'project.png',
-      routerLink: Routing.PROJECTS,
+      routerLink: Routing.HOME,
       title: 'projects',
+      fragment: Fragment.PROJECTS,
     },
     {
       index: 5,
       logo: 'social.png',
-      routerLink: Routing.SOCIAL_NETWORK,
+      routerLink: Routing.HOME,
       title: 'socialNetwork',
+      fragment: Fragment.SOCIAL_NETWORK,
     },
     {
       index: 6,
       logo: 'contact.png',
-      routerLink: Routing.CONTACT_ME,
+      routerLink: Routing.HOME,
       title: 'contactMe',
+      fragment: Fragment.SOCIAL_NETWORK,
     },
     {
       index: 7,
       logo: 'tuto.png',
       routerLink: Routing.TUTORIAL,
       title: 'tutorial',
+      fragment: null,
     },
     {
       index: 8,
       logo: 'setting.png',
       routerLink: Routing.SETTING,
       title: 'setting',
+      fragment: null,
     },
   ];
   private _key = 'currentIndex';
@@ -67,6 +77,8 @@ export class ApplicationsComponent implements OnInit {
     sessionStorage.setItem(this._key, index.toString());
     this.currentIndex = index;
     this.applicationService.sidebarVisible$.next(false);
+    const app = this.applications.find((app) => app.index === index);
+    this.anchor.emit(app.routerLink);
   }
 
   ngOnInit(): void {

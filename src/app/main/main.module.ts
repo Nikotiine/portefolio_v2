@@ -31,6 +31,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { RECAPTCHA_V3_SITE_KEY, RecaptchaV3Module } from 'ng-recaptcha';
 import { environment } from '../../environments/environment';
+import { WhoIAmComponent } from './who-i-am/who-i-am.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { environment } from '../../environments/environment';
     ProjectsComponent,
     SocialNetworkComponent,
     ContactMeComponent,
+    WhoIAmComponent,
   ],
   imports: [
     CommonModule,

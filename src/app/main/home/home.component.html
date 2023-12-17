@@ -1,53 +1,11 @@
-<h1 class="text-center mt-5 text-primary">
-  {{ "homepage.whoIam" | translate }}
-</h1>
+<h1 class="text-center mt-5 text-primary">Nicolas Godin - Dev full stack</h1>
 <div class="who-i-am mx-auto fadein animation-duration-1000" *ngIf="firstLoad">
-  <p-card header="{{ 'common.appTitle' | translate }}">
-    <p class="subtitle">
-      {{ "homepage.presentation" | translate }} <strong>full-stack.</strong>
-    </p>
-    <p class="subtitle">
-      {{ "homepage.curriculum" | translate }} :<br />
-      -
-      <a
-        href="https://www.eni-ecole.fr/formations/developpement/bac2-developpeur-web-et-web-mobile/"
-        target="_blank"
-        >{{ "homepage.dwwm" | translate }}</a
-      >
-      <br />
-      -
-      <a
-        href="https://www.eni.fr/formation/concepteur-developpeur-d-applications-bac-4/"
-        target="_blank"
-        >{{ "homepage.cda" | translate }}</a
-      >
-    </p>
-    <p class="subtitle">
-      {{ "homepage.keen" | translate }}
-    </p>
-    <p class="subtitle">
-      {{ "homepage.opportunity" | translate }}
-      :<br />
-      - {{ "homepage.firstIntership1" | translate }}
-      <a href="https://graaly.com/" target="_blank">Graaly</a>.
-      {{ "homepage.firstIntership2" | translate }}. <br />
-      - {{ "homepage.secondIntership1" | translate }}
-      <a href="https://quantior.com/fr/" target="_blank">Quantior Group</a>.
-      {{ "homepage.secondIntership2" | translate }}
-    </p>
-    <p class="subtitle">
-      {{ "homepage.workStudy1" | translate }}
-      <strong>{{ "homepage.apprenticeship" | translate }}</strong>
-      {{ "homepage.workStudy2" | translate }}<br />
-      {{ "homepage.workStudy3" | translate }}
-    </p>
-    <p class="subtitle">
-      {{ "homepage.skill" | translate }}
-    </p>
-    <p class="subtitle">
-      {{ "homepage.sideProject" | translate }}
-    </p>
-  </p-card>
+  <app-who-i-am></app-who-i-am>
+  <app-knowledge id="{{ Fragment.KNOWLEDGE }}"></app-knowledge>
+  <app-curriculum id="{{ Fragment.CURRICULUM }}"></app-curriculum>
+  <app-projects id="{{ Fragment.PROJECTS }}"></app-projects>
+  <app-social-network id="{{ Fragment.SOCIAL_NETWORK }}"></app-social-network>
+  <app-contact-me id="{{ Fragment.CONTACT_ME }}"></app-contact-me>
 </div>
 <div class="w-8 mx-auto text-center" *ngIf="!firstLoad">
   <img alt="Card" src="assets/img/software-developer-icon-18.jpg" />

@@ -14,7 +14,6 @@ export class LayoutComponent implements OnInit {
   constructor(
     private readonly themeService: ThemeService,
     private readonly applicationService: ApplicationService,
-    private readonly router: Router,
     private readonly activatedRoute: ActivatedRoute,
     private readonly profileService: ProfileService
   ) {}
@@ -39,5 +38,9 @@ export class LayoutComponent implements OnInit {
 
   public onHide(): void {
     this.applicationService.sidebarVisible$.next(false);
+  }
+
+  public catchAnchor(anchor: string) {
+    console.log(anchor);
   }
 }

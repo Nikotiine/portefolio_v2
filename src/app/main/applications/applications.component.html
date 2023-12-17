@@ -5,15 +5,16 @@
         <img
           alt="Logo {{ app.title }}"
           src="assets/img/{{ app.logo }}"
-          [routerLink]="['/' + app.routerLink]"
+          [routerLink]="['/home/' + app.routerLink]"
           (click)="closeSideBar(app.index)"
           class="cursor-pointer"
         />
       </ng-template>
       <div class="p-card-header text-center">
         <a
-          [routerLink]="['/' + app.routerLink]"
           (click)="closeSideBar(app.index)"
+          [routerLink]="[app.routerLink]"
+          fragment="{{ app.fragment }}"
           class="underline {{
             app.index === currentIndex ? 'text-primary' : ''
           }} "

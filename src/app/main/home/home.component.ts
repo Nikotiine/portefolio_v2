@@ -1,6 +1,6 @@
-import { Component, HostListener, OnInit } from '@angular/core';
-import { Fragment, Routing } from '../../core/enum/Routing.enum';
-import { ViewportScroller } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { Fragment } from '../../core/enum/Routing.enum';
+
 import { Router } from '@angular/router';
 
 @Component({

@@ -5,7 +5,8 @@
         <img
           alt="Logo {{ app.title }}"
           src="assets/img/{{ app.logo }}"
-          [routerLink]="['/home/' + app.routerLink]"
+          [routerLink]="[app.routerLink]"
+          fragment="{{ app.fragment }}"
           (click)="closeSideBar(app.index)"
           class="cursor-pointer"
         />

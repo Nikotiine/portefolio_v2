@@ -4,8 +4,8 @@
 
 ### Descritpion
 
-Version 2.0 de mon portfolio avec section tuturial consultable et telechargeable.
-Possiblilite de like les tuto et de les commenter.
+Version 2.0 de mon portfolio avec section tuturiels consultables et telechargeables.
+Possiblilite de like les tuturiels et de les commenter.
 
 ## Installation
 1. Cloner le repo :

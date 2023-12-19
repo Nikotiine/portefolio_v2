@@ -1,4 +1,13 @@
-<h1 class="text-center mt-5 text-primary">Nicolas Godin - Dev full stack</h1>
+<div class="flex align-items-center justify-content-center" *ngIf="firstLoad">
+  <img
+    alt="logo_nicolas_godin"
+    src="assets/img/logo_nicolas_godin.png"
+    class="logo"
+  />
+  <h1 class="text-center mt-5 text-black-alpha-90 mr-12">
+    Nicolas Godin - {{ "homepage.developer" | translate }} full stack
+  </h1>
+</div>
 <div class="who-i-am mx-auto fadein animation-duration-1000" *ngIf="firstLoad">
   <app-who-i-am></app-who-i-am>
   <app-knowledge id="{{ Fragment.KNOWLEDGE }}"></app-knowledge>
@@ -8,6 +17,10 @@
   <app-contact-me id="{{ Fragment.CONTACT_ME }}"></app-contact-me>
 </div>
 <div class="w-8 mx-auto text-center" *ngIf="!firstLoad">
-  <img alt="Card" src="assets/img/software-developer-icon-18.jpg" />
-  <p class="text-3xl">QUI SUIS JE ?</p>
+  <img
+    alt="logo_nicolas_godin"
+    src="assets/img/logo_nicolas_godin.png"
+    class="img-firstload"
+  />
+  <p class="text-3xl">PortFolio Nicolas Godin</p>
 </div>

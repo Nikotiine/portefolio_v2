@@ -22,7 +22,7 @@ export class ContactMeComponent {
     private readonly recaptchaV3Service: ReCaptchaV3Service
   ) {
     this.form = this.fb.group({
-      email: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       object: ['', Validators.required],

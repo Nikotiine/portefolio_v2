@@ -53,7 +53,8 @@
     "workStudy2": "de décembre 2022 à juillet 2023 avec et obtenir mon diplôme de concepteur et développeur d'application (RNCP 6)",
     "workStudy3": "Au cours de cette alternance, j'ai travaillé avec les technologies Angular, NestJs, Docker et MySQL sur le projet visant à créer une Version 2 de l'ERP de Quantior. J'ai également été responsable de la mise en production de la solution, en déployant un serveur Apache sous Debian.",
     "skill": "Au cours de ma formation j'ai pu monter en compétence avec Java, PHP, Javascript, SQL. J'ai aussi appris le respect des conventions et l'utilisation de patterns de développement.",
-    "sideProject": " J'ai également consacré du temps à la réalisation de plusieurs projets personnels. J'ai développé une application dédiée aux grimpeurs en utilisant Angular et Nest, ainsi qu'une application pour les randonneurs basée sur Symfony. De plus, j'ai créé mon premier portfolio en utilisant Vue.js. En parallèle, j'ai répondu aux demandes de quelques clients pour la création de leurs sites web. En décembre 2022, j'ai mis en ligne mon premier site web, intitulé 'MetaHomeopathie', que vous pourrez découvrir parmi mes réalisations."
+    "sideProject": " J'ai également consacré du temps à la réalisation de plusieurs projets personnels. J'ai développé une application dédiée aux grimpeurs en utilisant Angular et Nest, ainsi qu'une application pour les randonneurs basée sur Symfony. De plus, j'ai créé mon premier portfolio en utilisant Vue.js. En parallèle, j'ai répondu aux demandes de quelques clients pour la création de leurs sites web. En décembre 2022, j'ai mis en ligne mon premier site web, intitulé 'MetaHomeopathie', que vous pourrez découvrir parmi mes réalisations.",
+    "tutorial": "N'hesitez pas à aller voir la section tutoriels, je traite de docker (orienté MacOs) et de l'administration de serveur"
   },
   "knowledge": {
     "title": "Mes connaissances",

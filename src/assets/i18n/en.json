@@ -54,7 +54,8 @@
     "workStudy2": "from December 2022 to July 2023 and successfully earned my diploma as an Application Designer and Developer (Level 6 RNCP).",
     "workStudy3": "During this apprenticeship, I worked with technologies such as Angular, NestJs, Docker, and MySQL on the project aimed at developing Version 2 of Quantior's ERP. Additionally, I took charge of deploying the solution into production, including setting up an Apache server on Debian.",
     "skill": "During my training, I had the opportunity to enhance my skills in Java, PHP, Javascript, and SQL. I also learned about adhering to conventions and implementing design patterns.",
-    "sideProject": "I also dedicated time to completing several personal projects. I developed an application tailored for climbers using Angular and Nest, as well as an application for hikers built on Symfony. Additionally, I created my first portfolio using Vue.js. Concurrently, I addressed requests from clients for the creation of their websites. In December 2022, I launched my inaugural website online, titled 'MetaHomeopathie', which you can explore among my achievements."
+    "sideProject": "I also dedicated time to completing several personal projects. I developed an application tailored for climbers using Angular and Nest, as well as an application for hikers built on Symfony. Additionally, I created my first portfolio using Vue.js. Concurrently, I addressed requests from clients for the creation of their websites. In December 2022, I launched my inaugural website online, titled 'MetaHomeopathie', which you can explore among my achievements.",
+    "tutorial": "Don't hesitate to check out the tutorials section, where I cover Docker (focused on MacOS) and server administration."
   },
   "knowledge": {
     "title": "My knowledges",
